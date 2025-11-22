@@ -1,0 +1,19 @@
+---
+import BgGrid from "./BgGrid.astro";
+import LandingBanner from "./LandingBanner.astro";
+---
+
+<section class="border-white/20 border-b landing-hero">
+  <div class="bg-grid p-8 relative">
+    <BgGrid />
+
+    <h1
+      class="uppercase relative"
+      style="color: #1e1e1e; font-family: 'Geist', sans-serif; font-size: clamp(2rem, 8vw, 96px); font-weight: 900; letter-spacing: -4.8px; line-height: 96px;"
+    >
+      I like building webapps in JavaScript, React, Postgres, Tailwind and
+      Shadcn UI that are fun to use and just work.
+    </h1>
+  </div>
+  <LandingBanner />
+</section>

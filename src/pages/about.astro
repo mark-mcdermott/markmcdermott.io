@@ -1,0 +1,291 @@
+---
+import Layout from "../layouts/Layout.astro";
+import BgGrid from "../components/BgGrid.astro";
+---
+
+<Layout
+  title="About Mark McDermott"
+  description="Learn more about Mark McDermott - Senior QA Engineer and aspiring developer"
+>
+  <section class="border-x border-b">
+    <!-- Hero Section -->
+    <div class="bg-grid relative">
+      <BgGrid />
+
+      <!-- Pterodactyl Image -->
+      <div class="relative">
+        <img
+          src="/images/pterodactyl.png"
+          alt="Mark McDermott riding a pterodactyl"
+          class="w-full h-auto"
+        />
+
+        <!-- Text overlay -->
+        <div class="absolute top-8 left-8 md:top-16 md:left-16">
+          <div class="mb-4">
+            <span
+              class="text-orange uppercase tracking-wider text-sm font-mono bg-black/70 px-3 py-1 rounded"
+              >About Me</span
+            >
+          </div>
+
+          <h1
+            class="tracking-tighter font-black uppercase text-4xl md:text-6xl lg:text-8xl mb-4 drop-shadow-lg"
+            style="color: #1e1e1e;"
+          >
+            Cloud Solutions
+          </h1>
+        </div>
+
+        <p
+          class="absolute bottom-4 right-4 text-sm text-white bg-black/70 px-4 py-2 rounded"
+        >
+          Professional QA Engineer and amateur pterodactyl rider
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <section class="border-x border-b">
+    <div class="grid md:grid-cols-2 gap-0">
+      <!-- Left Column - Bio -->
+      <div class="p-8 md:p-16 lg:p-24 border-white/20 lg:border-r">
+        <h2
+          class="text-white font-black uppercase text-2xl md:text-4xl mb-6 tracking-tight"
+        >
+          My Story
+        </h2>
+
+        <div class="space-y-4 text-eagle leading-relaxed">
+          <p>
+            I coded as a kid on my Commodore 64, making it boop, beep and flash.
+            I didn't touch much code again until my early 20s, when I started
+            building websites for non-profits and small businesses for fun.
+          </p>
+          <p>
+            A few years later I went full time and started learning the details
+            of HTML, CSS and JavaScript. I've mostly worked QA since then, but I
+            did have a handful of stints doing light frontend dev work. I also
+            did some devops/SDET-type work, setting up a CI/CD pipeline and
+            writing Java tests.
+          </p>
+
+          <p>
+            I specialize in building modern web applications using JavaScript,
+            React, and other fun technologies I can get my hands on. Every
+            project is an opportunity to learn something new.
+          </p>
+
+          <p>
+            When I'm not coding, you'll find me with my family, my dogs or maybe
+            riding a pterodactyl.
+          </p>
+        </div>
+      </div>
+
+      <!-- Right Column - Skills -->
+      <div class="p-8 md:p-16 lg:p-24">
+        <h2
+          class="text-white font-black uppercase text-2xl md:text-4xl mb-6 tracking-tight"
+        >
+          Expertise
+        </h2>
+
+        <div class="space-y-6">
+          <div>
+            <h3
+              class="text-orange font-mono uppercase text-sm mb-3 mt-8 tracking-wider"
+            >
+              Frontend
+            </h3>
+            <div class="flex flex-wrap gap-2 justify-center">
+              <span
+                class="px-4 py-2 bg-white/5 border border-white/10 text-white text-sm rounded-full"
+                >React</span
+              >
+              <span
+                class="px-4 py-2 bg-white/5 border border-white/10 text-white text-sm rounded-full"
+                >JavaScript</span
+              >
+              <span
+                class="px-4 py-2 bg-white/5 border border-white/10 text-white text-sm rounded-full"
+                >Tailwind CSS</span
+              >
+              <span
+                class="px-4 py-2 bg-white/5 border border-white/10 text-white text-sm rounded-full"
+                >Shadcn UI</span
+              >
+              <span
+                class="px-4 py-2 bg-white/5 border border-white/10 text-white text-sm rounded-full"
+                >Astro</span
+              >
+              <span
+                class="px-4 py-2 bg-white/5 border border-white/10 text-white text-sm rounded-full"
+                >HTML5</span
+              >
+              <span
+                class="px-4 py-2 bg-white/5 border border-white/10 text-white text-sm rounded-full"
+                >CSS3</span
+              >
+            </div>
+
+            <div>
+              <h3
+                class="text-orange font-mono uppercase text-sm mb-3 mt-8 tracking-wider"
+              >
+                Backend
+              </h3>
+              <div class="flex flex-wrap gap-2 justify-center">
+                <span
+                  class="px-4 py-2 bg-white/5 border border-white/10 text-white text-sm rounded-full"
+                  >Node.js</span
+                >
+                <span
+                  class="px-4 py-2 bg-white/5 border border-white/10 text-white text-sm rounded-full"
+                  >Ruby</span
+                >
+                <span
+                  class="px-4 py-2 bg-white/5 border border-white/10 text-white text-sm rounded-full"
+                  >Python</span
+                >
+                <span
+                  class="px-4 py-2 bg-white/5 border border-white/10 text-white text-sm rounded-full"
+                  >PostgreSQL</span
+                >
+                <span
+                  class="px-4 py-2 bg-white/5 border border-white/10 text-white text-sm rounded-full"
+                  >MySQL</span
+                >
+                <span
+                  class="px-4 py-2 bg-white/5 border border-white/10 text-white text-sm rounded-full"
+                  >C++</span
+                >
+                <span
+                  class="px-4 py-2 bg-white/5 border border-white/10 text-white text-sm rounded-full"
+                  >C</span
+                >
+              </div>
+            </div>
+
+            <div>
+              <h3
+                class="text-orange font-mono uppercase text-sm mb-3 mt-8 tracking-wider"
+              >
+                Tools
+              </h3>
+              <div class="flex flex-wrap gap-2 justify-center">
+                <span
+                  class="px-4 py-2 bg-white/5 border border-white/10 text-white text-sm rounded-full"
+                  >Git</span
+                >
+                <span
+                  class="px-4 py-2 bg-white/5 border border-white/10 text-white text-sm rounded-full"
+                  >Bash</span
+                >
+                <span
+                  class="px-4 py-2 bg-white/5 border border-white/10 text-white text-sm rounded-full"
+                  >VS Code</span
+                >
+                <span
+                  class="px-4 py-2 bg-white/5 border border-white/10 text-white text-sm rounded-full"
+                  >NeoVim</span
+                >
+                <span
+                  class="px-4 py-2 bg-white/5 border border-white/10 text-white text-sm rounded-full"
+                  >Docker</span
+                >
+                <span
+                  class="px-4 py-2 bg-white/5 border border-white/10 text-white text-sm rounded-full"
+                  >Photoshop</span
+                >
+                <span
+                  class="px-4 py-2 bg-white/5 border border-white/10 text-white text-sm rounded-full"
+                  >Illustrator</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats Section -->
+    <div class="border-white/20 border-t">
+      <div class="grid grid-cols-2 lg:grid-cols-4">
+        <div class="p-8 md:p-12 text-center border-white/20 lg:border-r border-b lg:border-b-0">
+          <div class="text-orange text-4xl md:text-5xl font-black mb-3">20+</div>
+          <p class="text-eagle uppercase text-sm tracking-wider font-mono">
+            Years Experience
+          </p>
+        </div>
+
+        <div class="p-8 md:p-12 text-center border-white/20 lg:border-r border-b lg:border-b-0">
+          <div class="text-orange text-4xl md:text-5xl font-black mb-3">2,000+</div>
+          <p class="text-eagle uppercase text-sm tracking-wider font-mono">
+            Jira Stories
+          </p>
+        </div>
+
+        <div class="p-8 md:p-12 text-center border-white/20 lg:border-r border-b lg:border-b-0">
+          <div class="text-orange text-4xl md:text-5xl font-black mb-3">20,000+</div>
+          <p class="text-eagle uppercase text-sm tracking-wider font-mono">
+            Commits
+          </p>
+        </div>
+
+        <div class="p-8 md:p-12 text-center">
+          <div class="text-orange text-4xl md:text-5xl font-black mb-3">∞</div>
+          <p class="text-eagle uppercase text-sm tracking-wider font-mono">
+            Cups of Coffee
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    /* Ensure text colors work in both light and dark themes */
+    .text-orange {
+      color: #ea4125;
+    }
+
+    .text-eagle {
+      color: #1e1e1e;
+    }
+
+    .text-white {
+      color: #1e1e1e;
+    }
+
+    /* Tech bubble borders in light mode */
+    .border-white\/10 {
+      border-color: rgba(30, 30, 30, 0.1);
+    }
+
+    /* Column/section borders darker in light mode */
+    .border-white\/20 {
+      border-color: rgba(30, 30, 30, 0.3);
+    }
+
+    [data-theme="dark"] .text-white {
+      color: #e7e7d8;
+    }
+
+    [data-theme="dark"] .text-eagle {
+      color: #afac95;
+    }
+
+    [data-theme="dark"] .text-orange {
+      color: #ea4125;
+    }
+
+    [data-theme="dark"] .border-white\/10 {
+      border-color: rgba(255, 255, 255, 0.1);
+    }
+
+    [data-theme="dark"] .border-white\/20 {
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+  </style>
+</Layout>

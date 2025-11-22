@@ -1,30 +1,13 @@
-import { defineConfig } from "astro/config";
-import tailwind from "@astrojs/tailwind";
-import { rehypeHeadingIds } from "@astrojs/markdown-remark";
-import remarkToc from "remark-toc";
-import { rehypeAccessibleEmojis } from "rehype-accessible-emojis";
-import rehypeKatex from "rehype-katex";
-import remarkMath from "remark-math";
-import react from "@astrojs/react";
+// @ts-check
+import { defineConfig } from 'astro/config';
 
-import mdx from "@astrojs/mdx";
+import tailwindcss from '@tailwindcss/vite';
+import mdx from '@astrojs/mdx';
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://markmcdermott.io",
-  integrations: [tailwind(), react(), mdx()],
-  image: {
-    domains: ["https://github.com"],
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "**.github.com",
-      },
-    ],
-  },
-  markdown: {
-    rehypePlugins: [rehypeHeadingIds, rehypeAccessibleEmojis, rehypeKatex],
-    remarkPlugins: [remarkToc, remarkMath],
-  },
-  outDir: './docs',
+  integrations: [mdx()],
+  vite: {
+    plugins: [tailwindcss()]
+  }
 });

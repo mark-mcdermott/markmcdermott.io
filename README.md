@@ -1,112 +1,382 @@
-This is the github repo for my blog site: [https://markmcdermott.io](https://markmcdermott.io)
+# 🌻 Bloomfolio
 
-## Engineering Rationale
+<div align="center">
 
-### GitHub Pages · Astro · Tailwind
-This site uses a GAT stack, if you will: [Github Pages](https://pages.github.com/), [Astro](https://astro.build) and [Tailwind](https://tailwindcss.com/). The little avatar image links to [my Github User Site](https://github.com/mark-mcdermott/mark-mcdermott) which is, more or less, an "About Me" page. I write/edit posts right in this github repo in markdown.
+A modern, customizable portfolio template built with **Astro 5** and **DaisyUI 5**. A beautiful, fast, and highly customizable portfolio template for developers, designers, and creatives.
 
-### Why Astro?
-Fast load time: My old Nuxt blog was having some slow load time issues on mobile. Astro’s static site generation makes this blog load very quickly. Google Lighthouse, last I checked, said this site loads in 0.2 seconds on desktop and 1.1 seconds on mobile and a 100% score for performance. I do plan to get that even lower eventually with Cloudflare edge network and going over first-to-load CSS/JS with a fine-toothed comb, but for now this is great.
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![Astro](https://img.shields.io/badge/Astro-5.x-FF5D01?logo=astro&logoColor=white)](https://astro.build)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.x-38B2AC?logo=tailwind-css&logoColor=white)](https://tailwindcss.com)
+[![DaisyUI](https://img.shields.io/badge/DaisyUI-5.x-5A0EF8?logo=daisyui&logoColor=white)](https://daisyui.com)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 
-### Why GAT?
-Simplicity: A GitHub Pages, Astro and Tailwind setup keeps things nice and simple. No frontend or backend framework (in the traditional sense), no database, no Docker, no CI/CD. Let's me keep a blog current and gives me enough time to work on my side projects.
+</br>
 
-### Why Github Pages?
-It's free and easy. I usually use Fly.io for hosting type stuff, but Github Pages for a static site is much simpler and cheaper.
+<img width="1920" height="1080" alt="img1" src="https://github.com/user-attachments/assets/b882118c-2070-4b12-85f4-8491ea9517ee" />
 
-### Why no portfolio site?
-Low maintenace (both in time and mental load): I sort of combined the about/projects/contact page into one page and moved it to GitHub’s user site where everything is just a single readme file. The blog page is now the only page I really have to maintain or think about at all.
+</div>
 
-### Why no real CMS?
-Speed: Using GitHub as the CMS is awesome. I’m in GitHub all the time anyway, so I don’t really need to log into a separate CMS.
+## ✨ Features
 
-### Why markdown?
-Speed: Astro supports markdown files, so I can write my posts in markdown and frontmatter like I was used to with Nuxt Content.
+- 🎨 **6 Built-in Themes** - Light, Dark, Synthwave, Retro, Valentine, and Dim
+- 📝 **6 Content Collections** - Blog, Projects, Work, Education, Hackathons, and About
+- 🔒 **Type-Safe Content** - Full TypeScript support with validated schemas
+- 📱 **Fully Responsive** - Mobile-first design with DaisyUI components
+- ⚡ **Fast & Optimized** - Static site generation with automatic image optimization
+- 🎭 **Smooth Transitions** - Page transitions using Astro's View Transitions API
+- 📦 **MDX Support** - Enhanced markdown with component imports (Spotify, YouTube, Twitter)
+- 🎯 **Configuration-Driven** - Customize everything through a central config file
+- 🌸 **FAB Flower Menu** - Expandable floating action button for extra links
+- 🎨 **Modern Stack** - Astro 5 + Tailwind CSS 4 + DaisyUI 5 + TypeScript
+- 🔍 **SEO Optimized** - Meta tags, Open Graph, and semantic HTML
+- ♿ **Accessible** - Built with accessibility in mind
 
-### Why Tailwind?
-Speed: CSS changes are so fast with Tailwind utility classes. I barely have to think about the CSS (unlike Bootstrap, etc). I will always think Tailwind makes HTML look ugly, but in terms of speed it's way better than old school CSS.
+## 🚀 Quick Start
 
-## Deploy Instructions
-Ie., Notes To Self
+### Prerequisites
 
-### Publishing (The Short Way)
+- Node.js 18+ or 20+
+- npm, pnpm, or yarn
+
+### Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/lauroguedes/bloomfolio.git
+
+# Navigate to the project directory
+cd bloomfolio
+
+# Install dependencies
+npm install
+
+# Start the development server
+npm run dev
 ```
-yarn publish
-```
-### Publishing (The Long Way)
-```
-yarn install           # only if deps changed
-yarn build             # builds into ./docs
-git add -A             # or: git add docs
-git commit -m "Publish: $(date +%F)"
-git push origin main
-open "https://markmcdermott.io/?bust=$(date +%s)"   # cache-bust to verify
+
+Visit `http://localhost:4321` to see your portfolio!
+
+## 📋 Commands
+
+All commands are run from the root of the project:
+
+| Command | Action |
+| :--- | :--- |
+| `npm install` | Install dependencies |
+| `npm run dev` | Start dev server at `localhost:4321` |
+| `npm run build` | Build production site to `./dist/` |
+| `npm run preview` | Preview production build locally |
+| `npm run astro check` | Run TypeScript and Astro checks |
+| `npm run astro ...` | Run Astro CLI commands |
+
+## ⚙️ Configuration
+
+All site configuration is centralized in `src/config.ts`. Edit this file to customize your portfolio.
+
+### Basic Information
+
+```typescript
+export const siteConfig: SiteConfig = {
+  name: "Your Name",
+  title: "Your Professional Title",
+  description: "Brief description of your portfolio",
+  avatar: "../assets/your-avatar.png",
+  location: "Your City, Country",
+  email: "your@email.com",
+  // ...
+};
 ```
 
-### Troubleshooting
-If things aren't working right, start here:
-- verify Pages source in Github: repo Settings → Pages shows **main /docs**.
-- double check the contents of the file GitHub actually serves:
-```
-https://raw.githubusercontent.com/mark-mcdermott/mark-mcdermott.github.io/main/docs/index.html
-```
-- Make sure `docs/` isn’t ignored:
-```
-git check-ignore -v docs || echo "✅ docs is not ignored"
+### Social Links
+
+Add your social media profiles:
+
+```typescript
+socialLinks: {
+  github: "https://github.com/username",
+  linkedin: "https://linkedin.com/in/username",
+  twitter: "https://twitter.com/username",
+  bluesky: "https://bsky.app/profile/username",
+  instagram: "https://instagram.com/username",
+  youTube: "https://youtube.com/@username",
+  codetips: "https://codetips.cloud/u/username",
+}
 ```
 
-### Github Configuration
-- This uses branch-based deploys (not Github Actions). That setting is in Github: repo Settings → Pages → Deploy → **main /docs**.
-- In `astro.config.mjs`, the `outDir` is set to `/docs`:
-```
-import { defineConfig } from 'astro/config';
-export default defineConfig({ outDir: './docs' });
-```
-- For Github Pages, these are in `/public`:
-  - `CNAME` (custom domain)
-```
-markmcdermott.io
-```
-  - `.nojekyll` (blank file that tells Github Pages to skip Jekyll for branch-based deploys)
+### Section Visibility
 
-### Site Configuration
-- There some base styles in `src/styles/globals.css`
-- Markdown styles are in `src/styles/globals.css`
-- Some helper functions (`getPostWords`, `readTimeStr`) in `src/utils`
+Control which sections appear on your homepage:
 
-### Posts
-- posts live in `src/content/posts`
-- file names are like `YYYY-MM-DD-post-title.mdx`
-- posts must have frontmatter like this:
+```typescript
+sections: {
+  about: true,      // About section
+  projects: true,   // Projects showcase
+  blog: true,       // Latest blog posts (shows 3 most recent)
+  work: true,       // Work experience timeline
+  education: true,  // Education history
+  hackathons: true, // Hackathon participation
+  contact: true,    // Contact section
+}
 ```
+
+Set any section to `false` to hide it. The Hero section is always visible.
+
+### Theme Settings
+
+Choose between a theme selector dropdown or a simple light/dark toggle:
+
+```typescript
+enableThemeSelector: true  // true = dropdown with 6 themes, false = toggle
+```
+
+**Available Themes**: light, dark, synthwave, retro, valentine, dim
+
+### Extra Links (FAB Flower)
+
+Configure the floating action button menu:
+
+```typescript
+extraLinks: {
+  enable: true,
+  links: [
+    { link: "/blog/guide", icon: BookOpen, label: "Guide" },
+    { link: "/resume.pdf", icon: FileUser, label: "Resume" },
+    // Add more links...
+  ],
+}
+```
+
+## 📂 Project Structure
+
+```
+bloomfolio/
+├── public/              # Static assets
+│   └── favicon.svg
+├── src/
+│   ├── assets/         # Images and media
+│   │   └── bloomfolio.png
+│   ├── components/     # Reusable components
+│   │   ├── About.astro
+│   │   ├── Blog.astro
+│   │   ├── BlogCard.astro
+│   │   ├── Contact.astro
+│   │   ├── FabFlower.astro
+│   │   ├── Hackathons.astro
+│   │   ├── Hero.astro
+│   │   ├── ProjectCard.astro
+│   │   ├── Projects.astro
+│   │   ├── SkillBadge.astro
+│   │   ├── Spotify.astro
+│   │   ├── ThemeSelector.astro
+│   │   ├── ThemeToggle.astro
+│   │   ├── Timeline.astro
+│   │   ├── Twitter.astro
+│   │   └── YouTube.astro
+│   ├── content/        # Content collections
+│   │   ├── about/     # About section (1 file)
+│   │   ├── blog/      # Blog posts (.md or .mdx)
+│   │   ├── education/ # Education history
+│   │   ├── hackathons/# Hackathon entries
+│   │   ├── projects/  # Portfolio projects
+│   │   └── work/      # Work experience
+│   ├── layouts/       # Page layouts
+│   │   ├── Layout.astro
+│   │   ├── BlogLayout.astro
+│   │   └── ProjectLayout.astro
+│   ├── pages/         # File-based routing
+│   │   ├── index.astro
+│   │   ├── blog/
+│   │   │   ├── index.astro
+│   │   │   └── [...slug].astro
+│   │   └── projects/
+│   │       ├── index.astro
+│   │       └── [...slug].astro
+│   ├── styles/
+│   │   └── global.css # Tailwind + DaisyUI
+│   ├── config.ts      # Site configuration
+│   └── content.config.ts # Content schemas
+├── astro.config.mjs   # Astro configuration
+├── package.json
+├── tsconfig.json
+└── README.md
+```
+
+## 📝 Content Management
+
+### Creating Content
+
+All content is stored in `src/content/` organized by type. Each content type has a specific schema.
+
+#### Blog Posts
+
+Create a new file in `src/content/blog/`:
+
+```markdown
 ---
-title: Post Title
-spoiler: This is the subtitle that shows under the title on the index page
-date: 'M/D/YY'
-href: use-a-slug-version-of-the-title-here
+title: "Your Post Title"
+description: "Brief description for SEO"
+image: "./featured-image.png"
+publishDate: "2024-01-25"
+tags: ["Tag1", "Tag2"]
 ---
+
+Your content here...
 ```
 
-## Using Obsidian As CMS
-As of now (9/10/25) posting from Obsidian works.
-- start a new note
-- add a title (TODO: let's make this auto create the `title` so we don't need `title` in the frontmatter)
-- add frontmatter like this:
-```
----
-title: gh auth login
-date: 2025-09-09
-spoiler: Three ways to auth
-tags:
-  - github
-blog: mark-astro
----
-```
-- write the post body under the frontmatter
-- to publish: command + p -> "QuickAdd: blog-switcher" -> "mark-astro"
-- wait 5 or 10 seconds
-- on success, it will say something along the lines of "post -> pushed to main"
+Supports both `.md` and `.mdx` files. Use `.mdx` for rich media embeds (Spotify, YouTube, Twitter).
 
-TODO: 
-- add a Publish button if possible (with a confirm)
-- add spell/grammar check option on right click or something
+#### Projects
+
+Create a new file in `src/content/projects/`:
+
+```markdown
+---
+title: "Project Name"
+description: "Brief description"
+image: "./screenshot.png"
+startDate: "2023-01-15"
+endDate: "2023-06-30"  # Optional (omit for ongoing)
+skills: ["React", "Node.js", "MongoDB"]
+demoLink: "https://demo.example.com"  # Optional
+sourceLink: "https://github.com/..."  # Optional
+---
+
+Detailed project description...
+```
+
+#### Work Experience
+
+Create a new file in `src/content/work/`:
+
+```markdown
+---
+title: "Company Name"
+subtitle: "Job Title"
+startDate: "2020-01-15"
+endDate: "2023-06-30"  # Optional (omit for current position)
+logo: "https://company-logo-url.com"  # Optional
+link: "https://company-website.com"   # Optional
+---
+
+Job description and achievements...
+```
+
+For complete documentation on content creation, see the [Content Collections Guide](/blog/guides/content-collections-guide) and [Markdown Guide](/blog/guides/markdown-guide).
+
+## 🎨 Customization
+
+### Changing Themes
+
+Edit `src/config.ts`:
+
+```typescript
+enableThemeSelector: true  // Dropdown with 6 themes
+// OR
+enableThemeSelector: false  // Simple light/dark toggle
+```
+
+### Adding Custom Styles
+
+Add custom CSS in component `<style>` tags or extend `src/styles/global.css`:
+
+```css
+@import "tailwindcss";
+@plugin "daisyui";
+
+/* Your custom styles here */
+```
+
+### Creating New Sections
+
+1. Create a new component in `src/components/`
+2. Import and add to `src/pages/index.astro`
+3. Optionally add a toggle in `src/config.ts`
+
+## 🚀 Deployment
+
+### Build for Production
+
+```bash
+npm run build
+```
+
+Output is generated in `dist/` directory.
+
+### Deploy to Vercel
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/lauroguedes/bloomfolio)
+
+1. Connect your GitHub repository
+2. Vercel auto-detects Astro
+3. Deploy!
+
+### Deploy to Netlify
+
+1. Connect your repository
+2. Build command: `npm run build`
+3. Publish directory: `dist`
+
+### Deploy to Cloudflare Pages
+
+1. Connect your repository
+2. Build command: `npm run build`
+3. Build output directory: `dist`
+
+### Other Platforms
+
+Bloomfolio works with any static hosting platform that supports Node.js builds:
+- GitHub Pages
+- AWS S3 + CloudFront
+- Firebase Hosting
+- Render
+- Railway
+
+## 🛠️ Tech Stack
+
+- **[Astro 5](https://astro.build)** - Static site generator
+- **[Tailwind CSS 4](https://tailwindcss.com)** - Utility-first CSS framework
+- **[DaisyUI 5](https://daisyui.com)** - Component library for Tailwind
+- **[TypeScript](https://www.typescriptlang.org/)** - Type safety
+- **[MDX](https://mdxjs.com/)** - Enhanced Markdown
+- **[Lucide Icons](https://lucide.dev/)** - Icon library
+
+## 📚 Documentation
+
+- **[Complete Guide](https://bloomfolio-astro.vercel.app/blog/guides/bloomfolio-complete-guide)** - Comprehensive setup and customization guide
+- **[Content Collections Guide](https://bloomfolio-astro.vercel.app/blog/guides/content-collections-guide)** - Learn about Astro Content Collections
+- **[Markdown Guide](https://bloomfolio-astro.vercel.app/blog/guides/markdown-guide)** - Master Markdown and MDX syntax
+- **[Astro Docs](https://docs.astro.build)** - Official Astro documentation
+- **[Tailwind CSS Docs](https://tailwindcss.com/docs)** - Tailwind CSS documentation
+- **[DaisyUI Docs](https://daisyui.com/docs)** - DaisyUI component documentation
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- Built with [Astro](https://astro.build)
+- Styled with [Tailwind CSS](https://tailwindcss.com) and [DaisyUI](https://daisyui.com)
+- Icons from [Lucide](https://lucide.dev)
+- Inspired by modern portfolio designs and the developer community
+
+## 💬 Support
+
+- 📖 [Documentation](https://bloomfolio-astro.vercel.app/blog/guides/bloomfolio-complete-guide)
+- 🐛 [Report Issues](https://github.com/lauroguedes/bloomfolio/issues)
+- 💬 [Discussions](https://github.com/lauroguedes/bloomfolio/discussions)
+
+---
+Please if you find this project helpful, consider giving it a ⭐ on GitHub!
+
+Crafted by an Artisan ⛏️ [Lauro Guedes](https://lauroguedes.dev)

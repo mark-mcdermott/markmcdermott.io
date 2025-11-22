@@ -1,47 +1,19 @@
 {
-  "name": "astro-blog",
+  "name": "bloomfolio",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro check && astro build",
-    "commit": "git add -A && git commit -m \"Publish: $(date +%F)\"",
-    "deploy": "git push origin main",
-    "open": "open https://markmcdermott.io/?bust=$(date +%s)",
-    "publish": "yarn build && yarn commit && yarn deploy && sleep 3 && yarn open",
+    "build": "astro build",
     "preview": "astro preview",
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/check": "^0.3.1",
-    "@astrojs/markdown-remark": "^4.3.1",
-    "@astrojs/mdx": "^4.3.0",
-    "@astrojs/react": "^3.1.0",
-    "@astrojs/rss": "^4.0.5",
-    "@astrojs/tailwind": "^5.1.2",
-    "@fontsource/merriweather": "^5.0.12",
-    "@fontsource/montserrat": "^5.0.17",
-    "@types/react": "^18.2.67",
-    "@types/react-dom": "^18.2.22",
-    "astro": "^5.8.1",
-    "colorjs.io": "^0.5.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "rehype-accessible-emojis": "^0.3.2",
-    "rehype-katex": "^7.0.0",
-    "rehype-stringify": "^10.0.1",
-    "remark-math": "^6.0.0",
-    "remark-parse": "^11.0.0",
-    "remark-rehype": "^11.1.1",
-    "remark-toc": "^9.0.0",
-    "tailwindcss": "^3.4.1",
-    "typescript": "^5.2.2",
-    "unified": "^11.0.5"
-  },
-  "devDependencies": {
-    "@types/gh-pages": "^6",
-    "@types/node": "^20.11.30",
-    "gh-pages": "^6.3.0"
+    "@astrojs/mdx": "^4.3.9",
+    "@lucide/astro": "^0.552.0",
+    "@tailwindcss/vite": "^4.1.16",
+    "astro": "^5.15.2",
+    "daisyui": "^5.3.10",
+    "tailwindcss": "^4.1.16"
   }
 }
