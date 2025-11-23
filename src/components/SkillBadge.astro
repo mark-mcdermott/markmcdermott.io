@@ -6,4 +6,10 @@ interface Props {
 const { skill } = Astro.props;
 ---
 
-<span class="badge badge-sm badge-soft badge-accent">{skill}</span>
+<span class="skill-badge px-3 py-1 text-xs font-semibold rounded-full" style="color: #666; background-color: rgba(153, 153, 153, 0.15);">{skill}</span>
+
+<style is:global>
+  [data-theme="dark"] .skill-badge {
+    color: #aaa !important;
+  }
+</style>

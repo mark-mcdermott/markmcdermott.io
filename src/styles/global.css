@@ -62,6 +62,11 @@
   color: #1e1e1e !important;
 }
 
+/* Keep blog Read More buttons text dark on white backgrounds in dark mode */
+[data-theme="dark"] a.bg-white {
+  color: #1e1e1e !important;
+}
+
 /* Landing hero dark theme */
 [data-theme="dark"] .landing-hero h1 {
   color: #e7e7d8 !important;
