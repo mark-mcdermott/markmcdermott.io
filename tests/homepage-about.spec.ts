@@ -42,7 +42,7 @@ test.describe('Homepage Tests', () => {
     const themeToggle = page.locator('.theme-controller');
     const isChecked = await themeToggle.isChecked();
     if (isChecked) {
-      await themeToggle.click();
+      await themeToggle.click({ force: true });
       await page.waitForTimeout(500);
     }
 
@@ -51,6 +51,7 @@ test.describe('Homepage Tests', () => {
     const headingColor = await heading.evaluate(el =>
       window.getComputedStyle(el).color
     );
+    // In light mode, text should be dark
     expect(isDarkColor(headingColor)).toBe(true);
 
     // Check banner text color
@@ -58,6 +59,7 @@ test.describe('Homepage Tests', () => {
     const bannerColor = await bannerText.evaluate(el =>
       window.getComputedStyle(el).color
     );
+    // Banner text should be dark in light mode
     expect(isDarkColor(bannerColor)).toBe(true);
   });
 
@@ -68,7 +70,7 @@ test.describe('Homepage Tests', () => {
     const themeToggle = page.locator('.theme-controller');
     const isChecked = await themeToggle.isChecked();
     if (!isChecked) {
-      await themeToggle.click();
+      await themeToggle.click({ force: true });
       await page.waitForTimeout(500);
     }
 
@@ -77,6 +79,7 @@ test.describe('Homepage Tests', () => {
     const headingColor = await heading.evaluate(el =>
       window.getComputedStyle(el).color
     );
+    // In dark mode, text should be light
     expect(isLightColor(headingColor)).toBe(true);
 
     // Check banner text color
@@ -84,6 +87,7 @@ test.describe('Homepage Tests', () => {
     const bannerColor = await bannerText.evaluate(el =>
       window.getComputedStyle(el).color
     );
+    // Banner text should be light in dark mode
     expect(isLightColor(bannerColor)).toBe(true);
   });
 
@@ -94,13 +98,13 @@ test.describe('Homepage Tests', () => {
     const htmlElement = page.locator('html');
 
     // Test toggle to dark mode
-    await themeToggle.click();
+    await themeToggle.click({ force: true });
     await page.waitForTimeout(300);
     let theme = await htmlElement.getAttribute('data-theme');
     expect(theme).toBe('dark');
 
     // Test toggle back to light mode
-    await themeToggle.click();
+    await themeToggle.click({ force: true });
     await page.waitForTimeout(300);
     theme = await htmlElement.getAttribute('data-theme');
     expect(theme).toBe('light');
@@ -120,7 +124,7 @@ test.describe('About Page Tests', () => {
     const themeToggle = page.locator('.theme-controller');
     const isChecked = await themeToggle.isChecked();
     if (isChecked) {
-      await themeToggle.click();
+      await themeToggle.click({ force: true });
       await page.waitForTimeout(500);
     }
 
@@ -129,6 +133,7 @@ test.describe('About Page Tests', () => {
     const headingColor = await heading.evaluate(el =>
       window.getComputedStyle(el).color
     );
+    // In light mode, text should be dark
     expect(isDarkColor(headingColor)).toBe(true);
 
     // Check tech badge text color
@@ -136,6 +141,7 @@ test.describe('About Page Tests', () => {
     const badgeColor = await techBadge.evaluate(el =>
       window.getComputedStyle(el).color
     );
+    // Tech badge text should be dark in light mode
     expect(isDarkColor(badgeColor)).toBe(true);
   });
 
@@ -146,7 +152,7 @@ test.describe('About Page Tests', () => {
     const themeToggle = page.locator('.theme-controller');
     const isChecked = await themeToggle.isChecked();
     if (!isChecked) {
-      await themeToggle.click();
+      await themeToggle.click({ force: true });
       await page.waitForTimeout(500);
     }
 
@@ -155,6 +161,7 @@ test.describe('About Page Tests', () => {
     const headingColor = await heading.evaluate(el =>
       window.getComputedStyle(el).color
     );
+    // In dark mode, text should be light
     expect(isLightColor(headingColor)).toBe(true);
 
     // Check tech badge text color
@@ -162,6 +169,7 @@ test.describe('About Page Tests', () => {
     const badgeColor = await techBadge.evaluate(el =>
       window.getComputedStyle(el).color
     );
+    // Tech badge text should be light in dark mode
     expect(isLightColor(badgeColor)).toBe(true);
   });
 
@@ -172,13 +180,13 @@ test.describe('About Page Tests', () => {
     const htmlElement = page.locator('html');
 
     // Test toggle to dark mode
-    await themeToggle.click();
+    await themeToggle.click({ force: true });
     await page.waitForTimeout(300);
     let theme = await htmlElement.getAttribute('data-theme');
     expect(theme).toBe('dark');
 
     // Test toggle back to light mode
-    await themeToggle.click();
+    await themeToggle.click({ force: true });
     await page.waitForTimeout(300);
     theme = await htmlElement.getAttribute('data-theme');
     expect(theme).toBe('light');
