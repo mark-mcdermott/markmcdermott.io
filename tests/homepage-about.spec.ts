@@ -38,13 +38,12 @@ test.describe('Homepage Tests', () => {
   test('should display dark text in light mode', async ({ page }) => {
     await page.goto('/');
 
-    // Ensure we're in light mode
-    const themeToggle = page.locator('.theme-controller');
-    const isChecked = await themeToggle.isChecked();
-    if (isChecked) {
-      await themeToggle.click({ force: true });
-      await page.waitForTimeout(500);
-    }
+    // Set to light mode via localStorage
+    await page.evaluate(() => {
+      localStorage.setItem('theme-mode', 'light');
+    });
+    await page.reload();
+    await page.waitForTimeout(300);
 
     // Check main heading color
     const heading = page.locator('.landing-hero h1.hero-title');
@@ -66,13 +65,12 @@ test.describe('Homepage Tests', () => {
   test('should display light text in dark mode', async ({ page }) => {
     await page.goto('/');
 
-    // Switch to dark mode
-    const themeToggle = page.locator('.theme-controller');
-    const isChecked = await themeToggle.isChecked();
-    if (!isChecked) {
-      await themeToggle.click({ force: true });
-      await page.waitForTimeout(500);
-    }
+    // Set to dark mode via localStorage
+    await page.evaluate(() => {
+      localStorage.setItem('theme-mode', 'dark');
+    });
+    await page.reload();
+    await page.waitForTimeout(300);
 
     // Check main heading color
     const heading = page.locator('.landing-hero h1.hero-title');
@@ -91,20 +89,33 @@ test.describe('Homepage Tests', () => {
     expect(isLightColor(bannerColor)).toBe(true);
   });
 
-  test('theme toggle should work', async ({ page }) => {
+  test('theme toggle should cycle through modes', async ({ page }) => {
     await page.goto('/');
 
-    const themeToggle = page.locator('.theme-controller');
+    // Start with light mode
+    await page.evaluate(() => {
+      localStorage.setItem('theme-mode', 'light');
+    });
+    await page.reload();
+    await page.waitForTimeout(300);
+
+    const themeToggle = page.locator('.theme-toggle');
     const htmlElement = page.locator('html');
 
-    // Test toggle to dark mode
-    await themeToggle.click({ force: true });
+    // Click once: light -> dark
+    await themeToggle.click();
     await page.waitForTimeout(300);
     let theme = await htmlElement.getAttribute('data-theme');
     expect(theme).toBe('dark');
 
-    // Test toggle back to light mode
-    await themeToggle.click({ force: true });
+    // Click twice: dark -> system (could be light or dark depending on OS)
+    await themeToggle.click();
+    await page.waitForTimeout(300);
+    theme = await htmlElement.getAttribute('data-theme');
+    expect(['light', 'dark']).toContain(theme);
+
+    // Click three times: system -> light
+    await themeToggle.click();
     await page.waitForTimeout(300);
     theme = await htmlElement.getAttribute('data-theme');
     expect(theme).toBe('light');
@@ -120,13 +131,12 @@ test.describe('About Page Tests', () => {
   test('should display dark text in light mode', async ({ page }) => {
     await page.goto('/about');
 
-    // Ensure we're in light mode
-    const themeToggle = page.locator('.theme-controller');
-    const isChecked = await themeToggle.isChecked();
-    if (isChecked) {
-      await themeToggle.click({ force: true });
-      await page.waitForTimeout(500);
-    }
+    // Set to light mode via localStorage
+    await page.evaluate(() => {
+      localStorage.setItem('theme-mode', 'light');
+    });
+    await page.reload();
+    await page.waitForTimeout(300);
 
     // Check heading color
     const heading = page.locator('h2.text-white').first();
@@ -148,13 +158,12 @@ test.describe('About Page Tests', () => {
   test('should display light text in dark mode', async ({ page }) => {
     await page.goto('/about');
 
-    // Switch to dark mode
-    const themeToggle = page.locator('.theme-controller');
-    const isChecked = await themeToggle.isChecked();
-    if (!isChecked) {
-      await themeToggle.click({ force: true });
-      await page.waitForTimeout(500);
-    }
+    // Set to dark mode via localStorage
+    await page.evaluate(() => {
+      localStorage.setItem('theme-mode', 'dark');
+    });
+    await page.reload();
+    await page.waitForTimeout(300);
 
     // Check heading color
     const heading = page.locator('h2.text-white').first();
@@ -173,20 +182,33 @@ test.describe('About Page Tests', () => {
     expect(isLightColor(badgeColor)).toBe(true);
   });
 
-  test('theme toggle should work', async ({ page }) => {
+  test('theme toggle should cycle through modes', async ({ page }) => {
     await page.goto('/about');
 
-    const themeToggle = page.locator('.theme-controller');
+    // Start with light mode
+    await page.evaluate(() => {
+      localStorage.setItem('theme-mode', 'light');
+    });
+    await page.reload();
+    await page.waitForTimeout(300);
+
+    const themeToggle = page.locator('.theme-toggle');
     const htmlElement = page.locator('html');
 
-    // Test toggle to dark mode
-    await themeToggle.click({ force: true });
+    // Click once: light -> dark
+    await themeToggle.click();
     await page.waitForTimeout(300);
     let theme = await htmlElement.getAttribute('data-theme');
     expect(theme).toBe('dark');
 
-    // Test toggle back to light mode
-    await themeToggle.click({ force: true });
+    // Click twice: dark -> system (could be light or dark depending on OS)
+    await themeToggle.click();
+    await page.waitForTimeout(300);
+    theme = await htmlElement.getAttribute('data-theme');
+    expect(['light', 'dark']).toContain(theme);
+
+    // Click three times: system -> light
+    await themeToggle.click();
     await page.waitForTimeout(300);
     theme = await htmlElement.getAttribute('data-theme');
     expect(theme).toBe('light');
