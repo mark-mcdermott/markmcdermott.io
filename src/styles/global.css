@@ -10,6 +10,8 @@
   --color-white: #e7e7d8;
   --color-eagle: #afac95;
   --color-orange: #ea4125;
+  --color-border-light: #999;
+  --color-border-dark: #999;
   /* Gradient */
   --background-image-grid:
     repeating-linear-gradient(
@@ -90,4 +92,25 @@
 [data-theme="dark"] article span,
 [data-theme="dark"] article a {
   color: #e7e7d8;
+}
+
+/* Global border color system */
+.border-main,
+.border-x,
+.border-y,
+.border-t,
+.border-b,
+.border-l,
+.border-r {
+  border-color: #999 !important;
+}
+
+[data-theme="dark"] .border-main,
+[data-theme="dark"] .border-x,
+[data-theme="dark"] .border-y,
+[data-theme="dark"] .border-t,
+[data-theme="dark"] .border-b,
+[data-theme="dark"] .border-l,
+[data-theme="dark"] .border-r {
+  border-color: #999 !important;
 }
