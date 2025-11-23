@@ -94,7 +94,8 @@
   color: #e7e7d8;
 }
 
-/* Global border color system */
+/* Global border color and width system */
+.border,
 .border-main,
 .border-x,
 .border-y,
@@ -103,8 +104,10 @@
 .border-l,
 .border-r {
   border-color: #999 !important;
+  border-width: 1px !important;
 }
 
+[data-theme="dark"] .border,
 [data-theme="dark"] .border-main,
 [data-theme="dark"] .border-x,
 [data-theme="dark"] .border-y,
@@ -113,4 +116,5 @@
 [data-theme="dark"] .border-l,
 [data-theme="dark"] .border-r {
   border-color: #999 !important;
+  border-width: 1px !important;
 }
