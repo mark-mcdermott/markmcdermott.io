@@ -36,7 +36,7 @@ function formatDate(date: Date) {
 
     <!-- Back to Home -->
     <div class="mb-8">
-      <a href="/" class="btn btn-ghost btn-sm">
+      <a href="/" class="back-link inline-flex items-center gap-2 transition-colors">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="20"
@@ -103,6 +103,15 @@ function formatDate(date: Date) {
 
   .blog-card-title:hover,
   .blog-card-title:hover a {
+    color: #ea4125;
+  }
+
+  .back-link {
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+
+  .back-link:hover {
     color: #ea4125;
   }
 </style>
