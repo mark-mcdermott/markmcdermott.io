@@ -29,7 +29,8 @@ const readingTime = Math.ceil(wordCount / 200); // Average reading speed: 200 wo
 ---
 
 <Layout title={title} description={description}>
-  <article class="max-w-4xl mx-auto px-4 py-20 border-x">
+  <article class="py-20 border-x border-b">
+    <div class="max-w-4xl mx-auto px-4">
     <!-- Back button -->
     <div class="mb-8">
       <a href="/blog" class="btn btn-ghost btn-sm">
@@ -100,6 +101,7 @@ const readingTime = Math.ceil(wordCount / 200); // Average reading speed: 200 wo
       <a href="/blog" class="btn btn-primary">
         View All Posts
       </a>
+    </div>
     </div>
   </article>
 </Layout>
