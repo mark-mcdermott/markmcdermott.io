@@ -267,25 +267,27 @@ import BgGrid from "../components/BgGrid.astro";
     .border-white\/20 {
       border-color: rgba(30, 30, 30, 0.3);
     }
+  </style>
 
+  <style is:global>
     [data-theme="dark"] .text-white {
-      color: #e7e7d8;
+      color: #e7e7d8 !important;
     }
 
     [data-theme="dark"] .text-eagle {
-      color: #afac95;
+      color: #afac95 !important;
     }
 
     [data-theme="dark"] .text-orange {
-      color: #ea4125;
+      color: #ea4125 !important;
     }
 
     [data-theme="dark"] .border-white\/10 {
-      border-color: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.1) !important;
     }
 
     [data-theme="dark"] .border-white\/20 {
-      border-color: rgba(255, 255, 255, 0.2);
+      border-color: rgba(255, 255, 255, 0.2) !important;
     }
   </style>
 </Layout>
