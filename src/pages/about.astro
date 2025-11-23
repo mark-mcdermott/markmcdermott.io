@@ -7,7 +7,7 @@ import BgGrid from "../components/BgGrid.astro";
   title="About Mark McDermott"
   description="Learn more about Mark McDermott - Senior QA Engineer and aspiring developer"
 >
-  <section class="border-x">
+  <section class="border-x border-b">
     <!-- Hero Section -->
     <div class="bg-grid relative">
       <BgGrid />
@@ -38,7 +38,7 @@ import BgGrid from "../components/BgGrid.astro";
         </div>
 
         <p
-          class="absolute bottom-4 right-4 text-sm text-white bg-black/70 px-4 py-2 rounded"
+          class="absolute bottom-4 right-4 text-sm bg-black/70 px-4 py-2 rounded pterodactyl-caption"
         >
           Professional QA Engineer and amateur pterodactyl rider
         </p>
@@ -257,6 +257,11 @@ import BgGrid from "../components/BgGrid.astro";
     .text-white {
       color: #1e1e1e;
     }
+
+    /* Pterodactyl caption should always be white */
+    .pterodactyl-caption {
+      color: #ffffff;
+    }
   </style>
 
   <style is:global>
@@ -270,6 +275,10 @@ import BgGrid from "../components/BgGrid.astro";
 
     [data-theme="dark"] .text-orange {
       color: #ea4125 !important;
+    }
+
+    [data-theme="dark"] .pterodactyl-caption {
+      color: #ffffff !important;
     }
   </style>
 </Layout>
