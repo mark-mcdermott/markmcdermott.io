@@ -17,7 +17,7 @@ const marqueeItems = [...messages, ...messages]; // Duplicate for seamless loop
 ---
 
 <section class="border-black/20 border-y">
-  <div class="overflow-hidden py-2 relative landing-banner text-[#1e1e1e] dark:text-white">
+  <div class="overflow-hidden py-2 relative landing-banner banner-text" style="color: #1e1e1e;">
     <!-- Edge gradient overlays -->
     <div
       aria-hidden="true"
@@ -50,3 +50,9 @@ const marqueeItems = [...messages, ...messages]; // Duplicate for seamless loop
     </div>
   </div>
 </section>
+
+<style is:global>
+  [data-theme="dark"] .landing-banner.banner-text {
+    color: #e7e7d8 !important;
+  }
+</style>

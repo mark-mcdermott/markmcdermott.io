@@ -8,8 +8,8 @@ import LandingBanner from "./LandingBanner.astro";
     <BgGrid />
 
     <h1
-      class="uppercase relative text-[#1e1e1e] dark:text-white"
-      style="font-family: 'Geist', sans-serif; font-size: clamp(2rem, 8vw, 96px); font-weight: 900; letter-spacing: -4.8px; line-height: 96px;"
+      class="uppercase relative hero-title"
+      style="font-family: 'Geist', sans-serif; font-size: clamp(2rem, 8vw, 96px); font-weight: 900; letter-spacing: -4.8px; line-height: 96px; color: #1e1e1e;"
     >
       I like building webapps in JavaScript, React, Postgres, Tailwind and
       Shadcn UI that are fun to use and just work.
@@ -17,3 +17,9 @@ import LandingBanner from "./LandingBanner.astro";
   </div>
   <LandingBanner />
 </section>
+
+<style is:global>
+  [data-theme="dark"] .landing-hero .hero-title {
+    color: #e7e7d8 !important;
+  }
+</style>
