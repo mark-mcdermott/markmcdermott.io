@@ -1,0 +1,53 @@
+---
+import { getCollection } from "astro:content";
+
+const blogEntries = await getCollection("blog");
+
+// Sort by publish date, most recent first
+const sortedPosts = blogEntries.sort(
+  (a, b) => new Date(b.data.publishDate).getTime() - new Date(a.data.publishDate).getTime()
+);
+
+// Get only the latest 4 posts
+const latestPosts = sortedPosts.slice(0, 4);
+
+// Helper to format date
+const formatDate = (date: string | Date) => {
+  const d = new Date(date);
+  return d.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+};
+
+// Helper to get excerpt (first ~2 lines worth of content)
+const getExcerpt = (body: string, length: number = 120) => {
+  // Remove code blocks and markdown syntax, get plain text
+  const text = body
+    .replace(/```[\s\S]*?```/g, '')
+    .replace(/[#*`\[\]]/g, '')
+    .trim();
+
+  if (text.length <= length) return text;
+  return text.slice(0, length).trim() + "...";
+};
+---
+
+<div class="latest-posts text-xs gap-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 p-8 border-x border-b">
+  {
+    latestPosts.map((post) => (
+      <a href={`/blog/${post.slug}`} class="flex flex-col h-full group">
+        <span class="block font-semibold latest-posts-title group-hover:underline">{post.data.title}</span>
+        <span class="block text-eagle">{post.data.description}</span>
+        <span class="block text-eagle">{formatDate(post.data.publishDate)}</span>
+        <p class="font-normal text-eagle mt-3">{getExcerpt(post.body)}</p>
+      </a>
+    ))
+  }
+</div>
+
+<style is:global>
+  .latest-posts-title {
+    color: #1e1e1e;
+  }
+  [data-theme="dark"] .latest-posts-title {
+    color: #e7e7d8 !important;
+  }
+</style>
