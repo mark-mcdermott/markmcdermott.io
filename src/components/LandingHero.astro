@@ -1,6 +1,8 @@
 ---
 import BgGrid from "./BgGrid.astro";
 import LandingBanner from "./LandingBanner.astro";
+import Projects from "./Projects.astro";
+import WorkSlider from "./WorkSlider.astro";
 ---
 
 <section class="landing-hero border-x border-b">
@@ -17,6 +19,8 @@ import LandingBanner from "./LandingBanner.astro";
   </div>
   <LandingBanner />
 </section>
+
+<WorkSlider />
 
 <style is:global>
   [data-theme="dark"] .landing-hero .hero-title {

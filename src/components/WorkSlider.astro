@@ -1,0 +1,176 @@
+---
+import BgGrid from "./BgGrid.astro";
+import { Image } from "astro:assets";
+import ThemeForseen from "../assets/work/theme-forseen.png";
+import Olite from "../assets/work/olite.png";
+import Puravida from "../assets/work/puravida.png";
+
+const projects = [
+  { name: "Theme Forseen", image: ThemeForseen },
+  { name: "Olite", image: Olite },
+  { name: "puravida", image: Puravida },
+];
+---
+
+<section class="work-slider border-x border-b">
+  <div class="px-8 py-6 relative">
+    <BgGrid />
+    <h2 class="text-3xl font-black uppercase relative work-slider-title">
+      Projects I've Built
+    </h2>
+  </div>
+  <div class="relative border-t">
+    <!-- Navigation arrows - uncomment when ready
+    <div
+      class="absolute inset-y-0 left-0 right-0 flex items-center justify-between px-2 pointer-events-none z-10"
+    >
+      <button
+        id="keen-slider-previous"
+        aria-label="Previous slide"
+        class="pointer-events-auto p-2 size-8 bg-white/80 hover:bg-white text-black rounded-full shadow transition"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="currentColor"
+          viewBox="0 0 256 256"
+        >
+          <path
+            d="M165.66,202.34a8,8,0,0,1-11.32,11.32l-80-80a8,8,0,0,1,0-11.32l80-80a8,8,0,0,1,11.32,11.32L91.31,128Z"
+          ></path>
+        </svg>
+      </button>
+      <button
+        id="keen-slider-next"
+        aria-label="Next slide"
+        class="pointer-events-auto p-2 size-8 bg-white hover:bg-white text-black rounded-full shadow transition"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="currentColor"
+          viewBox="0 0 256 256"
+        >
+          <path
+            d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"
+          ></path>
+        </svg>
+      </button>
+    </div>
+    -->
+    <div id="keen-slider" class="keen-slider relative">
+      {
+        projects.map(({ name, image }) => (
+          <div class="relative w-full keen-slider__slide">
+            <Image src={image} alt={name} class="aspect-auto w-full" />
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Keen Slider base styles */
+  .keen-slider {
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    user-select: none;
+    -webkit-touch-callout: none;
+    -khtml-user-select: none;
+    touch-action: pan-y;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .keen-slider__slide {
+    position: relative;
+    overflow: visible;
+    width: 100%;
+    min-height: 100%;
+  }
+</style>
+
+<style is:global>
+  [data-theme="dark"] .work-slider-title {
+    color: #e7e7d8 !important;
+  }
+</style>
+
+<!-- Slider script - uncomment when ready for animation
+<script>
+  import KeenSlider from "https://cdn.jsdelivr.net/npm/keen-slider@6.8.6/+esm";
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const autoplay = (slider: any) => {
+      let timeout: ReturnType<typeof setTimeout>;
+      let mouseOver = false;
+
+      function clearNextTimeout() {
+        clearTimeout(timeout);
+      }
+
+      function nextTimeout() {
+        clearTimeout(timeout);
+        if (mouseOver) return;
+        timeout = setTimeout(() => {
+          slider.next();
+        }, 2000);
+      }
+
+      slider.on("created", () => {
+        slider.container.addEventListener("mouseover", () => {
+          mouseOver = true;
+          clearNextTimeout();
+        });
+        slider.container.addEventListener("mouseout", () => {
+          mouseOver = false;
+          nextTimeout();
+        });
+        nextTimeout();
+      });
+      slider.on("dragStarted", clearNextTimeout);
+      slider.on("animationEnded", nextTimeout);
+      slider.on("updated", nextTimeout);
+    };
+
+    const sliderEl = document.getElementById("keen-slider");
+    if (!sliderEl) {
+      console.warn("Slider element not found");
+      return;
+    }
+
+    const keenSlider = new KeenSlider(
+      sliderEl,
+      {
+        loop: true,
+        defaultAnimation: {
+          duration: 1000,
+        },
+        detailsChanged: (s: any) => {
+          s.slides.forEach((element: HTMLElement, idx: number) => {
+            element.style.opacity = String(s.track.details.slides[idx].portion);
+          });
+        },
+        slides: {
+          origin: "center",
+          perView: 2.2,
+          spacing: 12,
+        },
+        breakpoints: {
+          "(min-width: 1024px)": {
+            slides: {
+              origin: "center",
+              perView: 3.5,
+              spacing: 0,
+            },
+          },
+        },
+      },
+      [autoplay]
+    );
+
+    const keenSliderPrevious = document.getElementById("keen-slider-previous");
+    const keenSliderNext = document.getElementById("keen-slider-next");
+    keenSliderPrevious?.addEventListener("click", () => keenSlider.prev());
+    keenSliderNext?.addEventListener("click", () => keenSlider.next());
+  });
+</script>
+-->
