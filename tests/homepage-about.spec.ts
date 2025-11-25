@@ -92,9 +92,9 @@ test.describe('Homepage Tests', () => {
   test('theme toggle should cycle through modes', async ({ page }) => {
     await page.goto('/');
 
-    // Start with light mode
+    // Start with dark mode (the new default)
     await page.evaluate(() => {
-      localStorage.setItem('theme-mode', 'light');
+      localStorage.setItem('theme-mode', 'dark');
     });
     await page.reload();
     await page.waitForTimeout(300);
@@ -102,23 +102,23 @@ test.describe('Homepage Tests', () => {
     const themeToggle = page.locator('.theme-toggle');
     const htmlElement = page.locator('html');
 
-    // Click once: light -> dark
+    // Click once: dark -> light
     await themeToggle.click();
     await page.waitForTimeout(300);
     let theme = await htmlElement.getAttribute('data-theme');
-    expect(theme).toBe('dark');
+    expect(theme).toBe('light');
 
-    // Click twice: dark -> system (could be light or dark depending on OS)
+    // Click twice: light -> system (could be light or dark depending on OS)
     await themeToggle.click();
     await page.waitForTimeout(300);
     theme = await htmlElement.getAttribute('data-theme');
     expect(['light', 'dark']).toContain(theme);
 
-    // Click three times: system -> light
+    // Click three times: system -> dark
     await themeToggle.click();
     await page.waitForTimeout(300);
     theme = await htmlElement.getAttribute('data-theme');
-    expect(theme).toBe('light');
+    expect(theme).toBe('dark');
   });
 });
 
@@ -185,9 +185,9 @@ test.describe('About Page Tests', () => {
   test('theme toggle should cycle through modes', async ({ page }) => {
     await page.goto('/about');
 
-    // Start with light mode
+    // Start with dark mode (the new default)
     await page.evaluate(() => {
-      localStorage.setItem('theme-mode', 'light');
+      localStorage.setItem('theme-mode', 'dark');
     });
     await page.reload();
     await page.waitForTimeout(300);
@@ -195,22 +195,22 @@ test.describe('About Page Tests', () => {
     const themeToggle = page.locator('.theme-toggle');
     const htmlElement = page.locator('html');
 
-    // Click once: light -> dark
+    // Click once: dark -> light
     await themeToggle.click();
     await page.waitForTimeout(300);
     let theme = await htmlElement.getAttribute('data-theme');
-    expect(theme).toBe('dark');
+    expect(theme).toBe('light');
 
-    // Click twice: dark -> system (could be light or dark depending on OS)
+    // Click twice: light -> system (could be light or dark depending on OS)
     await themeToggle.click();
     await page.waitForTimeout(300);
     theme = await htmlElement.getAttribute('data-theme');
     expect(['light', 'dark']).toContain(theme);
 
-    // Click three times: system -> light
+    // Click three times: system -> dark
     await themeToggle.click();
     await page.waitForTimeout(300);
     theme = await htmlElement.getAttribute('data-theme');
-    expect(theme).toBe('light');
+    expect(theme).toBe('dark');
   });
 });

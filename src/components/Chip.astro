@@ -6,6 +6,18 @@ interface Props {
 const { label } = Astro.props;
 ---
 
-<span class="px-4 py-2 bg-white/5 border text-white text-sm rounded-full">
+<span class="chip px-4 py-2 bg-white/5 border text-white text-sm rounded-full">
   {label}
 </span>
+
+<style>
+  .chip {
+    color: #1e1e1e;
+  }
+</style>
+
+<style is:global>
+  [data-theme="dark"] .chip {
+    color: #e7e7d8 !important;
+  }
+</style>
