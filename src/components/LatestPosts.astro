@@ -33,7 +33,7 @@ const getExcerpt = (body: string, length: number = 120) => {
 <div class="latest-posts text-xs gap-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 p-8 border-x border-b">
   {
     latestPosts.map((post) => (
-      <a href={`/blog/${post.slug}`} class="flex flex-col h-full group">
+      <a href={`/blog/${post.id}`} class="flex flex-col h-full group">
         <span class="block font-semibold latest-posts-title group-hover:underline">{post.data.title}</span>
         <span class="block text-eagle">{post.data.description}</span>
         <span class="block text-eagle">{formatDate(post.data.publishDate)}</span>
