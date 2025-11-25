@@ -68,6 +68,13 @@
     return mode;
   }
 
+  // Set a cookie with the theme preference (expires in 1 year)
+  function setThemeCookie(mode: string) {
+    const expires = new Date();
+    expires.setFullYear(expires.getFullYear() + 1);
+    document.cookie = `theme-mode=${mode};expires=${expires.toUTCString()};path=/;SameSite=Lax`;
+  }
+
   // Update the toggle button's data-mode attribute
   function updateToggleButton(mode: string) {
     const toggles = document.querySelectorAll('.theme-toggle');
@@ -76,9 +83,9 @@
     });
   }
 
-  // Set theme on page load based on localStorage or default to system
+  // Set theme on page load based on localStorage or default to dark
   function setTheme() {
-    const mode = localStorage.getItem('theme-mode') || 'system';
+    const mode = localStorage.getItem('theme-mode') || 'dark';
     const effectiveTheme = getEffectiveTheme(mode);
 
     // Apply DaisyUI theme (light or dark)
@@ -88,20 +95,21 @@
     updateToggleButton(mode);
   }
 
-  // Cycle through themes: light -> dark -> system -> light
+  // Cycle through themes: dark -> light -> system -> dark
   function cycleTheme() {
-    const currentMode = localStorage.getItem('theme-mode') || 'system';
+    const currentMode = localStorage.getItem('theme-mode') || 'dark';
     let nextMode: string;
 
-    if (currentMode === 'light') {
-      nextMode = 'dark';
-    } else if (currentMode === 'dark') {
+    if (currentMode === 'dark') {
+      nextMode = 'light';
+    } else if (currentMode === 'light') {
       nextMode = 'system';
     } else {
-      nextMode = 'light';
+      nextMode = 'dark';
     }
 
     localStorage.setItem('theme-mode', nextMode);
+    setThemeCookie(nextMode);
     const effectiveTheme = getEffectiveTheme(nextMode);
 
     // Update theme
@@ -133,7 +141,7 @@
 
   // Listen for system theme changes when in system mode
   window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
-    const mode = localStorage.getItem('theme-mode') || 'system';
+    const mode = localStorage.getItem('theme-mode') || 'dark';
     if (mode === 'system') {
       setTheme();
     }

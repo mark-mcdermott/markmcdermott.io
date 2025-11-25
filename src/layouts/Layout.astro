@@ -46,6 +46,7 @@ const origin = Astro.url.origin;
 <html
   lang="en"
   class="selection:bg-orange selection:text-white"
+  data-theme="dark"
   transition:animate={pageTransition}
 >
   <head>
@@ -55,6 +56,21 @@ const origin = Astro.url.origin;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+
+    <!-- Theme initialization (runs before page renders to prevent flash) -->
+    <script is:inline>
+      (function() {
+        function getEffectiveTheme(mode) {
+          if (mode === 'system') {
+            return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+          }
+          return mode;
+        }
+        const mode = localStorage.getItem('theme-mode') || 'dark';
+        const theme = getEffectiveTheme(mode);
+        document.documentElement.setAttribute('data-theme', theme);
+      })();
+    </script>
 
     <!-- Geist Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
