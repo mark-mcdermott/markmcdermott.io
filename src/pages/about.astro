@@ -1,18 +1,36 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import BgGrid from "../components/BgGrid.astro";
+import Chip from "../components/Chip.astro";
+// import BgGrid from "../components/BgGrid.astro";
+// import AboutBanner from "../components/AboutBanner.astro";
+
+const frontendSkills = ["React", "JavaScript", "TypeScript", "Tailwind CSS", "Shadcn UI", "Astro", "Vue", "HTML5", "CSS3"];
+const backendSkills = ["Node.js", "Ruby", "Rails", "Python", "PostgreSQL", "MySQL", "REST APIs", "C++", "C", "Java"];
+const toolsSkills = ["Git", "Bash", "VS Code", "NeoVim", "Docker", "AWS", "Cypress", "Playwright", "Photoshop"];
 ---
 
 <Layout
   title="Mark McDermott"
   description="Learn more about Mark McDermott - Senior QA Engineer and aspiring developer"
 >
+  <section class="border-x border-b py-20">
+    <div class="max-w-6xl mx-auto px-4">
+      <!-- Header -->
+      <div class="text-center mb-8">
+        <h1 class="text-white tracking-tight font-black text-4xl md:text-6xl lg:text-8xl mb-6">About</h1>
+        <p class="text-xl text-base-content/70">
+          Senior QA Engineer and aspiring developer based in Austin, TX.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Old Hero Section - commented out for later
   <section class="border-x border-b">
-    <!-- Hero Section -->
     <div class="bg-grid relative">
       <BgGrid />
 
-      <!-- Pterodactyl Image -->
       <div class="relative">
         <img
           src="/images/pterodactyl.png"
@@ -20,7 +38,6 @@ import BgGrid from "../components/BgGrid.astro";
           class="w-full h-auto"
         />
 
-        <!-- Text overlay -->
         <div class="absolute top-8 left-8 md:top-16 md:left-16">
           <div class="mb-4">
             <span
@@ -45,6 +62,7 @@ import BgGrid from "../components/BgGrid.astro";
       </div>
     </div>
   </section>
+  -->
 
   <!-- Main Content -->
   <section class="border-x">
@@ -94,115 +112,28 @@ import BgGrid from "../components/BgGrid.astro";
 
         <div class="space-y-6">
           <div>
-            <h3
-              class="text-orange font-mono uppercase text-sm mb-3 mt-8 tracking-wider"
-            >
+            <h3 class="text-orange font-mono uppercase text-sm mb-3 mt-8 tracking-wider">
               Frontend
             </h3>
             <div class="flex flex-wrap gap-2 justify-center">
-              <span
-                class="px-4 py-2 bg-white/5 border text-white text-sm rounded-full"
-                >React</span
-              >
-              <span
-                class="px-4 py-2 bg-white/5 border text-white text-sm rounded-full"
-                >JavaScript</span
-              >
-              <span
-                class="px-4 py-2 bg-white/5 border text-white text-sm rounded-full"
-                >Tailwind CSS</span
-              >
-              <span
-                class="px-4 py-2 bg-white/5 border text-white text-sm rounded-full"
-                >Shadcn UI</span
-              >
-              <span
-                class="px-4 py-2 bg-white/5 border text-white text-sm rounded-full"
-                >Astro</span
-              >
-              <span
-                class="px-4 py-2 bg-white/5 border text-white text-sm rounded-full"
-                >HTML5</span
-              >
-              <span
-                class="px-4 py-2 bg-white/5 border text-white text-sm rounded-full"
-                >CSS3</span
-              >
+              {frontendSkills.map((skill) => <Chip label={skill} />)}
             </div>
 
             <div>
-              <h3
-                class="text-orange font-mono uppercase text-sm mb-3 mt-8 tracking-wider"
-              >
+              <h3 class="text-orange font-mono uppercase text-sm mb-3 mt-8 tracking-wider">
                 Backend
               </h3>
               <div class="flex flex-wrap gap-2 justify-center">
-                <span
-                  class="px-4 py-2 bg-white/5 border text-white text-sm rounded-full"
-                  >Node.js</span
-                >
-                <span
-                  class="px-4 py-2 bg-white/5 border text-white text-sm rounded-full"
-                  >Ruby</span
-                >
-                <span
-                  class="px-4 py-2 bg-white/5 border text-white text-sm rounded-full"
-                  >Python</span
-                >
-                <span
-                  class="px-4 py-2 bg-white/5 border text-white text-sm rounded-full"
-                  >PostgreSQL</span
-                >
-                <span
-                  class="px-4 py-2 bg-white/5 border text-white text-sm rounded-full"
-                  >MySQL</span
-                >
-                <span
-                  class="px-4 py-2 bg-white/5 border text-white text-sm rounded-full"
-                  >C++</span
-                >
-                <span
-                  class="px-4 py-2 bg-white/5 border text-white text-sm rounded-full"
-                  >C</span
-                >
+                {backendSkills.map((skill) => <Chip label={skill} />)}
               </div>
             </div>
 
             <div>
-              <h3
-                class="text-orange font-mono uppercase text-sm mb-3 mt-8 tracking-wider"
-              >
+              <h3 class="text-orange font-mono uppercase text-sm mb-3 mt-8 tracking-wider">
                 Tools
               </h3>
               <div class="flex flex-wrap gap-2 justify-center">
-                <span
-                  class="px-4 py-2 bg-white/5 border text-white text-sm rounded-full"
-                  >Git</span
-                >
-                <span
-                  class="px-4 py-2 bg-white/5 border text-white text-sm rounded-full"
-                  >Bash</span
-                >
-                <span
-                  class="px-4 py-2 bg-white/5 border text-white text-sm rounded-full"
-                  >VS Code</span
-                >
-                <span
-                  class="px-4 py-2 bg-white/5 border text-white text-sm rounded-full"
-                  >NeoVim</span
-                >
-                <span
-                  class="px-4 py-2 bg-white/5 border text-white text-sm rounded-full"
-                  >Docker</span
-                >
-                <span
-                  class="px-4 py-2 bg-white/5 border text-white text-sm rounded-full"
-                  >Photoshop</span
-                >
-                <span
-                  class="px-4 py-2 bg-white/5 border text-white text-sm rounded-full"
-                  >Illustrator</span
-                >
+                {toolsSkills.map((skill) => <Chip label={skill} />)}
               </div>
             </div>
           </div>
@@ -276,9 +207,22 @@ import BgGrid from "../components/BgGrid.astro";
     .pterodactyl-caption {
       color: #ffffff;
     }
+
+    .back-link {
+      font-size: 0.875rem;
+      font-weight: 600;
+    }
+
+    .back-link:hover {
+      color: #ea4125;
+    }
   </style>
 
   <style is:global>
+    [data-theme="dark"] .about-hero .about-hero-title {
+      color: #e7e7d8 !important;
+    }
+
     [data-theme="dark"] .text-white {
       color: #e7e7d8 !important;
     }

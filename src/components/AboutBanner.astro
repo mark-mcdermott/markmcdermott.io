@@ -1,0 +1,45 @@
+---
+const messages = ["About", "About", "About", "About", "About", "About"];
+const marqueeItems = [...messages, ...messages]; // Duplicate for seamless loop
+---
+
+<section class="border-t">
+  <div class="overflow-hidden py-2 relative about-banner banner-text" style="color: #1e1e1e;">
+    <!-- Edge gradient overlays -->
+    <div
+      aria-hidden="true"
+      class="absolute inset-0 z-10 pointer-events-none sr-only"
+    >
+      <div
+        class="absolute left-0 w-24 h-full bg-gradient-to-r from-black via-transparent"
+      >
+      </div>
+      <div
+        class="absolute right-0 w-24 h-full bg-gradient-to-l from-black via-transparent"
+      >
+      </div>
+    </div>
+
+    <!-- Marquee content -->
+    <div
+      class="flex w-max animate-marquee gap-6 whitespace-nowrap font-black tracking-widest uppercase"
+    >
+      {
+        marqueeItems.map((msg, index) => (
+          <>
+            <span>{msg}</span>
+            {index !== marqueeItems.length - 1 && (
+              <span aria-hidden="true">✺</span>
+            )}
+          </>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style is:global>
+  [data-theme="dark"] .about-banner.banner-text {
+    color: #e7e7d8 !important;
+  }
+</style>
