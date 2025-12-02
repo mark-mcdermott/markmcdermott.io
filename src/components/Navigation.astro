@@ -8,9 +8,14 @@ import ThemeToggle from "./ThemeToggle.astro";
   >
     <a
       href="/"
-      class="visited:text-black font-black uppercase tracking-tight p-4 md:p-0"
-      style="color: #1e1e1e;"
-      ><span>MarkMcDermott.io</span>
+      class="flex items-center gap-2 p-4 md:p-0"
+    >
+      <img
+        src="/images/logo.svg"
+        alt="MarkMcDermott.io"
+        class="nav-logo h-6"
+      />
+      <span class="nav-text font-medium text-[15px]">MarkMcDermott.io</span>
     </a>
     <div
       class="flex flex-col md:flex-row md:items-center w-full md:w-auto"
@@ -36,3 +41,17 @@ import ThemeToggle from "./ThemeToggle.astro";
     </div>
   </div>
 </div>
+
+<style>
+  :global([data-theme="dark"]) .nav-logo {
+    filter: invert(93%) sepia(10%) saturate(200%) hue-rotate(10deg);
+  }
+
+  .nav-text {
+    color: #1e1e1e;
+  }
+
+  :global([data-theme="dark"]) .nav-text {
+    color: #e7e7d8;
+  }
+</style>
