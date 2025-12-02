@@ -5,6 +5,7 @@ startDate: "2023-07-01"
 endDate: "2024-06-31"
 skills: ["Laravel", "Livewire", "Stripe", "Tailwind CSS"]
 demoLink: "https://screencial.art"
+imageLink: "https://github.com/mark-mcdermott/puravida"
 ---
 
 ## Overview

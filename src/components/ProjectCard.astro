@@ -26,7 +26,7 @@ function formatPeriod(startDate: Date, endDate?: Date) {
 <article class="card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow">
   {
     project.data.image && (
-      <a href={`/projects/${project.id}`}>
+      <a href={project.data.imageLink || `/projects/${project.id}`} target={project.data.imageLink ? "_blank" : undefined} rel={project.data.imageLink ? "noopener noreferrer" : undefined}>
         <figure class="aspect-video">
           <Image
             src={project.data.image}
