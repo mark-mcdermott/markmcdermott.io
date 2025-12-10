@@ -6,9 +6,9 @@ import Olite from "../assets/work/olite.png";
 import Puravida from "../assets/work/puravida.png";
 
 const projects = [
-  { name: "Theme Forseen", image: ThemeForseen },
-  { name: "Olite", image: Olite },
-  { name: "puravida", image: Puravida },
+  { name: "Theme Forseen", image: ThemeForseen, url: "https://themeforseen.com/" },
+  { name: "Olite", image: Olite, url: "https://github.com/mark-mcdermott/xun-notes" },
+  { name: "puravida", image: Puravida, url: "https://github.com/mark-mcdermott/puravida" },
 ];
 ---
 
@@ -58,9 +58,11 @@ const projects = [
     -->
     <div id="keen-slider" class="keen-slider relative">
       {
-        projects.map(({ name, image }) => (
+        projects.map(({ name, image, url }) => (
           <div class="relative w-full keen-slider__slide">
-            <Image src={image} alt={name} class="aspect-auto w-full" />
+            <a href={url} target="_blank" rel="noopener noreferrer">
+              <Image src={image} alt={name} class="aspect-auto w-full" />
+            </a>
           </div>
         ))
       }
