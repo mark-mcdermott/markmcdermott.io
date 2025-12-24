@@ -85,6 +85,11 @@
   color: #e7e7d8 !important;
 }
 
+/* Footer link hover */
+footer a:hover {
+  color: #ea580c !important;
+}
+
 /* Article content dark theme */
 [data-theme="dark"] article h1,
 [data-theme="dark"] article h2,
