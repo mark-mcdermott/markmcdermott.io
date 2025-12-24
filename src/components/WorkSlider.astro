@@ -5,12 +5,16 @@ import Frunk from "../assets/work/screenshot-frunk.png";
 import ThemeForseen from "../assets/work/screenshot-theme-forseen.png";
 import Xun from "../assets/work/screenshot-xun.png";
 import Puravida from "../assets/work/screenshot-puravida.png";
+import LogoFrunk from "../assets/work/logo-frunk.png";
+import LogoThemeForseen from "../assets/work/logo-themeforseen.png";
+import LogoXun from "../assets/work/logo-xun.png";
+import LogoPuravida from "../assets/work/logo-puravida.png";
 
 const projectsBase = [
-  { name: "Frunk", description: "Car doc storage", image: Frunk, url: "https://frunk.cloud" },
-  { name: "Theme Forseen", description: "App theming tool", image: ThemeForseen, url: "https://themeforseen.com/" },
-  { name: "Xun", description: "Blog post publishing", image: Xun, url: "https://github.com/mark-mcdermott/xun-notes" },
-  { name: "Puravida", description: "Bash script", image: Puravida, url: "https://github.com/mark-mcdermott/puravida" },
+  { name: "Frunk", description: "Car doc storage", image: Frunk, logo: LogoFrunk, url: "https://frunk.cloud" },
+  { name: "Theme Forseen", description: "App theming tool", image: ThemeForseen, logo: LogoThemeForseen, url: "https://themeforseen.com/" },
+  { name: "Xun", description: "Blog post publishing", image: Xun, logo: LogoXun, url: "https://github.com/mark-mcdermott/xun-notes" },
+  { name: "Puravida", description: "Bash script", image: Puravida, logo: LogoPuravida, url: "https://github.com/mark-mcdermott/puravida" },
 ];
 const projects = [...projectsBase, ...projectsBase];
 ---
@@ -59,12 +63,15 @@ const projects = [...projectsBase, ...projectsBase];
     </div>
     <div id="keen-slider" class="keen-slider relative">
       {
-        projects.map(({ name, description, image, url }) => (
+        projects.map(({ name, description, image, logo, url }) => (
           <div class="relative w-full keen-slider__slide">
             <a href={url} target="_blank" rel="noopener noreferrer" class="block group">
               <div class="project-image-wrapper">
                 <Image src={image} alt={name} class="aspect-auto w-full" />
                 <div class="project-image-overlay"></div>
+                <div class="project-logo">
+                  <Image src={logo} alt={`${name} logo`} width={300} height={80} class="w-full h-auto object-contain" />
+                </div>
               </div>
               <div class="project-caption">
                 <span class="project-title">{name}</span>
@@ -100,6 +107,7 @@ const projects = [...projectsBase, ...projectsBase];
 
   .project-image-wrapper {
     position: relative;
+    overflow: visible;
   }
 
   .project-image-overlay {
@@ -120,6 +128,23 @@ const projects = [...projectsBase, ...projectsBase];
 
   .keen-slider__slide:hover .project-image-overlay {
     opacity: 0;
+  }
+
+  .project-logo {
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 300px;
+    padding: 24px 40px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 10;
+    background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.75) 50%, rgba(255, 255, 255, 0) 85%);
+  }
+
+  .keen-slider__slide:hover .project-logo {
+    opacity: 1;
   }
 
   /* Project caption styles */
