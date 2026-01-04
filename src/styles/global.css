@@ -99,9 +99,17 @@ footer a:hover {
 [data-theme="dark"] article h6,
 [data-theme="dark"] article p,
 [data-theme="dark"] article li,
-[data-theme="dark"] article span,
-[data-theme="dark"] article a {
+[data-theme="dark"] article span {
   color: #e7e7d8;
+}
+
+/* Blog post links - orange in both light and dark mode */
+[data-theme="dark"] article a:not(.back-link):not([class*="bg-"]) {
+  color: #ea4125 !important;
+}
+
+[data-theme="dark"] article a:not(.back-link):not([class*="bg-"]):hover {
+  color: #f97316 !important;
 }
 
 /* Global border color and width system */
