@@ -1,6 +1,6 @@
 ---
 title: "Git Rollback Roundup"
-description: "Getting Dangerous With Git"
+subtitle: "Getting Dangerous With Git"
 publishDate: "2025-05-12"
 tags: ["Git", "Tutorial"]
 ---

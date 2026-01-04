@@ -1,6 +1,6 @@
 ---
 title: "TIL - lsof & kill to Clear a Port"
-description: "Using lsof & kill to clear a port"
+subtitle: "Using lsof & kill to clear a port"
 publishDate: "2024-09-20"
 tags: ["TIL", "Command Line"]
 ---

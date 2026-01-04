@@ -1,6 +1,6 @@
 ---
 title: "Context7 Keeps LLMs Current"
-description: "Copy/Paste Entire Docs"
+subtitle: "Copy/Paste Entire Docs"
 publishDate: "2025-04-28"
 tags: ["AI", "Tools"]
 ---

@@ -1,6 +1,6 @@
 ---
 title: "Deleting Git Branches"
-description: "Both locally & remote"
+subtitle: "Both locally & remote"
 publishDate: "2025-07-03"
 tags: ["Git", "Tutorial"]
 ---

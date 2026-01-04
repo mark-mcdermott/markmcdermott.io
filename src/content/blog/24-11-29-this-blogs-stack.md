@@ -1,6 +1,6 @@
 ---
 title: "This Blog's Stack"
-description: "Astro, Tailwind & GitHub Pages"
+subtitle: "Astro, Tailwind & GitHub Pages"
 publishDate: "2024-11-29"
 tags: ["Meta", "Astro", "Tailwind"]
 ---

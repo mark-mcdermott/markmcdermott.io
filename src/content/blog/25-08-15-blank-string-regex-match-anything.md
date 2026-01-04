@@ -1,6 +1,6 @@
 ---
 title: "Blank String Regex Match Anything"
-description: "Don't use empty string fallbacks for regex"
+subtitle: "Don't use empty string fallbacks for regex"
 publishDate: "2025-08-15"
 tags: ["Regex", "JavaScript"]
 ---

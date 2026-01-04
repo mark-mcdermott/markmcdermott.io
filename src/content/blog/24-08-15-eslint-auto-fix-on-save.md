@@ -1,6 +1,6 @@
 ---
 title: "ESLint Auto Fix on Save"
-description: "ESLint Auto-Fix On Save"
+subtitle: "ESLint Auto-Fix On Save"
 publishDate: "2024-08-15"
 tags: ["ESLint", "Tutorial"]
 ---

@@ -1,6 +1,6 @@
 ---
 title: "TIL - JavaScript Double Ternary"
-description: "i.e., JavaScript The Bad Parts"
+subtitle: "i.e., JavaScript The Bad Parts"
 publishDate: "2024-10-27"
 tags: ["TIL", "JavaScript"]
 ---

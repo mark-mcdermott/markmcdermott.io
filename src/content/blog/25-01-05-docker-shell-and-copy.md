@@ -1,6 +1,6 @@
 ---
 title: "Docker Shell and Copy"
-description: "Docker shell and copy commands"
+subtitle: "Docker shell and copy commands"
 publishDate: "2025-01-05"
 tags: ["Docker", "Tutorial"]
 ---

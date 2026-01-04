@@ -1,6 +1,6 @@
 ---
 title: "gh auth login"
-description: "Three ways to auth"
+subtitle: "Three ways to auth"
 publishDate: "2025-07-28"
 tags: ["Git", "GitHub", "CLI"]
 ---

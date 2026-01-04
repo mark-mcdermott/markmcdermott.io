@@ -1,6 +1,6 @@
 ---
 title: "AWS S3"
-description: "How to setup AWS S3"
+subtitle: "How to setup AWS S3"
 publishDate: "2024-08-01"
 tags: ["AWS", "Tutorial"]
 ---

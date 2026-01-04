@@ -1,6 +1,6 @@
 ---
 title: "Git: Undo Last Commit"
-description: "git reset HEAD~"
+subtitle: "git reset HEAD~"
 publishDate: "2024-11-14"
 tags: ["Git", "Tutorial"]
 ---

@@ -5,14 +5,14 @@ import SkillBadge from '../components/SkillBadge.astro';
 
 interface Props {
   title: string;
-  description: string;
+  subtitle: string;
   publishDate: Date;
   updatedDate?: Date;
   image: any;
   tags?: string[];
 }
 
-const { title, description, publishDate, updatedDate, image, tags } = Astro.props;
+const { title, subtitle, publishDate, updatedDate, image, tags } = Astro.props;
 
 function formatDate(date: Date) {
   return date.toLocaleDateString('en-US', {
@@ -28,7 +28,7 @@ const wordCount = content.split(/\s+/).length;
 const readingTime = Math.ceil(wordCount / 200); // Average reading speed: 200 words/min
 ---
 
-<Layout title={title} description={description}>
+<Layout title={title} description={subtitle}>
   <article class="py-20 border-x border-b">
     <div class="max-w-4xl mx-auto px-4">
     <!-- Back button -->
@@ -44,7 +44,7 @@ const readingTime = Math.ceil(wordCount / 200); // Average reading speed: 200 wo
     <!-- Post Header -->
     <header class="mb-8">
       <h1 class="text-5xl font-bold mb-4">{title}</h1>
-      <p class="text-xl text-base-content/70 mb-4">{description}</p>
+      <p class="text-xl text-base-content/70 mb-4">{subtitle}</p>
 
       <div class="flex flex-wrap items-center gap-4 text-sm text-base-content/60">
         <time datetime={publishDate.toISOString()}>

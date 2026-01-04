@@ -1,6 +1,6 @@
 ---
 title: "Deleting Blank Lines (VSCode)"
-description: "A quick regex"
+subtitle: "A quick regex"
 publishDate: "2025-10-04"
 tags: ["VS Code", "Regex"]
 ---

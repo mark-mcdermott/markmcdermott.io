@@ -1,6 +1,6 @@
 ---
 title: "TIL - Disabling Foreign Key Checks in MySQL"
-description: "Disabling foreign key checks in MySQL"
+subtitle: "Disabling foreign key checks in MySQL"
 publishDate: "2024-10-09"
 tags: ["TIL", "MySQL", "Database"]
 ---

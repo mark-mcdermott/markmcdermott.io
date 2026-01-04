@@ -1,6 +1,6 @@
 ---
 title: "Barebones Rails/RSpec/Nuxt/Vitest/Playwright/Fly.io Tutorial"
-description: "A tutorial for setting up a Rails/RSpec/Nuxt/Vitest/Playwright/Fly.io app"
+subtitle: "A tutorial for setting up a Rails/RSpec/Nuxt/Vitest/Playwright/Fly.io app"
 publishDate: "2025-01-29"
 tags: ["Rails", "Nuxt", "Tutorial"]
 ---

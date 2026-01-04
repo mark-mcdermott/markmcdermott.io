@@ -1,6 +1,6 @@
 ---
 title: "Quick Git Notes"
-description: "Amending, Squashing & Diffing Cheatsheet"
+subtitle: "Amending, Squashing & Diffing Cheatsheet"
 publishDate: "2024-03-14"
 tags: ["Git", "Tutorial"]
 ---

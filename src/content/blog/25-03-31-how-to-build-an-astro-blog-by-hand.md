@@ -1,6 +1,6 @@
 ---
 title: "How to Build an Astro Blog by Hand"
-description: "DIY Astro fun"
+subtitle: "DIY Astro fun"
 publishDate: "2025-03-31"
 tags: ["Astro", "Tutorial"]
 ---

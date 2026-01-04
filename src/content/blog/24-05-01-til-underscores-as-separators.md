@@ -1,6 +1,6 @@
 ---
 title: "TIL - Underscores as Separators"
-description: "Underscores in numbers in JavaScript & Ruby"
+subtitle: "Underscores in numbers in JavaScript & Ruby"
 publishDate: "2024-05-01"
 tags: ["TIL", "JavaScript", "Ruby"]
 ---

@@ -1,6 +1,6 @@
 ---
 title: "Playwright CLI Grep Option"
-description: "grep & grep-invert"
+subtitle: "grep & grep-invert"
 publishDate: "2025-07-14"
 tags: ["Playwright", "Testing"]
 ---

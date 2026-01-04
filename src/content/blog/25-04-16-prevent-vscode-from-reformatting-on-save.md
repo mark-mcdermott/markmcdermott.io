@@ -1,6 +1,6 @@
 ---
 title: "Keep VSCode from Tweaking Code"
-description: "Using .vscode/settings.json"
+subtitle: "Using .vscode/settings.json"
 publishDate: "2025-04-16"
 tags: ["VS Code", "Productivity"]
 ---

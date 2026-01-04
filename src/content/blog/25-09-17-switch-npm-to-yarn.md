@@ -1,6 +1,6 @@
 ---
 title: "Switch npm to yarn"
-description: "Quick & easy"
+subtitle: "Quick & easy"
 publishDate: "2025-09-17"
 tags: ["Node", "Package Management"]
 ---

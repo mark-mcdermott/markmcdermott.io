@@ -1,6 +1,6 @@
 ---
 title: "Rails Console Delete Multiple"
-description: "One-liner"
+subtitle: "One-liner"
 publishDate: "2025-09-01"
 tags: ["Rails", "Ruby"]
 ---
