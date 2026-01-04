@@ -7,9 +7,9 @@ import type { GetStaticPaths } from "astro";
 export const getStaticPaths = (async ({ paginate }) => {
   const blogPosts = await getCollection("blog");
 
-  // Sort by publish date, most recent first
+  // Sort by date, most recent first
   const sortedPosts = blogPosts.sort(
-    (a, b) => new Date(b.data.publishDate).getTime() - new Date(a.data.publishDate).getTime()
+    (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
   );
 
   return paginate(sortedPosts, { pageSize: 9 });
@@ -75,7 +75,7 @@ function formatDate(date: Date | string) {
             <article class="card bg-base-100 border" style="border-color: #999;">
               <div class="card-body">
                 <time class="text-sm text-base-content/60">
-                  {formatDate(post.data.publishDate)}
+                  {formatDate(post.data.date)}
                 </time>
                 <h2 class="card-title blog-card-title transition-colors">
                   <a href={`/blog/${post.id}`}>{post.data.title}</a>

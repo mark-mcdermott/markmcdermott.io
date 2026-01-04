@@ -1,7 +1,7 @@
 ---
 title: "TIL - lsof & kill to Clear a Port"
 subtitle: "Using lsof & kill to clear a port"
-publishDate: "2024-09-20"
+date: "2024-09-20"
 tags: ["TIL", "Command Line"]
 ---
 I've probably looked this up and done it a million times over the years, but it never somehow stuck in my head. But a good way to find what is running on a port (say, port 3000) is `lsof -i :3000` and that will give you the `pid` or process number running on that port. Then to stop that running process, you can do `kill -9 <pid>` where you replace `<pid>` with the actual process number.

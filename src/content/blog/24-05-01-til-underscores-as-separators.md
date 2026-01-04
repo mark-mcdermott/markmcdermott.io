@@ -1,7 +1,7 @@
 ---
 title: "TIL - Underscores as Separators"
 subtitle: "Underscores in numbers in JavaScript & Ruby"
-publishDate: "2024-05-01"
+date: "2024-05-01"
 tags: ["TIL", "JavaScript", "Ruby"]
 ---
 Had a "whoa" moment today when I learned that both javascript and ruby accept underscores in numbers. Underscores are used where commas or periods would be and are just ignored when parsing the number.

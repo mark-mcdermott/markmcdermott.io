@@ -1,7 +1,7 @@
 ---
 title: "Adding S3 to Barebones Tutorial"
 subtitle: "Adding S3 to the Barebones Rails/RSpec/Nuxt/Vitest/Playwright/Fly.io Tutorial"
-publishDate: "2025-03-02"
+date: "2025-03-02"
 tags: ["Rails", "AWS", "Tutorial"]
 ---
 

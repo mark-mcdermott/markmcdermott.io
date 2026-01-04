@@ -1,7 +1,7 @@
 ---
 title: "JavaScript Check If All/Some Array Elements Are True"
 subtitle: "Using every() and some()"
-publishDate: "2024-03-26"
+date: "2024-03-26"
 tags: ["JavaScript", "Tutorial"]
 ---
 

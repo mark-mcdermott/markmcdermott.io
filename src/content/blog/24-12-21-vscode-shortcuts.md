@@ -1,7 +1,7 @@
 ---
 title: "VS Code Shortcuts"
 subtitle: "VS Code Shortcuts I Use All The Time"
-publishDate: "2024-12-21"
+date: "2024-12-21"
 tags: ["VS Code", "Productivity"]
 ---
 

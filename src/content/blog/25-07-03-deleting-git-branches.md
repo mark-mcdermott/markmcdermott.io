@@ -1,7 +1,7 @@
 ---
 title: "Deleting Git Branches"
 subtitle: "Both locally & remote"
-publishDate: "2025-07-03"
+date: "2025-07-03"
 tags: ["Git", "Tutorial"]
 ---
 - To delete a local branch it's `git branch -D <branchname>`

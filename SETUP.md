@@ -126,9 +126,9 @@ Create markdown files in `src/content/blog/`:
 ```markdown
 ---
 title: "Post Title"
-description: "Post description"
+subtitle: "Post description"
 image: "./post-cover.png"
-publishDate: "2024-01-15"
+date: "2024-01-15"
 updatedDate: "2024-01-20" # Optional
 tags: ["Web Development", "TypeScript"] # Optional
 ---

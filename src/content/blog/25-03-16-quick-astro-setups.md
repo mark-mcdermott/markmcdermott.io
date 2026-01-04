@@ -1,7 +1,7 @@
 ---
 title: "Astro Learnings"
 subtitle: "Various Astro how-tos"
-publishDate: "2025-03-16"
+date: "2025-03-16"
 tags: ["Astro", "Tutorial"]
 ---
 

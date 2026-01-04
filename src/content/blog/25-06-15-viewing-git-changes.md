@@ -1,7 +1,7 @@
 ---
 title: "Viewing Git Changes"
 subtitle: "Both Filenames & Diffs"
-publishDate: "2025-06-15"
+date: "2025-06-15"
 tags: ["Git", "Tutorial"]
 ---
 

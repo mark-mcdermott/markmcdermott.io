@@ -1,7 +1,7 @@
 ---
 title: "Markdown & MDX Guide"
 description: "Master Markdown syntax and MDX features in Bloomfolio. Learn how to create rich, formatted content with embedded media components."
-publishDate: "2025-11-03"
+date: "2025-11-03"
 tags: ["Guide", "Markdown", "MDX", "Writing"]
 ---
 
@@ -239,7 +239,7 @@ At the top of your `.mdx` file, import the components you need:
 ---
 title: "My Post"
 description: "Post description"
-publishDate: "2024-01-27"
+date: "2024-01-27"
 ---
 
 import Spotify from '../../components/Spotify.astro';

@@ -1,7 +1,7 @@
 ---
 title: "Vue Currency Component"
 subtitle: "A component for entering dollar and cents values"
-publishDate: "2024-04-14"
+date: "2024-04-14"
 tags: ["Vue", "Components"]
 ---
 

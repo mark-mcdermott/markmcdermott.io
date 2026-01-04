@@ -1,7 +1,7 @@
 ---
 title: "This Blog's Stack"
 subtitle: "Astro, Tailwind & GitHub Pages"
-publishDate: "2024-11-29"
+date: "2024-11-29"
 tags: ["Meta", "Astro", "Tailwind"]
 ---
 Here is a bit of my thinking when I chose to start this blog:

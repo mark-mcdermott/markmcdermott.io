@@ -1,7 +1,7 @@
 ---
 title: "Rails Console Delete Multiple"
 subtitle: "One-liner"
-publishDate: "2025-09-01"
+date: "2025-09-01"
 tags: ["Rails", "Ruby"]
 ---
 Today in Rails I wanted to find out if there was a one-liner that would delete multiple items by id in the Rails console. Turns out there is: 

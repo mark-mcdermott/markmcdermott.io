@@ -6,13 +6,13 @@ import SkillBadge from '../components/SkillBadge.astro';
 interface Props {
   title: string;
   subtitle: string;
-  publishDate: Date;
+  date: Date;
   updatedDate?: Date;
   image: any;
   tags?: string[];
 }
 
-const { title, subtitle, publishDate, updatedDate, image, tags } = Astro.props;
+const { title, subtitle, date, updatedDate, image, tags } = Astro.props;
 
 function formatDate(date: Date) {
   return date.toLocaleDateString('en-US', {
@@ -47,8 +47,8 @@ const readingTime = Math.ceil(wordCount / 200); // Average reading speed: 200 wo
       <p class="text-xl text-base-content/70 mb-4">{subtitle}</p>
 
       <div class="flex flex-wrap items-center gap-4 text-sm text-base-content/60">
-        <time datetime={publishDate.toISOString()}>
-          {formatDate(publishDate)}
+        <time datetime={date.toISOString()}>
+          {formatDate(date)}
         </time>
         <span>•</span>
         <span>{readingTime} min read</span>

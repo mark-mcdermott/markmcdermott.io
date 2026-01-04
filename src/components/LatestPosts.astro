@@ -3,9 +3,9 @@ import { getCollection } from "astro:content";
 
 const blogEntries = await getCollection("blog");
 
-// Sort by publish date, most recent first
+// Sort by date, most recent first
 const sortedPosts = blogEntries.sort(
-  (a, b) => new Date(b.data.publishDate).getTime() - new Date(a.data.publishDate).getTime()
+  (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
 );
 
 // Get only the latest 4 posts
@@ -36,7 +36,7 @@ const getExcerpt = (body: string, length: number = 120) => {
       <a href={`/blog/${post.id}`} class="flex flex-col h-full group">
         <span class="block font-semibold latest-posts-title group-hover:text-orange-600">{post.data.title}</span>
         <span class="block text-eagle">{post.data.subtitle}</span>
-        <span class="block text-eagle">{formatDate(post.data.publishDate)}</span>
+        <span class="block text-eagle">{formatDate(post.data.date)}</span>
         <p class="font-normal text-eagle mt-3">{getExcerpt(post.body)}</p>
       </a>
     ))

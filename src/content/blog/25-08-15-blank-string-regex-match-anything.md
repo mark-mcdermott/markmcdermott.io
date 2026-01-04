@@ -1,7 +1,7 @@
 ---
 title: "Blank String Regex Match Anything"
 subtitle: "Don't use empty string fallbacks for regex"
-publishDate: "2025-08-15"
+date: "2025-08-15"
 tags: ["Regex", "JavaScript"]
 ---
 A saw an interesting regex but today that I hadn't ever thought about before. A regex that is an empty string will match all values. That's because it will always say that it did indeed find "" in the string.

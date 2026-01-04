@@ -31,7 +31,7 @@ function formatDate(date: Date) {
       <a href={`/blog/${post.id}`} class="hover:text-orange">{post.data.title}</a>
     </h3>
     <time class="text-sm text-base-100-content/80">
-      {formatDate(post.data.publishDate)}
+      {formatDate(post.data.date)}
     </time>
     <p class="text-base-100-content/90 line-clamp-2">{post.data.subtitle}</p>
   </div>

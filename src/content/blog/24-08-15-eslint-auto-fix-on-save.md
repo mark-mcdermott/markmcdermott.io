@@ -1,7 +1,7 @@
 ---
 title: "ESLint Auto Fix on Save"
 subtitle: "ESLint Auto-Fix On Save"
-publishDate: "2024-08-15"
+date: "2024-08-15"
 tags: ["ESLint", "Tutorial"]
 ---
 Let's look at how to use [ESLint](https://eslint.org) to keep our Vue JavaScript clean looking. Specifically, we'll use [antfu's eslint-config](https://github.com/antfu/eslint-config) which are nice presets including auto-fix on save and a nice one line CLI install tool.

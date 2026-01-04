@@ -1,7 +1,7 @@
 ---
 title: "Running a Frontend and Backend with Concurrently"
 subtitle: "Running a frontend and backend with Concurrently"
-publishDate: "2024-09-07"
+date: "2024-09-07"
 tags: ["Development", "Tutorial"]
 ---
 ## Starting A Frontend/Backend With Concurrently

@@ -1,7 +1,7 @@
 ---
 title: "Bloomfolio Complete Guide: Building Your Portfolio"
 description: "A comprehensive guide to customizing and deploying your Bloomfolio portfolio template. Learn about configuration, components, content collections, and deployment."
-publishDate: "2025-11-01"
+date: "2025-11-01"
 tags: ["Guide", "Documentation", "Astro", "Portfolio"]
 ---
 
@@ -235,7 +235,7 @@ Blog posts support both `.md` and `.mdx` formats.
 ---
 title: "Post Title"
 description: "Brief description"
-publishDate: "2024-01-25"
+date: "2024-01-25"
 updatedDate: "2024-01-26"  # Optional
 tags: ["Tag1", "Tag2"]      # Optional
 ---

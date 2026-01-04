@@ -1,7 +1,7 @@
 ---
 title: "Git: Undo Last Commit"
 subtitle: "git reset HEAD~"
-publishDate: "2024-11-14"
+date: "2024-11-14"
 tags: ["Git", "Tutorial"]
 ---
 Yesterday I ran into an issue where I committed some changes locally in git and then wished I hadn't. And I realized my last post about git, my Git Cheatsheet, didn't have how to undo the last local commit. Turns out it's one of the easiest things to do in git: `git reset HEAD~`. It *just works*. All files committed in the last commit will now show as unstaged with modifications, just like they were before you committed.

@@ -1,7 +1,7 @@
 ---
 title: "Switch npm to yarn"
 subtitle: "Quick & easy"
-publishDate: "2025-09-17"
+date: "2025-09-17"
 tags: ["Node", "Package Management"]
 ---
 - `corepack enable`

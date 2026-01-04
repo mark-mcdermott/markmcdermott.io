@@ -1,7 +1,7 @@
 ---
 title: "Deleting Blank Lines (VSCode)"
 subtitle: "A quick regex"
-publishDate: "2025-10-04"
+date: "2025-10-04"
 tags: ["VS Code", "Regex"]
 ---
 I had a textfile today in VSCode where every other line was a blank line and I needed to delete all the blank lines. Turns out there's a quick regex you can use for this in VSCode search and replace:

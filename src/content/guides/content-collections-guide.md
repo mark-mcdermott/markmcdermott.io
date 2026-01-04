@@ -1,7 +1,7 @@
 ---
 title: "Content Collections Guide"
 description: "Learn how to create and manage content in Bloomfolio using Astro's Content Collections. Complete schemas and examples for all 6 collection types."
-publishDate: "2025-11-02"
+date: "2025-11-02"
 tags: ["Guide", "Content", "Collections"]
 ---
 
@@ -90,7 +90,7 @@ to open source projects, or sharing knowledge through blog posts and talks.
 ---
 title: string                    # Post title
 description: string              # Brief summary (for SEO)
-publishDate: date                # Publication date
+date: date                # Publication date
 updatedDate?: date              # Optional last update date
 tags?: string[]                 # Optional tags/categories
 ---
@@ -101,7 +101,7 @@ tags?: string[]                 # Optional tags/categories
 ---
 title: "Building Modern Web Apps with Astro"
 description: "Learn how to create fast, content-focused websites using Astro's islands architecture."
-publishDate: "2024-01-15"
+date: "2024-01-15"
 updatedDate: "2024-01-20"
 tags: ["Astro", "Tutorial", "Web Development"]
 ---
@@ -476,7 +476,7 @@ Use descriptive, URL-friendly names:
 Always use ISO 8601 format: `YYYY-MM-DD`
 
 ```yaml
-publishDate: "2024-01-25"
+date: "2024-01-25"
 startDate: "2023-06-15"
 ```
 

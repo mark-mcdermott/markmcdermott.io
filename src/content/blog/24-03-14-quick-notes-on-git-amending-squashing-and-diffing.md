@@ -1,7 +1,7 @@
 ---
 title: "Quick Git Notes"
 subtitle: "Amending, Squashing & Diffing Cheatsheet"
-publishDate: "2024-03-14"
+date: "2024-03-14"
 tags: ["Git", "Tutorial"]
 ---
  I've been working collaboratively on Drivetracks with a couple people and have forced to improve my git-fu a bit and want to jot down real quick what I've learned.

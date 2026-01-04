@@ -1,7 +1,7 @@
 ---
 title: "Where's Your Head At?"
 subtitle: "Number of Commits Ahead/Behind"
-publishDate: "2025-05-21"
+date: "2025-05-21"
 tags: ["Git", "Tutorial"]
 ---
 

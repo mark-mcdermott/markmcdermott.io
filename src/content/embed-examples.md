@@ -1,7 +1,7 @@
 ---
 title: "Rich Media Embeds in MDX"
 description: "Learn how to embed Spotify, YouTube, and Twitter content directly in your blog posts using MDX components."
-publishDate: "2024-10-31"
+date: "2024-10-31"
 tags: ["MDX", "Tutorial", "Media Embeds"]
 ---
 

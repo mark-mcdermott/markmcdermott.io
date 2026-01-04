@@ -1,7 +1,7 @@
 ---
 title: "TIL - JavaScript Double Ternary"
 subtitle: "i.e., JavaScript The Bad Parts"
-publishDate: "2024-10-27"
+date: "2024-10-27"
 tags: ["TIL", "JavaScript"]
 ---
 This is might be venturing into *JavaScript: The Bad Parts*, but I was flummoxed today when ChatGPT answered a question I had with a JavaScript double ternary. I'd never heard of it before. [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_operator#conditional_chains) more aptly calls these "conditional chains".

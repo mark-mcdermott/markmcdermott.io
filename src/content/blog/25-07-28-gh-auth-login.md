@@ -1,7 +1,7 @@
 ---
 title: "gh auth login"
 subtitle: "Three ways to auth"
-publishDate: "2025-07-28"
+date: "2025-07-28"
 tags: ["Git", "GitHub", "CLI"]
 ---
 `gh auth` is a really nice way to access your Github repos from the command line. But it has always confused me a little bit. I believe there are [three ways] you can auth with `gh auth`:
