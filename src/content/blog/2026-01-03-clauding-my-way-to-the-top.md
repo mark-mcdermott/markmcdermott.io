@@ -1,6 +1,6 @@
 ---
 title: "Clauding My Way To The Top"
-description: "aka 'Claude Take The Wheel'"
+subtitle: "aka 'Claude Take The Wheel'"
 publishDate: "2026-01-03"
 tags: ["Claude","AI"]
 slug: "2026-01-03-clauding-my-way-to-the-top"
