@@ -186,12 +186,12 @@ Build out the portfolio using Astro, SCSS, and everything learned so far.
 
 | # | Lesson | Status | Description |
 |---|--------|--------|-------------|
-| 01 | Component Architecture | `[ ]` | Plan the component tree. Header, footer, navigation, card, post layout. Reusability principles. |
-| 02 | SCSS Architecture Implementation | `[ ]` | Set up 7-1 structure. Define design tokens. Create base styles and mixins. |
-| 03 | Page Layouts | `[ ]` | Home page, blog listing, blog post, project page, about page. Responsive layouts for each. |
-| 04 | Content Migration | `[ ]` | Move blog posts into content collections. Set up frontmatter schemas. Validate content. |
-| 05 | Navigation and Interactivity | `[ ]` | Site navigation. Mobile menu (minimal JS). Active page indicators. Smooth scrolling. |
-| 06 | The C64 Theme | `[ ]` | Implementing the retro aesthetic. Color system. Typography choices. CRT effects in CSS. |
+| 01 | Component Architecture | `[x]` | Plan the component tree. Header, footer, navigation, card, post layout. Reusability principles. |
+| 02 | SCSS Architecture Implementation | `[x]` | Set up 7-1 structure. Define design tokens. Create base styles and mixins. |
+| 03 | Page Layouts | `[x]` | Home page, blog listing, blog post, project page, about page. Responsive layouts for each. |
+| 04 | Content Migration | `[x]` | Move blog posts into content collections. Set up frontmatter schemas. Validate content. |
+| 05 | Navigation and Interactivity | `[x]` | Site navigation. Mobile menu (minimal JS). Active page indicators. Smooth scrolling. |
+| 06 | The C64 Theme | `[x]` | Implementing the retro aesthetic. Color system. Typography choices. CRT effects in CSS. |
 
 ### Section 13: Polish and Production
 
@@ -199,10 +199,10 @@ Get the site deployment-ready and professional.
 
 | # | Lesson | Status | Description |
 |---|--------|--------|-------------|
-| 01 | SEO Fundamentals | `[ ]` | Meta tags, Open Graph, Twitter cards. Structured data. Canonical URLs. |
-| 02 | Performance Optimization | `[ ]` | Image optimization, font loading, critical CSS. Lighthouse 100 score target. |
-| 03 | Cloudflare Pages Deployment | `[ ]` | Build configuration. Environment variables. Preview deployments. Custom domain. |
-| 04 | Analytics and Monitoring | `[ ]` | Privacy-friendly analytics options. Error monitoring. Uptime checks. |
+| 01 | SEO Fundamentals | `[x]` | Meta tags, Open Graph, Twitter cards. Structured data. Canonical URLs. |
+| 02 | Performance Optimization | `[x]` | Image optimization, font loading, critical CSS. Lighthouse 100 score target. |
+| 03 | Cloudflare Pages Deployment | `[x]` | Build configuration. Environment variables. Preview deployments. Custom domain. |
+| 04 | Analytics and Monitoring | `[x]` | Privacy-friendly analytics options. Error monitoring. Uptime checks. |
 
 ---
 

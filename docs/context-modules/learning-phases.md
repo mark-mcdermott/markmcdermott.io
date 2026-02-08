@@ -20,8 +20,8 @@
 - [x] HTML semantics and accessibility (landmarks, ARIA, keyboard nav)
 
 ## Phase 4: Building the Portfolio (Part 4)
-- [ ] Site implementation (components, pages, content migration)
-- [ ] Polish and production (performance, SEO, analytics, deployment)
+- [x] Site implementation (components, pages, content migration)
+- [x] Polish and production (performance, SEO, analytics, deployment)
 
 ## Phase 5: Testing and Practices (Part 5)
 - [ ] Playwright testing (E2E, visual regression, accessibility audits)
