@@ -24,8 +24,8 @@
 - [x] Polish and production (performance, SEO, analytics, deployment)
 
 ## Phase 5: Testing and Practices (Part 5)
-- [ ] Playwright testing (E2E, visual regression, accessibility audits)
-- [ ] Engineering practices (git workflows, code quality, CI/CD)
+- [x] Playwright testing (E2E, visual regression, accessibility audits)
+- [x] Engineering practices (git workflows, code quality, CI/CD)
 
 ## Background Skills Assessment
 - [x] QA expertise (~15 years) - testing instincts, how software breaks

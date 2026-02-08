@@ -1,6 +1,6 @@
 # Curriculum Outline
 
-> **Progress**: Phase 1 - Understanding Astro (in progress)
+> **Progress**: Full curriculum pass complete (conceptual)
 > **Last Updated**: 2026-02-03
 
 ## Learning Philosophy
@@ -216,11 +216,11 @@ E2E testing for the portfolio site.
 
 | # | Lesson | Status | Description |
 |---|--------|--------|-------------|
-| 01 | Playwright Fundamentals | `[ ]` | Selectors, assertions, page model. How E2E testing works. Test runner config. |
-| 02 | Testing Static Sites | `[ ]` | Testing Astro output. Navigation testing. Content validation. Link checking. |
-| 03 | Visual Regression Testing | `[ ]` | Screenshot comparison. Responsive screenshots. Threshold configuration. CI integration. |
-| 04 | Accessibility Testing | `[ ]` | axe-core integration. Automated a11y audits. Testing keyboard navigation. |
-| 05 | Test Architecture | `[ ]` | Page objects. Fixtures. Parallel execution. Test organization for a portfolio site. |
+| 01 | Playwright Fundamentals | `[x]` | Selectors, assertions, page model. How E2E testing works. Test runner config. |
+| 02 | Testing Static Sites | `[x]` | Testing Astro output. Navigation testing. Content validation. Link checking. |
+| 03 | Visual Regression Testing | `[x]` | Screenshot comparison. Responsive screenshots. Threshold configuration. CI integration. |
+| 04 | Accessibility Testing | `[x]` | axe-core integration. Automated a11y audits. Testing keyboard navigation. |
+| 05 | Test Architecture | `[x]` | Page objects. Fixtures. Parallel execution. Test organization for a portfolio site. |
 
 ### Section 15: Engineering Practices
 
@@ -228,11 +228,11 @@ What separates a coder from an engineer.
 
 | # | Lesson | Status | Description |
 |---|--------|--------|-------------|
-| 01 | Git Advanced Workflows | `[ ]` | Rebase vs merge. Cherry-pick. Bisect. Reflog. Branch strategy for the portfolio. |
-| 02 | GitHub Actions CI | `[ ]` | Workflow syntax. Build + test + deploy pipeline. Caching. Status checks on PRs. |
-| 03 | Code Quality | `[ ]` | ESLint configuration. Prettier setup. Pre-commit hooks. Consistent code style. |
-| 04 | Clean Code Principles | `[ ]` | Naming, functions, comments, formatting. Code as communication. |
-| 05 | Technical Communication | `[ ]` | Explaining decisions in plain English. Writing good PR descriptions. Documentation. |
+| 01 | Git Advanced Workflows | `[x]` | Rebase vs merge. Cherry-pick. Bisect. Reflog. Branch strategy for the portfolio. |
+| 02 | GitHub Actions CI | `[x]` | Workflow syntax. Build + test + deploy pipeline. Caching. Status checks on PRs. |
+| 03 | Code Quality | `[x]` | ESLint configuration. Prettier setup. Pre-commit hooks. Consistent code style. |
+| 04 | Clean Code Principles | `[x]` | Naming, functions, comments, formatting. Code as communication. |
+| 05 | Technical Communication | `[x]` | Explaining decisions in plain English. Writing good PR descriptions. Documentation. |
 
 ---
 
@@ -289,6 +289,43 @@ Lessons suggested during learning that need to be placed in the outline.
 | 2026-02-06 | 08: Responsive & Animations | 06 - CSS Animations | Completed |
 | 2026-02-06 | 08: Responsive & Animations | 07 - Transforms | Completed |
 | 2026-02-06 | 08: Responsive & Animations | 08 - The C64 Aesthetic | Completed |
+| 2026-02-06 | 09: JS/TS Essentials | 01 - The Event Loop | Completed |
+| 2026-02-06 | 09: JS/TS Essentials | 02 - Closures and Scope | Completed |
+| 2026-02-06 | 09: JS/TS Essentials | 03 - Async Patterns | Completed |
+| 2026-02-06 | 09: JS/TS Essentials | 04 - ES Modules | Completed |
+| 2026-02-06 | 09: JS/TS Essentials | 05 - TypeScript Fundamentals | Completed |
+| 2026-02-06 | 09: JS/TS Essentials | 06 - TypeScript Advanced Patterns | Completed |
+| 2026-02-06 | 09: JS/TS Essentials | 07 - DOM Manipulation | Completed |
+| 2026-02-06 | 10: Browser Internals | 01 - How Browsers Render | Completed |
+| 2026-02-06 | 10: Browser Internals | 02 - The DOM and CSSOM | Completed |
+| 2026-02-06 | 10: Browser Internals | 03 - Web APIs | Completed |
+| 2026-02-06 | 10: Browser Internals | 04 - Browser DevTools Mastery | Completed |
+| 2026-02-06 | 10: Browser Internals | 05 - Performance Fundamentals | Completed |
+| 2026-02-06 | 11: HTML & Accessibility | 01 - Semantic HTML | Completed |
+| 2026-02-06 | 11: HTML & Accessibility | 02 - WCAG Fundamentals | Completed |
+| 2026-02-06 | 11: HTML & Accessibility | 03 - ARIA Attributes | Completed |
+| 2026-02-06 | 11: HTML & Accessibility | 04 - Keyboard Navigation | Completed |
+| 2026-02-06 | 11: HTML & Accessibility | 05 - Accessible Styling | Completed |
+| 2026-02-06 | 12: Site Implementation | 01 - Component Architecture | Completed (planning) |
+| 2026-02-06 | 12: Site Implementation | 02 - SCSS Architecture Implementation | Completed (planning) |
+| 2026-02-06 | 12: Site Implementation | 03 - Page Layouts | Completed (planning) |
+| 2026-02-06 | 12: Site Implementation | 04 - Content Migration | Completed (planning) |
+| 2026-02-06 | 12: Site Implementation | 05 - Navigation and Interactivity | Completed (planning) |
+| 2026-02-06 | 12: Site Implementation | 06 - The C64 Theme | Completed (planning) |
+| 2026-02-06 | 13: Polish & Production | 01 - SEO Fundamentals | Completed (planning) |
+| 2026-02-06 | 13: Polish & Production | 02 - Performance Optimization | Completed (planning) |
+| 2026-02-06 | 13: Polish & Production | 03 - Cloudflare Pages Deployment | Completed (planning) |
+| 2026-02-06 | 13: Polish & Production | 04 - Analytics and Monitoring | Completed (planning) |
+| 2026-02-06 | 14: Playwright Testing | 01 - Playwright Fundamentals | Completed |
+| 2026-02-06 | 14: Playwright Testing | 02 - Testing Static Sites | Completed |
+| 2026-02-06 | 14: Playwright Testing | 03 - Visual Regression Testing | Completed |
+| 2026-02-06 | 14: Playwright Testing | 04 - Accessibility Testing | Completed |
+| 2026-02-06 | 14: Playwright Testing | 05 - Test Architecture | Completed |
+| 2026-02-06 | 15: Engineering Practices | 01 - Git Advanced Workflows | Completed |
+| 2026-02-06 | 15: Engineering Practices | 02 - GitHub Actions CI | Completed |
+| 2026-02-06 | 15: Engineering Practices | 03 - Code Quality | Completed |
+| 2026-02-06 | 15: Engineering Practices | 04 - Clean Code Principles | Completed |
+| 2026-02-06 | 15: Engineering Practices | 05 - Technical Communication | Completed |
 
 ---
 

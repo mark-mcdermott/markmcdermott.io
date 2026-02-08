@@ -9,7 +9,7 @@ Responsive Design:      [################    ] 80%
 TypeScript:             [########            ] 40%
 Playwright Testing:     [                    ] 0%
 HTML & Accessibility:   [############        ] 60%
-Deployment & CI/CD:     [                    ] 0%
+Deployment & CI/CD:     [######              ] 30%
 ```
 
 ## Web Fundamentals
@@ -55,7 +55,7 @@ Testing Practices:      [                    ] 0%
 | JavaScript event loop | 2026-02-06 | 2026-02-09 | Proficient | Call stack, task queue, microtasks, Promise priority |
 | HTML semantics | 2026-02-06 | 2026-02-09 | Proficient | Landmarks, heading hierarchy, ARIA |
 | ARIA and accessibility | 2026-02-06 | 2026-02-09 | Proficient | POUR, WCAG AA, keyboard nav, focus-visible |
-| Playwright selectors | - | Pending | Familiar | QA background |
+| Playwright selectors | 2026-02-06 | 2026-02-09 | Proficient | QA background + Astro testing patterns |
 
 ### Confidence Levels
 - **Expert**: Can explain and teach the concept
