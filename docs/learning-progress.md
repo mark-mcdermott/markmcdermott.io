@@ -7,9 +7,9 @@
 - **Pattern**: Understand the template you started from, then build outward
 
 ## Immediate Next Steps
-1. **Lesson 01-01**: Astro Project Structure (src/, pages, components, layouts)
-2. **Lesson 01-02**: The .astro File Format (frontmatter, template, style, script)
-3. **Lesson 01-03**: Component Props and Slots (typing, composition, reuse)
+1. **Lesson 04-04**: Image Optimization (Astro Image component, format conversion)
+2. **Lesson 04-05**: Configuration Deep Dive (astro.config.mjs, Vite, deploy adapters)
+3. **Part 2 begins**: CSS3 and SCSS Mastery (Section 05: CSS3 Fundamentals)
 
 ## Curriculum Location
 **Full outline**: `docs/lessons/00-curriculum-outline.md`
@@ -103,4 +103,4 @@
 **Platform architecture**: @docs/context-modules/platform-specs.md
 **Success metrics**: @docs/context-modules/progress-tracking.md
 
-*Updated*: 2026-02-03
+*Updated*: 2026-02-06

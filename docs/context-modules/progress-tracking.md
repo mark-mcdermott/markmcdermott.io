@@ -2,21 +2,21 @@
 
 ## Technical Proficiency Targets
 ```
-Astro 5:                [                    ] 0%
-CSS3 Fundamentals:      [                    ] 0%
-SCSS Architecture:      [                    ] 0%
-Responsive Design:      [                    ] 0%
-TypeScript:             [                    ] 0%
+Astro 5:                [############        ] 60%
+CSS3 Fundamentals:      [####################] 100%
+SCSS Architecture:      [####################] 100%
+Responsive Design:      [################    ] 80%
+TypeScript:             [########            ] 40%
 Playwright Testing:     [                    ] 0%
-HTML & Accessibility:   [                    ] 0%
+HTML & Accessibility:   [############        ] 60%
 Deployment & CI/CD:     [                    ] 0%
 ```
 
 ## Web Fundamentals
 ```
-JavaScript Essentials:  [                    ] 0%
-Browser Internals:      [                    ] 0%
-Web APIs:               [                    ] 0%
+JavaScript Essentials:  [##########          ] 50%
+Browser Internals:      [##########          ] 50%
+Web APIs:               [######              ] 30%
 ```
 
 ## Dev Role Readiness
@@ -33,25 +33,28 @@ Testing Practices:      [                    ] 0%
 
 | Concept | Last Review | Next Review | Confidence | Notes |
 |---------|-------------|-------------|------------|-------|
-| Astro project structure | - | Pending | New | Phase 1 |
-| Astro content collections | - | Pending | New | Phase 1 |
-| Astro routing | - | Pending | New | Phase 1 |
-| Astro islands architecture | - | Pending | New | Phase 1 |
-| CSS box model | - | Pending | Familiar | Has used, needs depth |
-| CSS specificity & cascade | - | Pending | Some theory | Needs formal understanding |
-| Flexbox | - | Pending | Familiar | Has used, needs depth |
-| CSS Grid | - | Pending | Some theory | Limited practice |
-| SCSS variables & nesting | - | Pending | Familiar | Has used, needs depth |
-| SCSS mixins & functions | - | Pending | New | Phase 2 |
-| SCSS architecture (7-1) | - | Pending | New | Phase 2 |
-| Media queries | - | Pending | Familiar | Has used, needs depth |
-| Fluid typography | - | Pending | New | Phase 2 |
-| CSS animations | - | Pending | Some theory | Limited practice |
-| CSS custom properties | - | Pending | Some theory | Limited practice |
-| TypeScript generics | - | Pending | Some theory | MS background |
-| JavaScript event loop | - | Pending | Some theory | MS background |
-| HTML semantics | - | Pending | Familiar | Has used, needs depth |
-| ARIA and accessibility | - | Pending | Some theory | QA exposure |
+| Astro project structure | 2026-02-06 | 2026-02-09 | Proficient | Completed lesson 01-01 |
+| .astro file format | 2026-02-06 | 2026-02-09 | Proficient | Completed lesson 01-02 |
+| Component props and slots | 2026-02-06 | 2026-02-09 | Proficient | Completed lesson 01-03 |
+| Layouts and composition | 2026-02-06 | 2026-02-09 | Proficient | Completed lesson 01-04 |
+| Astro content collections | 2026-02-06 | 2026-02-09 | Proficient | Completed lessons 02-01 through 02-03 |
+| Astro routing | 2026-02-06 | 2026-02-09 | Proficient | Completed lessons 03-01 through 03-03 |
+| Astro islands architecture | 2026-02-06 | 2026-02-09 | Proficient | Completed lesson 04-02 |
+| CSS box model | 2026-02-06 | 2026-02-09 | Proficient | content-box vs border-box, collapsing margins |
+| CSS specificity & cascade | 2026-02-06 | 2026-02-09 | Proficient | Three-column scoring, cascade order, !important pitfalls |
+| Flexbox | 2026-02-06 | 2026-02-09 | Proficient | Two-axis model, grow/shrink/basis, common patterns |
+| CSS Grid | 2026-02-06 | 2026-02-09 | Proficient | Template columns/rows, areas, auto-fit/minmax |
+| SCSS variables & nesting | 2026-02-06 | 2026-02-09 | Proficient | $vars, nesting, & parent selector |
+| SCSS mixins & functions | 2026-02-06 | 2026-02-09 | Proficient | @mixin/@include, @function, @content |
+| SCSS architecture (7-1) | 2026-02-06 | 2026-02-09 | Familiar | 7 folders + main.scss, @use/@forward |
+| Media queries | 2026-02-06 | 2026-02-09 | Proficient | Mobile-first, min-width, SCSS breakpoint mixin |
+| Fluid typography | 2026-02-06 | 2026-02-09 | Proficient | clamp(), min(), max(), viewport units |
+| CSS animations | 2026-02-06 | 2026-02-09 | Proficient | @keyframes, transitions, transforms, prefers-reduced-motion |
+| CSS custom properties | 2026-02-06 | 2026-02-09 | Familiar | Runtime vs SCSS vars, theming use case |
+| TypeScript generics | 2026-02-06 | 2026-02-09 | Familiar | Generics, utility types, Zod connection |
+| JavaScript event loop | 2026-02-06 | 2026-02-09 | Proficient | Call stack, task queue, microtasks, Promise priority |
+| HTML semantics | 2026-02-06 | 2026-02-09 | Proficient | Landmarks, heading hierarchy, ARIA |
+| ARIA and accessibility | 2026-02-06 | 2026-02-09 | Proficient | POUR, WCAG AA, keyboard nav, focus-visible |
 | Playwright selectors | - | Pending | Familiar | QA background |
 
 ### Confidence Levels
