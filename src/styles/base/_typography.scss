@@ -1,0 +1,30 @@
+@use './../abstracts';
+
+@font-face {
+  font-family: 'C64 Pro Mono';
+  src: url('/fonts/C64_Pro_Mono-STYLE.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  background-color: abstracts.$color-bg;
+  font-family: abstracts.$font-family;
+  font-size: abstracts.$font-size-base;
+  line-height: abstracts.$line-height-base;
+  color: abstracts.$color-text;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: abstracts.$header-line-height-base;
+}
+
+a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+code, pre {
+  font-family: inherit;
+}

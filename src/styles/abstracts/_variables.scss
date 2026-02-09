@@ -1,0 +1,24 @@
+  // --- C64 Palette ---
+  $c64-blue: hsla(240, 50%, 47%, 1);
+  $c64-light-blue: hsla(240, 100%, 72%, 1);
+
+  // --- Neutrals ---
+  $carbon: hsla(0, 0%, 10%, 1);
+  $alabaster: hsla(96, 7%, 86%, 1);
+  $linen: hsla(52, 17%, 91%, 1);
+  $platinum: hsla(210, 13%, 94%, 1);
+  $ghost: hsla(240, 100%, 99%, 1);
+
+  // --- Semantic Aliases ---
+  $color-bg: $platinum;
+  $color-text: $carbon;
+  $color-text-inverse: $ghost;
+
+  // --- Typography ---
+  $font-family: 'C64 Pro Mono', monospace;
+  $font-size-base: 16px;
+  $line-height-base: 1.5;
+  $header-line-height-base: 1.2;
+
+  // --- Spacing ---
+  $spacing-unit: 8px;
