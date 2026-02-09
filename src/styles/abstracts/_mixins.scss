@@ -4,4 +4,25 @@
   font-family: $font-family-headers;
   line-height: $header-line-height-base;
   letter-spacing: $letter-spacing-headers;
+  text-transform: uppercase;
+}
+
+@mixin terminal-output {
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  word-spacing: 0.3em;
+  font-size: 0.875rem;
+}
+
+@mixin hyphen-border($position: top) {
+  background-image: repeating-linear-gradient(
+    to right,
+    var(--color-text) 0,
+    var(--color-text) 10px,
+    transparent 10px,
+    transparent 12px
+  );
+  background-size: 100% 2.3px;
+  background-repeat: no-repeat;
+  background-position: #{$position};
 }

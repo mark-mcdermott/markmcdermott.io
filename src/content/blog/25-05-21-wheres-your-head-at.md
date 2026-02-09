@@ -1,0 +1,75 @@
+---
+title: "Where's Your Head At?"
+subtitle: "Number of Commits Ahead/Behind"
+date: "2025-05-21"
+tags: ["Git", "Tutorial"]
+---
+
+Another day, another realization that I still have a lot to learn in Git. Today's medium-dive: understanding how changes on a development branch compare to main.
+
+## Precondition
+- First grab latest remote changes:
+  ```
+  git fetch origin
+  ```
+
+## Local Branch Vs Tracking Branch
+- This is the easy one. `git status` says if you're ahead/behind your remote tracking branch (e.g. `origin/testbranch`).
+
+## Changes Vs Local Master
+
+### Number of Commits Ahead/Behind Local Master
+- This is one seems almost random, but this outputs how many commits your `HEAD` is behind (first number) and ahead (second number) of local master`.
+```
+git rev-list --left-right --count master...HEAD
+```
+
+### Visual of the Commits Ahead/Behind Local Master
+- `git log --oneline --graph --decorate master..HEAD`    # commits ahead
+- `git log --oneline --graph --decorate HEAD..master`    # commits behind
+
+### Number of Commits Ahead/Behind Local Master in Plain English
+```
+git rev-list --left-right --count master...HEAD | awk '{print "Behind by "$1" commits, ahead by "$2" commits."}'
+```
+
+## Changes Vs Remote Master
+
+### Number of Commits Ahead/Behind Remote Master
+```
+git rev-list --left-right --count origin/master...HEAD
+```
+
+### Visual of the Commits Ahead/Behind Remote Master
+- `git log --oneline --graph --decorate origin/master..HEAD`    # commits ahead
+- `git log --oneline --graph --decorate HEAD..origin/master`    # commits behind
+
+
+### Number of Commits Ahead/Behind Remote Master In Plain English
+```
+git fetch origin && git rev-list --left-right --count origin/master...HEAD | awk '{print "Behind by "$1" commits, ahead by "$2" commits."}'
+```
+
+## Misc Helpful stuff
+
+- see which upstream your current branch tracks (and ahead/behind vs upstream)
+```
+git branch -vv
+```
+- ensure local master matches the remote (optional)
+```
+git checkout master
+git fetch origin
+git pull --ff-only   # or: git reset --hard origin/master
+```
+
+### Above Commands Using Main
+And for easy copy/pasting if you use `main` instead of `master`:
+- `git rev-list --left-right --count main...HEAD`      # number behind/head (local)
+- `git log --oneline --graph --decorate main..HEAD`    # commits ahead (local)
+- `git log --oneline --graph --decorate HEAD..main`    # commits behind (local)
+- `git rev-list --left-right --count main...HEAD | awk '{print "Behind by "$1" commits, ahead by "$2" commits."}'` (local)
+- `git rev-list --left-right --count origin/main...HEAD`      # number behind/head (remote)
+- `git log --oneline --graph --decorate origin/main..HEAD`    # commits ahead (remote)
+- `git log --oneline --graph --decorate HEAD..origin/main`    # commits behind (remote)
+- `git rev-list --left-right --count origin/main...HEAD | awk '{print "Behind by "$1" commits, ahead by "$2" commits."}'` (remote)

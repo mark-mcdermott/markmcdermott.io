@@ -1,5 +1,8 @@
+  @use "sass:color";
+  
   // --- C64 Palette ---
   $c64-dark-blue: hsla(218, 79%, 49%, 1);
+  $c64-med-blue: color.adjust($c64-dark-blue, $lightness: 13%);
   $c64-light-blue: hsla(205, 100%, 79%, 1);
 
   // --- Neutrals ---
@@ -8,12 +11,6 @@
   $linen: hsla(52, 17%, 91%, 1);
   $platinum: hsla(210, 13%, 94%, 1);
   $ghost: hsla(240, 100%, 99%, 1);
-
-  // --- Semantic Aliases ---
-  $color-bg: $platinum;
-  $color-text: $carbon;
-  $color-text-inverse: $ghost;
-  $color-accent: $c64-light-blue;
 
   // --- Typography ---
   $font-family-body: 'Lato', sans-serif;

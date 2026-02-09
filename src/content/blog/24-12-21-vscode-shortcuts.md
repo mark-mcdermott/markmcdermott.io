@@ -1,0 +1,45 @@
+---
+title: "VS Code Shortcuts"
+subtitle: "VS Code Shortcuts I Use All The Time"
+date: "2024-12-21"
+tags: ["VS Code", "Productivity"]
+---
+
+I got a [new keyboard](https://rkgamingstore.com/products/rk-87-keys-keyboard) which messed with my keyboard shortcut muscle memory so I had to look them all up again and retrain my brain. Learn these 7 tricks jealous coworkers hate to supercharge your workflow and retire in Malta.
+
+## Multiple Cursors
+
+I learned the other day that some devs I work with don't know the VS Code multiple cursor shortcuts. For me these are big game changers.
+
+1. Insert cursors on each selected line  
+**Mac:** Select lines, press `Option + Shift + I`
+**Windows:** Select lines, press `Alt + Shift + I`  
+This places a cursor at the end of every selected line.
+
+2. Insert multiple cursors one at a time  
+**Mac:** Hold `Option`, then click.  
+**Windows:** Hold `Alt`, then click.
+
+3. Click and drag for multiple cursors  
+**Mac:** Hold `Option + Shift`, then click + drag.  
+**Windows:** Hold `Alt + Shift`, then click + drag.  
+This is "column selection" mode in VS Code.
+
+4. Add cursor at each regex match  
+**Mac:** `Cmd + F` → enable regex → type pattern → press `Option + Enter`  
+**Windows:** `Ctrl + F` → enable regex → type pattern → press `Alt + Enter`
+
+5. Add cursor at end of each line  
+**Mac:** `Cmd + Option + ↓`  
+**Windows:** `Ctrl + Alt + ↓`
+
+## Misc Handy Stuff
+
+6. Select all occurrences of word  
+**Mac:** `Cmd + D`  
+**Windows:** `Ctrl + D` 
+
+7. Move line up/down  
+**Mac:** `Option + ↑`  
+**Windows:** `Option + ↑`
+

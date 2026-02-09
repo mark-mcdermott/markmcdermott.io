@@ -3,23 +3,23 @@
   @use '../abstracts' as *;
 
   :root {
-    // Dark theme (C64) - default
-    --color-bg: #{$carbon};
-    --color-text: #{$ghost};
-    --color-text-inverse: #{$platinum};
-    --color-accent: #{$c64-light-blue};
-  }
-
-  [data-theme='light'] {
     --color-bg: #{$platinum};
     --color-text: #{$carbon};
     --color-text-inverse: #{$ghost};
+    --color-link: #{$c64-dark-blue};
+    --color-link-hover: #{$c64-med-blue};
     --color-accent: #{$c64-light-blue};
+  }
+
+  [data-theme='dark'] {
+    --color-bg: #{$carbon};
+    --color-text: #{$platinum};
+    --color-text-inverse: #{$carbon};
   }
 
   [data-theme='c64'] {
     --color-bg: #{$c64-dark-blue};
     --color-text: #{$c64-light-blue};
     --color-text-inverse: #{$c64-dark-blue};
-    --color-accent: #{$c64-light-blue};
+    --color-link-hover: #012154;
   }

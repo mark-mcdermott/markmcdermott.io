@@ -10,16 +10,19 @@
 <style lang="scss">
   @use '../styles/abstracts' as *;
   footer {
+    // margin: ($spacing-unit * 5) 0 0;
+    padding: ($spacing-unit * 2) 0 0;
     display: flex;
     justify-content: space-between;
-    text-transform: uppercase;
-
+    @include hyphen-border;
+    
     .copyright {
-      font-weight: 600;
+      @include terminal-output;
     }
 
     .ready {
       @include c64-pro-mono;
+      font-size: 0.875rem;
     }
   }
 </style>

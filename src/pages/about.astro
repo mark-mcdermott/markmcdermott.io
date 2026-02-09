@@ -1,0 +1,41 @@
+---
+import DefaultLayout from '../layouts/DefaultLayout.astro';
+---
+
+<DefaultLayout>
+  <article>
+    <header>
+      <h1>About</h1>
+    </header>
+    <p>I'm a Senior QA Engineer with aspirations to transition into full-stack development. Based in Austin, TX, I bring over 20 years of experience in quality assurance and software testing, with a growing passion for building web applications.</p>
+    <p>I hold a Master's degree in Software Engineering and have spent my career ensuring software quality across various platforms and technologies. My experience spans from manual testing to automated test frameworks, and I'm now channeling that expertise into development.</p>
+  </article>
+</DefaultLayout>
+
+<style lang="scss">
+  @use '../styles/abstracts' as *;
+
+  article {
+    margin-top: $spacing-unit * 4;
+
+    header {
+      padding-bottom: $spacing-unit * 2;
+      margin-bottom: $spacing-unit * 3;
+      @include terminal-output;
+      @include hyphen-border(bottom);
+
+      h1 {
+        font-size: 1.5rem;
+        margin: 0 0 ($spacing-unit * 0.25);
+        letter-spacing: -0.03em;
+        word-spacing: -0.3em;
+        line-height: $line-height-base * 0.95;
+      }
+    }
+
+    p {
+      line-height: $line-height-base;
+      letter-spacing: $letter-spacing-body;
+      margin-bottom: $spacing-unit * 2.5;
+    }
+  }

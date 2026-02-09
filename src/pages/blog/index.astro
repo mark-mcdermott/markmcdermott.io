@@ -1,0 +1,80 @@
+---
+import { getCollection } from 'astro:content';
+import DefaultLayout from '../../layouts/DefaultLayout.astro';
+
+const posts = (await getCollection('blog')).sort(
+  (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
+);
+
+function formatDate(dateStr: string) {
+  return new Date(dateStr + 'T00:00:00').toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
+}
+---
+
+<DefaultLayout>
+  <h1>Blog</h1>
+
+  <section>
+    {posts.map((post) => (
+      <article>
+        <a href={`/blog/${post.data.slug ?? post.id}`}>
+          <h2>{post.data.title}</h2>
+        </a>
+        <time datetime={post.data.date}>{formatDate(post.data.date)}</time>
+      </article>
+    ))}
+  </section>
+</DefaultLayout>
+
+<style lang="scss">
+  @use '../../styles/abstracts' as *;
+
+  h1 {
+    font-size: 2rem;
+    margin: 0 0 ($spacing-unit * 2);
+    letter-spacing: -0.18em;
+    word-spacing: -0.3em;
+    line-height: $line-height-base * 0.95;
+  }
+
+  section {
+    padding-top: $spacing-unit * 2;
+
+    article {
+      padding: ($spacing-unit * 4) 0 ($spacing-unit * 3);
+      @include hyphen-border(top);
+
+      a {
+        text-decoration: none;
+
+        h2 {
+          color: var(--color-text);
+          font-size: 1.1rem;
+          letter-spacing: -0.1em;
+          word-spacing: -0.3em;
+          line-height: $line-height-base * 0.8;
+        }
+
+        &:hover {
+          h2 {
+            color: var(--color-link-hover);
+          }
+        }
+      }
+
+      time {
+        @include terminal-output;
+      }
+
+      p {
+        line-height: $line-height-base;
+        letter-spacing: $letter-spacing-body;
+        margin-bottom: $spacing-unit * 2.5;
+      }
+    }
+  }
+
