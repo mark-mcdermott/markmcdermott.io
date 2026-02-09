@@ -1,0 +1,23 @@
+// styles/components/_theme-toggle.scss
+.icon-sun,
+.icon-moon,
+.icon-computer,
+.icon-c64 {
+  display: none;
+}
+
+[data-theme-setting='light'] .icon-sun {
+  display: block;
+}
+
+[data-theme-setting='dark'] .icon-moon {
+  display: block;
+}
+
+[data-theme-setting='system'] .icon-computer {
+  display: block;
+}
+
+[data-theme-setting='c64'] .icon-c64 {
+  display: block;
+}
