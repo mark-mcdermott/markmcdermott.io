@@ -1,31 +1,7 @@
 ---
-import '../styles/main.scss';
-import Nav from '../components/Nav.astro';
+import DefaultLayout from '../layouts/DefaultLayout.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Mark McDermott</title>
-	</head>
-	<body>
-    <main>
-      <Nav />
-      <h1>Mark McDermott</h1>
-    </main>
-	</body>
-</html>
-
-<style lang="scss">
-  @use '../styles/abstracts' as *;
-
-  main {
-    max-width: 65ch;
-    margin: 0 auto;
-    padding: 0 ($spacing-unit * 2);
-  }
-</style>
+<DefaultLayout>
+  <h1>Mark McDermott 👋</h1>
+</DefaultLayout>

@@ -1,0 +1,26 @@
+---
+// components/Footer.astro
+---
+<footer>
+  <p class="copyright">&copy; {new Date().getFullYear()} Mark McDermott</p>
+  <p class="ready">Ready.</p>
+</footer>
+
+
+<style lang="scss">
+  @use '../styles/abstracts' as *;
+  footer {
+    display: flex;
+    justify-content: space-between;
+    text-transform: uppercase;
+
+    .copyright {
+      font-weight: 600;
+    }
+
+    .ready {
+      @include c64-pro-mono;
+    }
+  }
+</style>
+

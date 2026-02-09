@@ -1,0 +1,7 @@
+@use 'variables' as *;
+
+@mixin c64-pro-mono {
+  font-family: $font-family-headers;
+  line-height: $header-line-height-base;
+  letter-spacing: $letter-spacing-headers;
+}

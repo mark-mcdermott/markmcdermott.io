@@ -1,3 +1,4 @@
+// styles/base/_typography.scss
 @use './../abstracts';
 
 @font-face {
@@ -11,14 +12,16 @@
 body {
   color: var(--color-text);
   background-color: var(--color-bg);
-  font-family: abstracts.$font-family;
+  font-family: abstracts.$font-family-body;
   font-size: abstracts.$font-size-base;
   line-height: abstracts.$line-height-base;
-  letter-spacing: abstracts.$letter-spacing;
+  letter-spacing: abstracts.$letter-spacing-body;
 }
 
 h1, h2, h3, h4, h5, h6 {
+  font-family: abstracts.$font-family-headers;
   line-height: abstracts.$header-line-height-base;
+  letter-spacing: abstracts.$letter-spacing-headers;
 }
 
 a {
