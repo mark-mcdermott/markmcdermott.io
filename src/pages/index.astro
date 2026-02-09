@@ -1,5 +1,6 @@
 ---
 import '../styles/main.scss';
+import Nav from '../components/Nav.astro';
 ---
 
 <html lang="en">
@@ -9,9 +10,22 @@ import '../styles/main.scss';
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<title>Mark McDermott</title>
 	</head>
 	<body>
-		<h1>Astro</h1>
+    <main>
+      <Nav />
+      <h1>Mark McDermott</h1>
+    </main>
 	</body>
 </html>
+
+<style lang="scss">
+  @use '../styles/abstracts' as *;
+
+  main {
+    max-width: 65ch;
+    margin: 0 auto;
+    padding: 0 ($spacing-unit * 2);
+  }
+</style>

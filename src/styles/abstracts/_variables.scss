@@ -1,6 +1,6 @@
   // --- C64 Palette ---
   $c64-blue: hsla(240, 50%, 47%, 1);
-  $c64-light-blue: hsla(240, 100%, 72%, 1);
+  $c64-light-blue: hsl(207, 99%, 44%);
 
   // --- Neutrals ---
   $carbon: hsla(0, 0%, 10%, 1);
@@ -13,6 +13,7 @@
   $color-bg: $platinum;
   $color-text: $carbon;
   $color-text-inverse: $ghost;
+  $color-accent: $c64-light-blue;
 
   // --- Typography ---
   $font-family: 'C64 Pro Mono', monospace;
