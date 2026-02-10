@@ -1,7 +1,397 @@
 ---
+import { getCollection } from 'astro:content';
 import DefaultLayout from '../layouts/DefaultLayout.astro';
+
+const posts = (await getCollection('blog')).sort(
+  (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
+);
+const latestPost = posts[0];
+
+const body = latestPost.body ?? '';
+const plainText = body.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1').replace(/[#*`_~>\-|]/g, '').replace(/\n+/g, ' ').trim();
+const excerpt = plainText.length > 150 ? plainText.slice(0, 150).trimEnd() + '...' : plainText;
+
+function formatDate(dateStr: string) {
+  return new Date(dateStr + 'T00:00:00').toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
+}
+
+const projects = [
+  {
+    name: 'markmcdermott.io',
+    description: 'my dev blog',
+    repo: 'mark-mcdermott/markmcdermott.io',
+    url: 'https://github.com/mark-mcdermott/markmcdermott.io',
+  },
+  {
+    name: 'puravida',
+    description: 'One-liner replacement for mkdir and touch.',
+    repo: 'mark-mcdermott/puravida',
+    url: 'https://github.com/mark-mcdermott/puravida',
+  },
+];
 ---
 
 <DefaultLayout>
-  <h1>Mark McDermott 👋</h1>
+  <section class="hero">
+    <div class="hero__intro">
+      <p class="hero__meta">
+        <span class="hero__clock"></span>&nbsp;&middot; austin, tx &middot;&nbsp; 
+        <span class="weather-icon" data-weather="sun"><svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 2h-2v6h2V2zm0 14h-2v6h2v-6zm9-5v2h-6v-2h6zM8 13v-2H2v2h6zm7-6h2v2h-2V7zm4-2h-2v2h2V5zM9 7H7v2h2V7zM5 5h2v2H5V5zm10 12h2v2h2v-2h-2v-2h-2v2zm-8 0v-2h2v2H7v2H5v-2h2z" fill="currentColor"/></svg></span>
+        <span class="weather-icon" data-weather="partly-cloudy"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"><path d="M11 0h2v4h-2V0Zm1 12H8v2H4v2H2v4h2v2h10v-2h2v-4h-2v-2h-2v-2Zm0 2v2h2v4H4v-4h4v2h2v-2H8v-2h4ZM8 6h6v2H8V6Zm0 2v2H6V8h2Zm8 2h-2V8h2v2Zm0 0h2v2h-2v-2Zm4-8h2v2h-2V2Zm0 2v2h-2V4h2ZM2 2h2v2H2V2Zm2 2h2v2H4V4Zm20 7h-4v2h4v-2Z"/></svg></span>
+        <span class="weather-icon" data-weather="cloud"><svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16 4h-6v2H8v2H4v2H2v2H0v6h2v2h20v-2h2v-6h-2v-2h-2V8h-2V6h-2V4zm2 8h4v6H2v-6h2v-2h4v2h2v-2H8V8h2V6h6v2h2v4zm0 0v2h-2v-2h2z" fill="currentColor"/></svg></span>
+        <span class="weather-icon" data-weather="rain"><svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 2h-2v2H9v4H7v4H5v6h2v2h2v2h6v-2h2v-2h2v-6h-2V8h-2V4h-2V2zm0 2v4h2v4h2v6h-2v2H9v-2H7v-6h2V8h2V4h2z" fill="currentColor"/></svg></span>
+        <span class="weather-icon" data-weather="snow"><svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 2h-2v4H9V4H7v2h2v2h2v3H8V9H6V7H4v2h2v2H2v2h4v2H4v2h2v-2h2v-2h3v3H9v2H7v2h2v-2h2v4h2v-4h2v2h2v-2h-2v-2h-2v-3h3v2h2v2h2v-2h-2v-2h4v-2h-4V9h2V7h-2v2h-2v2h-3V8h2V6h2V4h-2v2h-2V2z" fill="currentColor"/></svg></span>
+        <span class="weather-icon" data-weather="lightning"><svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 1h2v8h8v4h-2v-2h-8V5h-2V3h2V1zM8 7V5h2v2H8zM6 9V7h2v2H6zm-2 2V9h2v2H4zm10 8v2h-2v2h-2v-8H2v-4h2v2h8v6h2zm2-2v2h-2v-2h2zm2-2v2h-2v-2h2zm0 0h2v-2h-2v2z" fill="currentColor"/></svg></span>
+        <span class="weather-icon" data-weather="wind"><svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3H8v2h4v2H2v2h12V3h-2zm10 8V7h-6v2h4v2H2v2h20v-2zM2 17v-2h14v6h-6v-2h4v-2H2z" fill="currentColor"/></svg></span>
+        <span class="weather-icon" data-weather="night-clear"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"><path d="M6 2h8v2h-2v2h-2V4H6V2ZM4 6V4h2v2H4Zm0 10H2V6h2v10Zm2 2H4v-2h2v2Zm2 2H6v-2h2v2Zm10 0v2H8v-2h10Zm2-2v2h-2v-2h2Zm-2-4v-2h2v-2h2v8h-2v-4h-2Zm-6 0h6v2h-6v-2Zm-2-2h2v2h-2v-2Zm0 0V6H8v6h2Zm8-10h2v2h2v2h-2v2h-2V6h-2V4h2V2Z"/></svg></span>
+        <span class="weather-icon" data-weather="night-partly-cloudy"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-8v2H8v2H6v4h2V6h2V4h4v2h-2v4h2v2h4v-2h2v4h-2v2h2v-2h2V6h-2v2h-2v2h-4V6h2V4h2V2ZM8 14v-2h4v2H8Zm0 2v-2H4v2H2v4h2v2h10v-2h2v-4h-2v-2h-2v2h2v4H4v-4h4Zm0 0h2v2H8v-2Z"/></svg></span>
+      </p>
+      <h1>Hey, I'm Mark McDermott <span class="emoji">👋</span></h1>
+      <p class="hero__bio">I'm a software engineer based in Austin, TX.</p>
+      <p>I <a href="https://github.com/mark-mcdermott">code</a>, <a href="/blog">write</a> and work at <a href="https://www.doximity.com" target="_blank" rel="noopener">Doximity</a> doing QA.</p>
+    </div>
+    <div class="hero__photo">
+      <img src="/images/headshot.png" alt="Mark McDermott" />
+    </div>
+  </section>
+
+  <section class="latest-post">
+    <article>
+      <a href={`/blog/${latestPost.data.slug ?? latestPost.id}`}>
+        <h2>{latestPost.data.title}</h2>
+      </a>
+      <time datetime={latestPost.data.date}>{formatDate(latestPost.data.date)}</time>
+      <p>{excerpt}</p>
+    </article>
+  </section>
+
+  <section class="projects">
+    <h2>Projects</h2>
+    <div class="projects__grid">
+      {projects.map((project) => (
+        <a href={project.url} target="_blank" rel="noopener" class="project-card" data-repo={project.repo}>
+          <h3>{project.name}</h3>
+          <p class="project-card__desc">{project.description}</p>
+          <div class="project-card__meta">
+            <span class="project-card__lang">
+              <span class="project-card__dot"></span>
+              <span class="project-card__lang-name"></span>
+            </span>
+            <span class="project-card__stars" style="display:none">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" width="14" height="14"><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.75.75 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25z"/></svg>
+              <span class="project-card__star-count"></span>
+            </span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
 </DefaultLayout>
+
+<style lang="scss">
+  @use '../styles/abstracts' as *;
+
+  .hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: $spacing-unit * 4;
+    margin-top: $spacing-unit * 4;
+    margin-bottom: $spacing-unit * 2;
+  }
+
+  .hero__intro {
+    flex: 1;
+  }
+
+  .emoji {
+    font-family: 'Noto Emoji', sans-serif;
+    -webkit-font-smoothing: none;
+    -moz-osx-font-smoothing: unset;
+    font-smooth: never;
+  }
+
+  .hero__meta {
+    @include c64-pro-mono;
+    text-transform: lowercase;
+    margin-bottom: $spacing-unit;
+    display: flex;
+    align-items: center;
+    gap: 0.25em;
+    word-spacing: -0.5em;
+  }
+
+  .weather-icon {
+    display: none;
+    width: 1.75em;
+    height: 1.75em;
+
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    &.active {
+      display: inline-flex;
+    }
+  }
+
+  .hero h1 {
+    font-size: 1.5rem;
+    margin: 0 0 ($spacing-unit * 2);
+    letter-spacing: -0.06em;
+    word-spacing: -0.3em;
+    line-height: $line-height-base * 0.95;
+  }
+
+  .hero__bio {
+    line-height: $line-height-base;
+    letter-spacing: $letter-spacing-body;
+
+    a {
+      color: var(--color-text);
+      text-decoration: underline;
+
+      &:hover {
+        color: var(--color-link-hover);
+      }
+    }
+  }
+
+  .hero__photo {
+    flex-shrink: 0;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .latest-post {
+    padding: ($spacing-unit * 2) 0 ($spacing-unit * 4);
+
+    article {
+      @include hyphen-border(top);
+      @include hyphen-border(bottom);
+      padding: ($spacing-unit * 3) 0;
+    }
+
+    h2 {
+      font-size: 1.1rem;
+      letter-spacing: -0.1em;
+      word-spacing: -0.3em;
+      line-height: $line-height-base * 0.8;
+      margin: 0 0 ($spacing-unit * 0.5);
+    }
+
+    a {
+      color: var(--color-text);
+      text-decoration: none;
+
+      &:hover {
+        color: var(--color-link-hover);
+      }
+    }
+
+    time {
+      @include terminal-output;
+    }
+
+    p {
+      @include hyphen-border(top);
+      padding-top: $spacing-unit * 2;
+      margin-top: $spacing-unit * 2;
+      line-height: $line-height-base;
+      letter-spacing: $letter-spacing-body;
+    }
+  }
+
+  .projects {
+    padding-top: $spacing-unit * 2;
+    padding-bottom: $spacing-unit * 4;
+
+    h2 {
+      font-size: 1.1rem;
+      margin: 0 0 ($spacing-unit * 3);
+      letter-spacing: -0.1em;
+      word-spacing: -0.3em;
+      line-height: $line-height-base * 0.8;
+    }
+  }
+
+  .projects__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: $spacing-unit * 2;
+  }
+
+  .project-card {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: var(--color-text);
+    padding: $spacing-unit * 2;
+    border: 2px dashed var(--color-text);
+    outline: 2px solid var(--color-text);
+    outline-offset: 3px;
+    border-radius: 8px;
+
+    &:hover {
+      color: var(--color-link-hover);
+      border-color: var(--color-link-hover);
+      outline-color: var(--color-link-hover);
+    }
+
+    h3 {
+      font-size: 1rem;
+      margin: 0 0 $spacing-unit;
+      letter-spacing: -0.06em;
+    }
+
+    &__desc {
+      font-size: 0.9rem;
+      line-height: $line-height-base;
+      letter-spacing: $letter-spacing-body;
+      margin: 0 0 auto;
+    }
+
+    &__meta {
+      @include c64-pro-mono;
+      text-transform: capitalize;
+      display: flex;
+      align-items: center;
+      gap: $spacing-unit * 2;
+      margin-top: $spacing-unit * 1.5;
+      font-size: 0.75rem;
+    }
+
+    &__lang {
+      display: flex;
+      align-items: center;
+      gap: 0.4em;
+    }
+
+    &__dot {
+      display: inline-block;
+      width: 0.75em;
+      height: 0.75em;
+      border-radius: 50%;
+      background: var(--color-text);
+    }
+
+    &__stars {
+      display: flex;
+      align-items: center;
+      gap: 0.3em;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      flex-direction: column-reverse;
+      align-items: center;
+      text-align: center;
+    }
+
+    .hero__photo {
+      width: 120px;
+      height: 120px;
+    }
+
+    .projects__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<script>
+  const clock = document.querySelector('.hero__clock');
+  function updateClock() {
+    const now = new Date();
+    const h = String(now.getHours()).padStart(2, '0');
+    const m = String(now.getMinutes()).padStart(2, '0');
+    const s = String(now.getSeconds()).padStart(2, '0');
+    if (clock) clock.textContent = `${h}:${m}:${s}`;
+  }
+  updateClock();
+  setInterval(updateClock, 1000);
+
+  // Weather via Open-Meteo (no API key needed)
+  const isNight = () => {
+    const hour = new Date().getHours();
+    return hour < 6 || hour >= 20;
+  };
+
+  function weatherCodeToIcon(code: number): { icon: string; label: string } {
+    if (code === 0) return isNight() ? { icon: 'night-clear', label: 'clear' } : { icon: 'sun', label: 'sunny' };
+    if (code <= 2) return isNight() ? { icon: 'night-partly-cloudy', label: 'partly cloudy' } : { icon: 'partly-cloudy', label: 'partly cloudy' };
+    if (code === 3) return { icon: 'cloud', label: 'cloudy' };
+    if (code <= 49) return { icon: 'cloud', label: 'foggy' };
+    if (code <= 69) return { icon: 'rain', label: 'rainy' };
+    if (code <= 79) return { icon: 'snow', label: 'snowy' };
+    if (code <= 82) return { icon: 'rain', label: 'rainy' };
+    if (code <= 86) return { icon: 'snow', label: 'snowy' };
+    if (code <= 99) return { icon: 'lightning', label: 'stormy' };
+    return { icon: 'cloud', label: 'cloudy' };
+  }
+
+  fetch('https://api.open-meteo.com/v1/forecast?latitude=30.27&longitude=-97.74&current=weather_code,temperature_2m&temperature_unit=fahrenheit')
+    .then(res => res.json())
+    .then(data => {
+      const code = data.current.weather_code;
+      const temp = Math.round(data.current.temperature_2m);
+      const { icon, label } = weatherCodeToIcon(code);
+      const el = document.querySelector(`.weather-icon[data-weather="${icon}"]`);
+      if (el) {
+        el.classList.add('active');
+        el.setAttribute('title', `It's currently ${label} and ${temp}°F in Austin`);
+      }
+    })
+    .catch(() => {});
+
+  // GitHub repo metadata
+  const LANG_COLORS: Record<string, string> = {
+    Astro: '#ff5a03',
+    Shell: '#89e051',
+    JavaScript: '#f1e05a',
+    TypeScript: '#3178c6',
+    Ruby: '#701516',
+    Python: '#3572A5',
+    HTML: '#e34c26',
+    CSS: '#563d7c',
+    SCSS: '#c6538c',
+  };
+
+  document.querySelectorAll<HTMLElement>('.project-card[data-repo]').forEach(card => {
+    const repo = card.dataset.repo;
+    if (!repo) return;
+    fetch(`https://api.github.com/repos/${repo}`)
+      .then(res => res.json())
+      .then(data => {
+        const lang = data.language;
+        if (lang) {
+          const dot = card.querySelector<HTMLElement>('.project-card__dot');
+          const name = card.querySelector('.project-card__lang-name');
+          if (dot) dot.style.background = LANG_COLORS[lang] || 'var(--color-text)';
+          if (name) name.textContent = lang;
+        }
+        const stars = data.stargazers_count;
+        if (stars > 0) {
+          const starsEl = card.querySelector<HTMLElement>('.project-card__stars');
+          const countEl = card.querySelector('.project-card__star-count');
+          if (starsEl) starsEl.style.display = 'flex';
+          if (countEl) countEl.textContent = String(stars);
+        }
+      })
+      .catch(() => {});
+  });
+</script>
