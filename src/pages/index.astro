@@ -62,8 +62,10 @@ const projects = [
     <ul class="writings__list">
       {posts.slice(0, 5).map((post) => (
         <li>
-          <time datetime={post.data.date}>{formatDate(post.data.date)}</time>
-          <a href={`/blog/${post.data.slug ?? post.id}`}>{post.data.title}</a>
+          <a href={`/blog/${post.data.slug ?? post.id}`}>
+            <time datetime={post.data.date}>{formatDate(post.data.date)}</time>
+            <span>{post.data.title}</span>
+          </a>
         </li>
       ))}
     </ul>
@@ -240,12 +242,45 @@ const projects = [
     margin: 0;
     @include hyphen-border(top);
 
+    &:has(li:first-child:hover) {
+      background-image: repeating-linear-gradient(
+        to right,
+        var(--color-link-hover) 0,
+        var(--color-link-hover) 10px,
+        transparent 10px,
+        transparent 12px
+      );
+    }
+
     li {
+      @include hyphen-border(bottom);
+
+      &:hover {
+        --color-text: var(--color-link-hover);
+      }
+
+      &:has(+ li:hover) {
+        background-image: repeating-linear-gradient(
+          to right,
+          var(--color-link-hover) 0,
+          var(--color-link-hover) 10px,
+          transparent 10px,
+          transparent 12px
+        );
+      }
+    }
+
+    a {
       display: flex;
       align-items: baseline;
       gap: $spacing-unit * 3;
       padding: ($spacing-unit * 1.5) 0;
-      @include hyphen-border(bottom);
+      color: var(--color-text);
+      text-decoration: none;
+
+      span {
+        font-weight: 500;
+      }
     }
 
     time {
@@ -253,16 +288,6 @@ const projects = [
       font-size: 0.75rem;
       flex-shrink: 0;
       width: 9em;
-    }
-
-    a {
-      color: var(--color-text);
-      text-decoration: none;
-      font-weight: 500;
-
-      &:hover {
-        color: var(--color-link-hover);
-      }
     }
   }
 
@@ -350,14 +375,16 @@ const projects = [
 
   @media (max-width: 768px) {
     .hero {
+      margin-top: 0;
       flex-direction: column-reverse;
       align-items: center;
       text-align: center;
     }
 
     .hero__photo {
-      width: 120px;
-      height: 120px;
+      width: 200px;
+      height: 200px;
+      right: 0;
     }
 
     .projects__grid {

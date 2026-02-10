@@ -1,25 +1,31 @@
-  @use "sass:color";
-  
-  // --- C64 Palette ---
-  $c64-dark-blue: hsla(218, 79%, 49%, 1);
-  $c64-med-blue: color.adjust($c64-dark-blue, $lightness: 13%);
-  $c64-light-blue: hsla(205, 100%, 79%, 1);
+@use "sass:color";
 
-  // --- Neutrals ---
-  $carbon: hsla(0, 0%, 19%, 1);
-  $alabaster: hsla(96, 7%, 86%, 1);
-  $linen: hsla(52, 17%, 91%, 1);
-  $platinum: hsla(0, 0%, 100%, 1);
-  $ghost: hsla(240, 100%, 99%, 1);
+// --- My Theme Blues ---
+$sky: hsla(202, 79%, 49%, 1);
+$ice: hsla(202, 79%, 62%, 1);
+$arctic: hsl(205, 100%, 79%);  
 
-  // --- Typography ---
-  $font-family-body: 'Rubik', sans-serif;
-  $font-size-base: 16px;
-  $line-height-base: 1.5;
-  $header-line-height-base: 1.2;
-  $letter-spacing-body: normal;
-  $font-family-headers: 'Rubik', sans-serif;
-  $letter-spacing-headers: -0.1em;
+// --- C64 Palette ---
+$c64-dark-blue: hsla(218, 79%, 49%, 1);
+$c64-med-blue: color.adjust($c64-dark-blue, $lightness: 13%);
+$c64-light-blue: hsla(205, 100%, 79%, 1);
+$c64-logo-blue: hsla(217, 98%, 17%, 1);
 
-  // --- Spacing ---
-  $spacing-unit: 8px;
+// --- Neutrals ---
+$carbon: hsla(0, 0%, 19%, 1);
+$alabaster: hsla(96, 7%, 86%, 1);
+$linen: hsla(52, 17%, 91%, 1);
+$platinum: hsla(0, 0%, 100%, 1);
+$ghost: hsla(240, 100%, 99%, 1);
+
+// --- Typography ---
+$font-family-body: 'Rubik', sans-serif;
+$font-size-base: 16px;
+$line-height-base: 1.5;
+$header-line-height-base: 1.2;
+$letter-spacing-body: normal;
+$font-family-headers: 'Rubik', sans-serif;
+$letter-spacing-headers: -0.1em;
+
+// --- Spacing ---
+$spacing-unit: 8px;
