@@ -50,12 +50,12 @@ const projects = [
         <span class="weather-icon" data-weather="night-clear"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"><path d="M6 2h8v2h-2v2h-2V4H6V2ZM4 6V4h2v2H4Zm0 10H2V6h2v10Zm2 2H4v-2h2v2Zm2 2H6v-2h2v2Zm10 0v2H8v-2h10Zm2-2v2h-2v-2h2Zm-2-4v-2h2v-2h2v8h-2v-4h-2Zm-6 0h6v2h-6v-2Zm-2-2h2v2h-2v-2Zm0 0V6H8v6h2Zm8-10h2v2h2v2h-2v2h-2V6h-2V4h2V2Z"/></svg></span>
         <span class="weather-icon" data-weather="night-partly-cloudy"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-8v2H8v2H6v4h2V6h2V4h4v2h-2v4h2v2h4v-2h2v4h-2v2h2v-2h2V6h-2v2h-2v2h-4V6h2V4h2V2ZM8 14v-2h4v2H8Zm0 2v-2H4v2H2v4h2v2h10v-2h2v-4h-2v-2h-2v2h2v4H4v-4h4Zm0 0h2v2H8v-2Z"/></svg></span>
       </p>
-      <h1>Hey, I'm Mark McDermott <span class="emoji">👋</span></h1>
+      <h1><span class="emoji">👋</span> Hey, I'm Mark McDermott</h1>
       <p class="hero__bio">I'm a software engineer based in Austin, TX.</p>
       <p>I <a href="https://github.com/mark-mcdermott">code</a>, <a href="/blog">write</a> and work at <a href="https://www.doximity.com" target="_blank" rel="noopener">Doximity</a> doing QA.</p>
     </div>
     <div class="hero__photo">
-      <img src="/images/headshot.png" alt="Mark McDermott" />
+      <img src="/images/headshot.png" alt="Mark McDermott" width="48" height="48" />
     </div>
   </section>
 
@@ -90,6 +90,7 @@ const projects = [
       ))}
     </div>
   </section>
+
 </DefaultLayout>
 
 <style lang="scss">
@@ -117,6 +118,8 @@ const projects = [
 
   .hero__meta {
     @include c64-pro-mono;
+    font-family: 'Sixtyfour', monospace;
+    font-kerning: none;
     text-transform: lowercase;
     margin-bottom: $spacing-unit;
     display: flex;
@@ -143,8 +146,8 @@ const projects = [
   .hero h1 {
     font-size: 1.5rem;
     margin: 0 0 ($spacing-unit * 2);
-    letter-spacing: -0.06em;
-    word-spacing: -0.3em;
+    letter-spacing: normal;
+    word-spacing: normal;
     line-height: $line-height-base * 0.95;
   }
 
@@ -168,27 +171,52 @@ const projects = [
     height: 150px;
     border-radius: 50%;
     overflow: hidden;
+    position: relative;
+    right: 25px;
+    bottom: 7px;
 
     img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      // scanline effect + desaturation + boost contrast/saturation/brightness to make it pop more
+      filter: grayscale(100%) contrast(0.9) saturate(1.3) brightness(1.3);
+    }
+
+    // Scanlines overlay
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      background: repeating-linear-gradient(
+        to bottom,
+        transparent 0px,
+        transparent 2px,
+        rgba(0, 0, 0, 0.1) 2px,
+        rgba(0, 0, 0, 0.2) 4px
+      );
+      pointer-events: none;
+      opacity: 0.3;
     }
   }
 
   .latest-post {
-    padding: ($spacing-unit * 2) 0 ($spacing-unit * 4);
+    margin-top: $spacing-unit * 4;
+    padding-top: $spacing-unit * 3;
+    padding-bottom: $spacing-unit * 4;
+    @include hyphen-border(top);
 
     article {
-      @include hyphen-border(top);
+      // @include hyphen-border(top);
       @include hyphen-border(bottom);
-      padding: ($spacing-unit * 3) 0;
+      padding-bottom: $spacing-unit * 3;
     }
 
     h2 {
       font-size: 1.1rem;
-      letter-spacing: -0.1em;
-      word-spacing: -0.3em;
+      letter-spacing: normal;
+      word-spacing: normal;
       line-height: $line-height-base * 0.8;
       margin: 0 0 ($spacing-unit * 0.5);
     }
@@ -207,9 +235,9 @@ const projects = [
     }
 
     p {
-      @include hyphen-border(top);
-      padding-top: $spacing-unit * 2;
-      margin-top: $spacing-unit * 2;
+      // @include hyphen-border(top);
+      // padding-top: $spacing-unit * 2.5;
+      margin-top: $spacing-unit;
       line-height: $line-height-base;
       letter-spacing: $letter-spacing-body;
     }
@@ -222,9 +250,13 @@ const projects = [
     h2 {
       font-size: 1.1rem;
       margin: 0 0 ($spacing-unit * 3);
-      letter-spacing: -0.1em;
-      word-spacing: -0.3em;
+      letter-spacing: normal;
+      word-spacing: normal;
       line-height: $line-height-base * 0.8;
+    }
+
+    h3, .project-card__lang-name {
+      letter-spacing: 0.005em;
     }
   }
 
@@ -243,7 +275,7 @@ const projects = [
     border: 2px dashed var(--color-text);
     outline: 2px solid var(--color-text);
     outline-offset: 3px;
-    border-radius: 8px;
+    border-radius: 0px;
 
     &:hover {
       color: var(--color-link-hover);
@@ -254,13 +286,11 @@ const projects = [
     h3 {
       font-size: 1rem;
       margin: 0 0 $spacing-unit;
-      letter-spacing: -0.06em;
     }
 
     &__desc {
       font-size: 0.9rem;
       line-height: $line-height-base;
-      letter-spacing: $letter-spacing-body;
       margin: 0 0 auto;
     }
 
@@ -394,4 +424,5 @@ const projects = [
       })
       .catch(() => {});
   });
+
 </script>

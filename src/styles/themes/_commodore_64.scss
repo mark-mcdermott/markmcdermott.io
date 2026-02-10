@@ -9,8 +9,8 @@ body::after {
     to bottom,
     transparent,
     transparent 2px,
-    rgba(0, 0, 0, 0.02) 2px,
-    rgba(0, 0, 0, 0.02) 4px
+    rgba(0, 0, 0, 0.01) 1px,
+    rgba(0, 0, 0, 0.01) 4px
   );
   pointer-events: none;
   z-index: 9999;
