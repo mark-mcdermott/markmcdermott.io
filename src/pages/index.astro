@@ -5,17 +5,12 @@ import DefaultLayout from '../layouts/DefaultLayout.astro';
 const posts = (await getCollection('blog')).sort(
   (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
 );
-const latestPost = posts[0];
-
-const body = latestPost.body ?? '';
-const plainText = body.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1').replace(/[#*`_~>\-|]/g, '').replace(/\n+/g, ' ').trim();
-const excerpt = plainText.length > 150 ? plainText.slice(0, 150).trimEnd() + '...' : plainText;
 
 function formatDate(dateStr: string) {
   return new Date(dateStr + 'T00:00:00').toLocaleDateString('en-US', {
     year: 'numeric',
-    month: 'long',
-    day: 'numeric',
+    month: 'short',
+    day: '2-digit',
   });
 }
 
@@ -50,23 +45,28 @@ const projects = [
         <span class="weather-icon" data-weather="night-clear"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"><path d="M6 2h8v2h-2v2h-2V4H6V2ZM4 6V4h2v2H4Zm0 10H2V6h2v10Zm2 2H4v-2h2v2Zm2 2H6v-2h2v2Zm10 0v2H8v-2h10Zm2-2v2h-2v-2h2Zm-2-4v-2h2v-2h2v8h-2v-4h-2Zm-6 0h6v2h-6v-2Zm-2-2h2v2h-2v-2Zm0 0V6H8v6h2Zm8-10h2v2h2v2h-2v2h-2V6h-2V4h2V2Z"/></svg></span>
         <span class="weather-icon" data-weather="night-partly-cloudy"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-8v2H8v2H6v4h2V6h2V4h4v2h-2v4h2v2h4v-2h2v4h-2v2h2v-2h2V6h-2v2h-2v2h-4V6h2V4h2V2ZM8 14v-2h4v2H8Zm0 2v-2H4v2H2v4h2v2h10v-2h2v-4h-2v-2h-2v2h2v4H4v-4h4Zm0 0h2v2H8v-2Z"/></svg></span>
       </p>
-      <h1><span class="emoji">👋</span> Hey, I'm Mark McDermott</h1>
+      <h1><img src="/images/hand.svg" alt="wave" class="emoji" /> Hey, I'm Mark McDermott</h1>
       <p class="hero__bio">I'm a software engineer based in Austin, TX.</p>
       <p>I <a href="https://github.com/mark-mcdermott">code</a>, <a href="/blog">write</a> and work at <a href="https://www.doximity.com" target="_blank" rel="noopener">Doximity</a> doing QA.</p>
     </div>
     <div class="hero__photo">
-      <img src="/images/headshot.png" alt="Mark McDermott" width="48" height="48" />
+      <img src="/images/headshot.png" alt="Mark McDermott" width="150" height="150" />
     </div>
   </section>
 
-  <section class="latest-post">
-    <article>
-      <a href={`/blog/${latestPost.data.slug ?? latestPost.id}`}>
-        <h2>{latestPost.data.title}</h2>
-      </a>
-      <time datetime={latestPost.data.date}>{formatDate(latestPost.data.date)}</time>
-      <p>{excerpt}</p>
-    </article>
+  <section class="writings">
+    <div class="writings__header">
+      <h2>Writings</h2>
+      <a href="/blog" class="writings__view-all">View all &rarr;</a>
+    </div>
+    <ul class="writings__list">
+      {posts.slice(0, 5).map((post) => (
+        <li>
+          <time datetime={post.data.date}>{formatDate(post.data.date)}</time>
+          <a href={`/blog/${post.data.slug ?? post.id}`}>{post.data.title}</a>
+        </li>
+      ))}
+    </ul>
   </section>
 
   <section class="projects">
@@ -102,7 +102,6 @@ const projects = [
     align-items: flex-start;
     gap: $spacing-unit * 4;
     margin-top: $spacing-unit * 4;
-    margin-bottom: $spacing-unit * 2;
   }
 
   .hero__intro {
@@ -110,10 +109,11 @@ const projects = [
   }
 
   .emoji {
-    font-family: 'Noto Emoji', sans-serif;
-    -webkit-font-smoothing: none;
-    -moz-osx-font-smoothing: unset;
-    font-smooth: never;
+    margin-right: 0.3em;
+    height: 1.5em;
+    width: auto;
+    vertical-align: -0.3em;
+    display: inline-block;
   }
 
   .hero__meta {
@@ -172,15 +172,15 @@ const projects = [
     border-radius: 50%;
     overflow: hidden;
     position: relative;
-    right: 25px;
-    bottom: 7px;
+    right: 30px;
+
 
     img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       // scanline effect + desaturation + boost contrast/saturation/brightness to make it pop more
-      filter: grayscale(100%) contrast(0.9) saturate(1.3) brightness(1.3);
+      filter: grayscale(100%) contrast(1.8) brightness(1.05);
     }
 
     // Scanlines overlay
@@ -193,53 +193,76 @@ const projects = [
         to bottom,
         transparent 0px,
         transparent 2px,
-        rgba(0, 0, 0, 0.1) 2px,
-        rgba(0, 0, 0, 0.2) 4px
+        rgba(0, 0, 0, 0) 2px,
+        rgba(0, 0, 0, 0.5) 4px
       );
       pointer-events: none;
       opacity: 0.3;
     }
   }
 
-  .latest-post {
-    margin-top: $spacing-unit * 4;
+  .writings {
+    margin-top: $spacing-unit * 1;
     padding-top: $spacing-unit * 3;
     padding-bottom: $spacing-unit * 4;
-    @include hyphen-border(top);
+    
+  }
 
-    article {
-      // @include hyphen-border(top);
-      @include hyphen-border(bottom);
-      padding-bottom: $spacing-unit * 3;
-    }
+  .writings__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: $spacing-unit * 2;
 
     h2 {
       font-size: 1.1rem;
       letter-spacing: normal;
       word-spacing: normal;
       line-height: $line-height-base * 0.8;
-      margin: 0 0 ($spacing-unit * 0.5);
+      margin: 0;
+    }
+  }
+
+  .writings__view-all {
+    @include c64-pro-mono;
+    font-size: 0.75rem;
+    color: var(--color-text);
+    text-decoration: none;
+
+    &:hover {
+      color: var(--color-link-hover);
+    }
+  }
+
+  .writings__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    @include hyphen-border(top);
+
+    li {
+      display: flex;
+      align-items: baseline;
+      gap: $spacing-unit * 3;
+      padding: ($spacing-unit * 1.5) 0;
+      @include hyphen-border(bottom);
+    }
+
+    time {
+      @include terminal-output;
+      font-size: 0.75rem;
+      flex-shrink: 0;
+      width: 9em;
     }
 
     a {
       color: var(--color-text);
       text-decoration: none;
+      font-weight: 500;
 
       &:hover {
         color: var(--color-link-hover);
       }
-    }
-
-    time {
-      @include terminal-output;
-    }
-
-    p {
-      // @include hyphen-border(top);
-      // padding-top: $spacing-unit * 2.5;
-      margin-top: $spacing-unit;
-      line-height: $line-height-base;
-      letter-spacing: $letter-spacing-body;
     }
   }
 
