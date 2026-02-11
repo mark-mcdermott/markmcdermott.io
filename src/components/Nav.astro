@@ -61,8 +61,6 @@
     padding: ($spacing-unit * 2) 0;
     position: relative;
     @include c64-pro-mono;
-    font-family: 'Sixtyfour', monospace;
-    font-kerning: none;
 
     a {
       color: var(--color-text);
@@ -113,7 +111,7 @@
     background: none;
     border: none;
     color: var(--color-text);
-    font-size: 1.5rem;
+    font-size: $font-size-lg;
     cursor: pointer;
 
     .nav__toggle-close {
@@ -132,7 +130,7 @@
     gap: $spacing-unit * 4;
 
     a {
-      font-size: 1.01rem;
+      font-size: $font-size-base;
       text-decoration: none;
       text-transform: uppercase;
       vertical-align: middle;
@@ -161,7 +159,7 @@
     }
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: $breakpoint-mobile) {
     .nav__toggle {
       display: block;
       z-index: 200;
@@ -193,7 +191,7 @@
       }
 
       a {
-        font-size: 1.5rem;
+        font-size: $font-size-lg;
       }
 
       a:first-child {

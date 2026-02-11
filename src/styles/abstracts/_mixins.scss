@@ -1,7 +1,8 @@
 @use 'variables' as *;
 
 @mixin c64-pro-mono {
-  font-family: $font-family-headers;
+  font-family: 'Sixtyfour', monospace;
+  font-kerning: none;
   line-height: $header-line-height-base;
   letter-spacing: $letter-spacing-headers;
   text-transform: uppercase;
@@ -11,7 +12,7 @@
   letter-spacing: 0.01em;
   text-transform: uppercase;
   word-spacing: 0.3em;
-  font-size: 0.875rem;
+  font-size: $font-size-sm;
 }
 
 @mixin hyphen-border($position: top) {
@@ -25,4 +26,14 @@
   background-size: 100% 2.3px;
   background-repeat: no-repeat;
   background-position: #{$position};
+}
+
+@mixin hyphen-border-hover {
+  background-image: repeating-linear-gradient(
+    to right,
+    var(--color-link) 0,
+    var(--color-link) 10px,
+    transparent 10px,
+    transparent 12px
+  );
 }

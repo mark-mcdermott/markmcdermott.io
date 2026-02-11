@@ -58,7 +58,7 @@ function formatDate(dateStr: string) {
   @use '../../styles/abstracts' as *;
 
   h1 {
-    font-size: 2rem;
+    font-size: $font-size-xl;
     margin: 0 0 ($spacing-unit * 2);
     letter-spacing: -0.03em;
     word-spacing: -0.3em;
@@ -72,13 +72,7 @@ function formatDate(dateStr: string) {
     @include hyphen-border(top);
 
     &:has(li:first-child:hover) {
-      background-image: repeating-linear-gradient(
-        to right,
-        var(--color-link) 0,
-        var(--color-link) 10px,
-        transparent 10px,
-        transparent 12px
-      );
+      @include hyphen-border-hover;
     }
 
     li {
@@ -89,13 +83,7 @@ function formatDate(dateStr: string) {
       }
 
       &:has(+ li:hover) {
-        background-image: repeating-linear-gradient(
-          to right,
-          var(--color-link) 0,
-          var(--color-link) 10px,
-          transparent 10px,
-          transparent 12px
-        );
+        @include hyphen-border-hover;
       }
     }
 
@@ -114,7 +102,7 @@ function formatDate(dateStr: string) {
 
     time {
       @include terminal-output;
-      font-size: 0.75rem;
+      font-size: $font-size-xs;
       flex-shrink: 0;
       width: 9em;
     }
@@ -129,7 +117,7 @@ function formatDate(dateStr: string) {
 
     &__link {
       @include terminal-output;
-      font-size: 0.75rem;
+      font-size: $font-size-xs;
       color: var(--color-link);
       text-decoration: none;
 
@@ -139,13 +127,13 @@ function formatDate(dateStr: string) {
 
       &--disabled {
         color: var(--color-text);
-        opacity: 0.3;
+        opacity: $opacity-disabled;
       }
     }
 
     &__info {
       @include terminal-output;
-      font-size: 0.75rem;
+      font-size: $font-size-xs;
     }
   }
 

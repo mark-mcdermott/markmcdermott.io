@@ -120,8 +120,6 @@ const projects = [
 
   .hero__meta {
     @include c64-pro-mono;
-    font-family: 'Sixtyfour', monospace;
-    font-kerning: none;
     text-transform: lowercase;
     margin-bottom: $spacing-unit;
     display: flex;
@@ -162,7 +160,7 @@ const projects = [
       padding: 4px 8px;
       pointer-events: none;
       opacity: 0;
-      transition: opacity 0.15s;
+      transition: opacity $transition-fast;
     }
 
     &[data-tooltip]::before {
@@ -177,7 +175,7 @@ const projects = [
       clip-path: polygon(50% 100%, 0 0, 100% 0);
       pointer-events: none;
       opacity: 0;
-      transition: opacity 0.15s;
+      transition: opacity $transition-fast;
     }
 
     &[data-tooltip]:hover::before,
@@ -187,7 +185,7 @@ const projects = [
   }
 
   .hero h1 {
-    font-size: 1.5rem;
+    font-size: $font-size-lg;
     margin: 0 0 ($spacing-unit * 2);
     letter-spacing: normal;
     word-spacing: normal;
@@ -240,7 +238,7 @@ const projects = [
         rgba(0, 0, 0, 0.5) 4px
       );
       pointer-events: none;
-      opacity: 0.3;
+      opacity: $opacity-disabled;
     }
   }
 
@@ -258,7 +256,7 @@ const projects = [
     margin-bottom: $spacing-unit * 2;
 
     h2 {
-      font-size: 1.1rem;
+      font-size: $font-size-md;
       letter-spacing: normal;
       word-spacing: normal;
       line-height: $line-height-base * 0.8;
@@ -268,7 +266,7 @@ const projects = [
 
   .writings__view-all {
     @include c64-pro-mono;
-    font-size: 0.75rem;
+    font-size: $font-size-xs;
     color: var(--color-text);
     text-decoration: none;
     letter-spacing: 0;
@@ -285,13 +283,7 @@ const projects = [
     @include hyphen-border(top);
 
     &:has(li:first-child:hover) {
-      background-image: repeating-linear-gradient(
-        to right,
-        var(--color-link) 0,
-        var(--color-link) 10px,
-        transparent 10px,
-        transparent 12px
-      );
+      @include hyphen-border-hover;
     }
 
     li {
@@ -302,13 +294,7 @@ const projects = [
       }
 
       &:has(+ li:hover) {
-        background-image: repeating-linear-gradient(
-          to right,
-          var(--color-link) 0,
-          var(--color-link) 10px,
-          transparent 10px,
-          transparent 12px
-        );
+        @include hyphen-border-hover;
       }
     }
 
@@ -327,7 +313,7 @@ const projects = [
 
     time {
       @include terminal-output;
-      font-size: 0.75rem;
+      font-size: $font-size-xs;
       flex-shrink: 0;
       width: 9em;
     }
@@ -338,7 +324,7 @@ const projects = [
     padding-bottom: $spacing-unit * 4;
 
     h2 {
-      font-size: 1.1rem;
+      font-size: $font-size-md;
       margin: 0 0 ($spacing-unit * 3);
       letter-spacing: normal;
       word-spacing: normal;
@@ -374,12 +360,12 @@ const projects = [
     }
 
     h3 {
-      font-size: 1rem;
+      font-size: $font-size-base;
       margin: 0 0 $spacing-unit;
     }
 
     &__desc {
-      font-size: 0.9rem;
+      font-size: $font-size-sm;
       line-height: $line-height-base;
       margin: 0 0 auto;
     }
@@ -391,7 +377,7 @@ const projects = [
       align-items: center;
       gap: $spacing-unit * 2;
       margin-top: $spacing-unit * 1.5;
-      font-size: 0.75rem;
+      font-size: $font-size-xs;
     }
 
     &__lang {
@@ -419,7 +405,7 @@ const projects = [
     filter: grayscale(100%) sepia(100%) hue-rotate(180deg) saturate(2) brightness(1.1);
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: $breakpoint-mobile) {
     .hero {
       margin-top: 0;
       flex-direction: column-reverse;
