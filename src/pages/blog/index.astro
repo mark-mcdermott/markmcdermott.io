@@ -19,14 +19,16 @@ function formatDate(dateStr: string) {
   <h1>Blog</h1>
 
   <section>
-    {posts.map((post) => (
-      <article>
-        <a href={`/blog/${post.data.slug ?? post.id}`}>
-          <h2>{post.data.title}</h2>
-        </a>
-        <time datetime={post.data.date}>{formatDate(post.data.date)}</time>
-      </article>
-    ))}
+    <ul class="post-list">
+      {posts.map((post) => (
+        <li>
+          <a href={`/blog/${post.data.slug ?? post.id}`}>
+            <time datetime={post.data.date}>{formatDate(post.data.date)}</time>
+            <span>{post.data.title}</span>
+          </a>
+        </li>
+      ))}
+    </ul>
   </section>
 </DefaultLayout>
 
@@ -41,40 +43,58 @@ function formatDate(dateStr: string) {
     line-height: $line-height-base * 0.95;
   }
 
-  section {
-    padding-top: $spacing-unit * 2;
+  .post-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    @include hyphen-border(top);
 
-    article {
-      padding: ($spacing-unit * 4) 0 ($spacing-unit * 3);
-      @include hyphen-border(top);
+    &:has(li:first-child:hover) {
+      background-image: repeating-linear-gradient(
+        to right,
+        var(--color-link) 0,
+        var(--color-link) 10px,
+        transparent 10px,
+        transparent 12px
+      );
+    }
 
-      a {
-        text-decoration: none;
+    li {
+      @include hyphen-border(bottom);
 
-        h2 {
-          color: var(--color-text);
-          font-size: 1.1rem;
-          letter-spacing: -0.03em;
-          word-spacing: 0.1em;
-          line-height: $line-height-base * 0.8;
-        }
-
-        &:hover {
-          h2 {
-            color: var(--color-link-hover);
-          }
-        }
+      &:hover {
+        --color-text: var(--color-link);
       }
 
-      time {
-        @include terminal-output;
+      &:has(+ li:hover) {
+        background-image: repeating-linear-gradient(
+          to right,
+          var(--color-link) 0,
+          var(--color-link) 10px,
+          transparent 10px,
+          transparent 12px
+        );
       }
+    }
 
-      p {
-        line-height: $line-height-base;
-        letter-spacing: $letter-spacing-body;
-        margin-bottom: $spacing-unit * 2.5;
+    a {
+      display: flex;
+      align-items: baseline;
+      gap: $spacing-unit * 3;
+      padding: ($spacing-unit * 1.5) 0;
+      color: var(--color-text);
+      text-decoration: none;
+
+      span {
+        font-weight: 500;
       }
+    }
+
+    time {
+      @include terminal-output;
+      font-size: 0.75rem;
+      flex-shrink: 0;
+      width: 9em;
     }
   }
 
