@@ -1,0 +1,165 @@
+---
+// components/ProjectsGrid.astro
+interface Project {
+  name: string;
+  description: string;
+  repo: string;
+  url: string;
+}
+
+interface Props {
+  projects: Project[];
+}
+
+const { projects } = Astro.props;
+---
+
+<section class="projects">
+  <h2>Projects</h2>
+  <div class="projects__grid">
+    {projects.map((project) => (
+      <a href={project.url} target="_blank" rel="noopener" class="project-card" data-repo={project.repo}>
+        <h3>{project.name}</h3>
+        <p class="project-card__desc">{project.description}</p>
+        <div class="project-card__meta">
+          <span class="project-card__lang">
+            <span class="project-card__dot"></span>
+            <span class="project-card__lang-name"></span>
+          </span>
+          <span class="project-card__stars" style="display:none">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" width="14" height="14"><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.75.75 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25z"/></svg>
+            <span class="project-card__star-count"></span>
+          </span>
+        </div>
+      </a>
+    ))}
+  </div>
+</section>
+
+<style lang="scss">
+  @use '../styles/abstracts' as *;
+
+  .projects {
+    padding-top: $spacing-unit * 2;
+    padding-bottom: $spacing-unit * 4;
+
+    h2 {
+      font-size: $font-size-md;
+      margin: 0 0 ($spacing-unit * 3);
+      letter-spacing: normal;
+      word-spacing: normal;
+      line-height: $line-height-base * 0.8;
+    }
+
+    h3, .project-card__lang-name {
+      letter-spacing: 0.005em;
+    }
+  }
+
+  .projects__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: $spacing-unit * 2;
+
+    @include mobile {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .project-card {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: var(--color-text);
+    padding: $spacing-unit * 2;
+    border: 2px dashed var(--color-text);
+    outline: 2px solid var(--color-text);
+    outline-offset: 3px;
+    border-radius: 0;
+
+    &:hover {
+      color: var(--color-link);
+      border-color: var(--color-link);
+      outline-color: var(--color-link);
+    }
+
+    h3 {
+      font-size: $font-size-base;
+      margin: 0 0 $spacing-unit;
+    }
+
+    &__desc {
+      font-size: $font-size-sm;
+      line-height: $line-height-base;
+      margin: 0 0 auto;
+    }
+
+    &__meta {
+      @include c64-type;
+      text-transform: capitalize;
+      display: flex;
+      align-items: center;
+      gap: $spacing-unit * 2;
+      margin-top: $spacing-unit * 1.5;
+      font-size: $font-size-xs;
+    }
+
+    &__lang {
+      display: flex;
+      align-items: center;
+      gap: 0.4em;
+    }
+
+    &__dot {
+      display: inline-block;
+      width: 0.75em;
+      height: 0.75em;
+      border-radius: 50%;
+      background: var(--color-text);
+    }
+
+    &__stars {
+      display: flex;
+      align-items: center;
+      gap: 0.3em;
+    }
+  }
+</style>
+
+<script>
+  const LANG_COLORS: Record<string, string> = {
+    Astro: '#ff5a03',
+    Shell: '#89e051',
+    JavaScript: '#f1e05a',
+    TypeScript: '#3178c6',
+    Ruby: '#701516',
+    Python: '#3572A5',
+    HTML: '#e34c26',
+    CSS: '#563d7c',
+    SCSS: '#c6538c',
+  };
+
+  document.querySelectorAll<HTMLElement>('.project-card[data-repo]').forEach(card => {
+    const repo = card.dataset.repo;
+    if (!repo) return;
+    fetch(`https://api.github.com/repos/${repo}`)
+      .then(res => res.json())
+      .then(data => {
+        const lang = data.language;
+        if (lang) {
+          const dot = card.querySelector<HTMLElement>('.project-card__dot');
+          const name = card.querySelector('.project-card__lang-name');
+          if (dot) dot.style.background = LANG_COLORS[lang] || 'var(--color-text)';
+          if (name) name.textContent = lang;
+        }
+        const stars = data.stargazers_count;
+        if (stars > 0) {
+          const starsEl = card.querySelector<HTMLElement>('.project-card__stars');
+          const countEl = card.querySelector('.project-card__star-count');
+          if (starsEl) starsEl.style.display = 'flex';
+          if (countEl) countEl.textContent = String(stars);
+        }
+      })
+      .catch(() => {});
+  });
+</script>
