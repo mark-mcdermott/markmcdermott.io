@@ -136,11 +136,9 @@ const projects = [
       width: 100%;
       height: 100%;
       object-fit: cover;
-      // scanline effect + desaturation + boost contrast/saturation/brightness to make it pop more
       filter: grayscale(100%) contrast(1.8) brightness(1.05);
     }
 
-    // Scanlines overlay
     &::after {
       content: '';
       position: absolute;

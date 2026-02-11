@@ -1,13 +1,4 @@
-// styles/base/_typography.scss
 @use './../abstracts' as *;
-
-@font-face {
-  font-family: 'C64 Pro Mono';
-  src: url('/fonts/C64_Pro_Mono-STYLE.woff2') format('woff2');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
 
 body {
   color: var(--color-text);
@@ -49,7 +40,6 @@ code, pre {
   margin-bottom: $spacing-unit;
 }
 
-// Inline code gets text color
 :not(pre) > code {
   color: var(--color-text) !important;
 }
