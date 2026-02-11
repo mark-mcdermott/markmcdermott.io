@@ -9,12 +9,14 @@
     --color-link: #{$sky};
     --color-link-hover: #{$ice};
     --color-accent: #{$arctic};
+    --color-code-bg: #ccc;
   }
 
   [data-theme='dark'] {
     --color-bg: #{$carbon};
     --color-text: #{$platinum};
     --color-text-inverse: #{$carbon};
+    --color-code-bg: #535456;
   }
 
   [data-theme='c64'] {
@@ -23,4 +25,5 @@
     --color-text-inverse: #{$c64-dark-blue};
     --color-link: #{$platinum};
     --color-link-hover: #{$stone};
+    --color-code-bg: #{$c64-logo-blue};
   }

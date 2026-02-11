@@ -1,5 +1,5 @@
 // styles/base/_typography.scss
-@use './../abstracts';
+@use './../abstracts' as *;
 
 @font-face {
   font-family: 'C64 Pro Mono';
@@ -12,16 +12,17 @@
 body {
   color: var(--color-text);
   background-color: var(--color-bg);
-  font-family: abstracts.$font-family-body;
-  font-size: abstracts.$font-size-base;
-  line-height: abstracts.$line-height-base;
-  letter-spacing: abstracts.$letter-spacing-body;
+  font-family: $font-family-body;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+  letter-spacing: $letter-spacing-body;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: abstracts.$font-family-headers;
-  line-height: abstracts.$header-line-height-base;
-  letter-spacing: abstracts.$letter-spacing-headers;
+  font-family: $font-family-headers;
+  line-height: $header-line-height-base;
+  letter-spacing: $letter-spacing-headers;
+  margin-bottom: $spacing-unit;
 }
 
 a {
@@ -35,11 +36,33 @@ a {
 }
 
 ul:not(.post-list, .writings__list) li {
-  margin-left: 1.5em;
+  margin-left: $spacing-unit * 2;
+  margin-bottom: $spacing-unit * 6;
 }
 
 code, pre {
   font-family: inherit;
   padding: 0.2em 0.4em;
   border-radius: 4px;
+  background-color: var(--color-code-bg) !important;
+  margin-top: $spacing-unit;
+  margin-bottom: $spacing-unit;
+}
+
+// Inline code gets text color
+:not(pre) > code {
+  color: var(--color-text) !important;
+}
+
+// Shiki dual themes: light colors are the default inline `color`,
+// dark colors are in --shiki-dark. No override needed for light mode.
+
+// Dark mode: swap to dark theme tokens
+[data-theme='dark'] .astro-code span {
+  color: var(--shiki-dark) !important;
+}
+
+// C64 mode: monochrome (no syntax colors)
+[data-theme='c64'] .astro-code span {
+  color: var(--color-text) !important;
 }

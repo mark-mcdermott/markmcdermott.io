@@ -12,7 +12,3 @@ I've been playing catch up on AI stuff because I was busy in school when it came
 - and then just paste the result into ChatGPT--it will be the entire current documentation for TailwindCSS and ChatGPT will then use that for future responses. :think_about_it:
 
 This works for any LLM, not just ChatGPT
-
-![Context7 initial screen](https://github.com/mark-mcdermott/mark-mcdermott.github.io/blog/src/public/images/2025-04-28-using-context7-to-keep-llms-knowledge-current-1.jpg)
-
-![Context7 docs screen](https://github.com/mark-mcdermott/mark-mcdermott.github.io/blog/src/public/images/2025-04-28-using-context7-to-keep-llms-knowledge-current-2.jpg)
