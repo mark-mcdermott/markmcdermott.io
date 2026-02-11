@@ -238,7 +238,7 @@ const projects = [
         rgba(0, 0, 0, 0.5) 4px
       );
       pointer-events: none;
-      opacity: $opacity-disabled;
+      opacity: $opacity-overlay;
     }
   }
 
@@ -277,46 +277,8 @@ const projects = [
   }
 
   .writings__list {
-    list-style: none;
-    padding: 0;
+    @include post-list;
     margin: 0;
-    @include hyphen-border(top);
-
-    &:has(li:first-child:hover) {
-      @include hyphen-border-hover;
-    }
-
-    li {
-      @include hyphen-border(bottom);
-
-      &:hover {
-        --color-text: var(--color-link);
-      }
-
-      &:has(+ li:hover) {
-        @include hyphen-border-hover;
-      }
-    }
-
-    a {
-      display: flex;
-      align-items: baseline;
-      gap: $spacing-unit * 3;
-      padding: ($spacing-unit * 1.5) 0;
-      color: var(--color-text);
-      text-decoration: none;
-
-      span {
-        font-weight: 500;
-      }
-    }
-
-    time {
-      @include terminal-output;
-      font-size: $font-size-xs;
-      flex-shrink: 0;
-      width: 9em;
-    }
   }
 
   .projects {
@@ -405,7 +367,7 @@ const projects = [
     filter: grayscale(100%) sepia(100%) hue-rotate(180deg) saturate(2) brightness(1.1);
   }
 
-  @media (max-width: $breakpoint-mobile) {
+  @include mobile {
     .hero {
       margin-top: 0;
       flex-direction: column-reverse;

@@ -35,7 +35,7 @@ a {
   }
 }
 
-ul:not(.post-list, .writings__list) li {
+article ul li {
   margin-left: $spacing-unit * 2;
   margin-bottom: $spacing-unit * 6;
 }

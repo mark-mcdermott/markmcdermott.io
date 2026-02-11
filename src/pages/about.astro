@@ -22,15 +22,12 @@ import DefaultLayout from '../layouts/DefaultLayout.astro';
     header {
       padding-bottom: $spacing-unit * 6;
       margin-bottom: $spacing-unit * 7;
-      // @include terminal-output;
       @include hyphen-border(bottom);
 
       h1 {
         font-size: $font-size-lg;
         margin: 0 0 ($spacing-unit * 2);
-        letter-spacing: -0.03em;
-        word-spacing: -0.3em;
-        line-height: $line-height-base * 0.95;
+        @include page-heading;
       }
     }
 

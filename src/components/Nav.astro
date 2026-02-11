@@ -159,7 +159,7 @@
     }
   }
 
-  @media (max-width: $breakpoint-mobile) {
+  @include mobile {
     .nav__toggle {
       display: block;
       z-index: 200;
@@ -180,7 +180,6 @@
       bottom: 0;
       margin: ($spacing-unit * 2) 0 0;
       flex-direction: column;
-      // justify-content: center;
       align-items: center;
       padding: $spacing-unit * 2;
       background-color: var(--color-bg);

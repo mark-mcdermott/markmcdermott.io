@@ -60,52 +60,12 @@ function formatDate(dateStr: string) {
   h1 {
     font-size: $font-size-xl;
     margin: 0 0 ($spacing-unit * 2);
-    letter-spacing: -0.03em;
-    word-spacing: -0.3em;
-    line-height: $line-height-base * 0.95;
+    @include page-heading;
   }
 
   .post-list {
+    @include post-list;
     margin-bottom: $spacing-unit * 4;
-    list-style: none;
-    padding: 0;
-    @include hyphen-border(top);
-
-    &:has(li:first-child:hover) {
-      @include hyphen-border-hover;
-    }
-
-    li {
-      @include hyphen-border(bottom);
-
-      &:hover {
-        --color-text: var(--color-link);
-      }
-
-      &:has(+ li:hover) {
-        @include hyphen-border-hover;
-      }
-    }
-
-    a {
-      display: flex;
-      align-items: baseline;
-      gap: $spacing-unit * 3;
-      padding: ($spacing-unit * 1.5) 0;
-      color: var(--color-text);
-      text-decoration: none;
-
-      span {
-        font-weight: 500;
-      }
-    }
-
-    time {
-      @include terminal-output;
-      font-size: $font-size-xs;
-      flex-shrink: 0;
-      width: 9em;
-    }
   }
 
   .pagination {
