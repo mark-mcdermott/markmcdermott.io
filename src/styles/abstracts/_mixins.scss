@@ -1,6 +1,6 @@
 @use 'variables' as *;
 
-@mixin c64-pro-mono {
+@mixin c64-type {
   font-family: 'Sixtyfour', monospace;
   font-kerning: none;
   line-height: $header-line-height-base;
@@ -36,6 +36,21 @@
     transparent 10px,
     transparent 12px
   );
+}
+
+@mixin scanline {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.01) 1px,
+    rgba(0, 0, 0, 0.01) 4px
+  );
+  pointer-events: none;
+  z-index: 10;
 }
 
 @mixin mobile {

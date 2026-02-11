@@ -1,5 +1,3 @@
-@use "sass:color";
-
 // --- My Theme Blues ---
 $sky: hsla(202, 79%, 49%, 1);
 $ice: hsla(202, 79%, 62%, 1);
@@ -8,14 +6,12 @@ $stone: #999;
 
 // --- C64 Palette ---
 $c64-dark-blue: hsla(218, 79%, 49%, 1);
-$c64-med-blue: color.adjust($c64-dark-blue, $lightness: 13%);
 $c64-light-blue: hsla(205, 100%, 79%, 1);
 $c64-logo-blue: hsla(217, 98%, 17%, 1);
 
 // --- Neutrals ---
 $carbon: hsla(0, 0%, 19%, 1);
-$alabaster: hsla(96, 7%, 86%, 1);
-$linen: hsla(52, 17%, 91%, 1);
+$storm: #535456;
 $platinum: hsla(0, 0%, 100%, 1);
 $ghost: rgb(192, 192, 192);
 
