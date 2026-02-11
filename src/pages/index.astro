@@ -153,8 +153,10 @@ const projects = [
       font-family: 'Sixtyfour', monospace;
       font-size: 0.5rem;
       letter-spacing: 0.03em;
+      word-spacing: -0.3em;
       line-height: 1.4;
       white-space: nowrap;
+      text-transform: capitalize;
       color: var(--color-bg);
       background: var(--color-text);
       padding: 4px 8px;
@@ -406,16 +408,16 @@ const projects = [
   };
 
   function weatherCodeToIcon(code: number): { icon: string; label: string } {
-    if (code === 0) return isNight() ? { icon: 'night-clear', label: 'clear' } : { icon: 'sun', label: 'sunny' };
-    if (code <= 2) return isNight() ? { icon: 'night-partly-cloudy', label: 'partly cloudy' } : { icon: 'partly-cloudy', label: 'partly cloudy' };
-    if (code === 3) return { icon: 'cloud', label: 'cloudy' };
-    if (code <= 49) return { icon: 'cloud', label: 'foggy' };
-    if (code <= 69) return { icon: 'rain', label: 'rainy' };
-    if (code <= 79) return { icon: 'snow', label: 'snowy' };
-    if (code <= 82) return { icon: 'rain', label: 'rainy' };
-    if (code <= 86) return { icon: 'snow', label: 'snowy' };
-    if (code <= 99) return { icon: 'lightning', label: 'stormy' };
-    return { icon: 'cloud', label: 'cloudy' };
+    if (code === 0) return isNight() ? { icon: 'night-clear', label: 'Clear' } : { icon: 'sun', label: 'Sunny' };
+    if (code <= 2) return isNight() ? { icon: 'night-partly-cloudy', label: 'Partly Cloudy' } : { icon: 'partly-cloudy', label: 'Partly Cloudy' };
+    if (code === 3) return { icon: 'cloud', label: 'Cloudy' };
+    if (code <= 49) return { icon: 'cloud', label: 'Foggy' };
+    if (code <= 69) return { icon: 'rain', label: 'Rainy' };
+    if (code <= 79) return { icon: 'snow', label: 'Snowy' };
+    if (code <= 82) return { icon: 'rain', label: 'Rainy' };
+    if (code <= 86) return { icon: 'snow', label: 'Snowy' };
+    if (code <= 99) return { icon: 'lightning', label: 'Stormy' };
+    return { icon: 'cloud', label: 'Cloudy' };
   }
 
   fetch('https://api.open-meteo.com/v1/forecast?latitude=30.27&longitude=-97.74&current=weather_code,temperature_2m&temperature_unit=fahrenheit')
