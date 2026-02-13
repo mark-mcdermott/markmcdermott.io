@@ -1,0 +1,133 @@
+---
+---
+
+<section class="travel-map">
+  <p>I've been lucky to travel a lot. Here are countries I've visited.</p>
+  <div class="travel-map__container">
+    <div class="travel-map__svg"></div>
+    <div class="travel-map__tooltip" aria-hidden="true"></div>
+  </div>
+</section>
+
+<style lang="scss">
+  @use '../styles/abstracts' as *;
+
+  .travel-map {
+    margin-top: $spacing-unit * 6;
+
+    p {
+      font-size: $font-size-md;
+      line-height: $line-height-base;
+      letter-spacing: $letter-spacing-body;
+      margin-bottom: $spacing-unit * 3;
+    }
+
+    &__container {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+    }
+
+    &__svg {
+      width: 100%;
+      height: 100%;
+
+      :global(svg) {
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+
+      :global(.country-path) {
+        fill: transparent;
+        stroke: transparent;
+        cursor: default;
+        transition: fill $transition-fast;
+      }
+
+      :global(.country-path.visited) {
+        cursor: pointer;
+
+        &:hover {
+          fill: var(--color-link);
+          fill-opacity: 0.35;
+        }
+      }
+    }
+
+    &__tooltip {
+      position: absolute;
+      padding: ($spacing-unit * 0.75) ($spacing-unit * 1.5);
+      color: var(--color-bg);
+      background: var(--color-text);
+      font-size: $font-size-sm;
+      white-space: nowrap;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity $transition-fast;
+      z-index: 5;
+
+      &.visible {
+        opacity: 1;
+      }
+    }
+  }
+</style>
+
+<script>
+  const visitedCountries: Record<string, { name: string; flag: string }> = {
+    CA: { name: 'Canada', flag: '\u{1F1E8}\u{1F1E6}' },
+  };
+
+  fetch('/maps/8bit-world-map-paths.svg')
+    .then(res => res.text())
+    .then(svgText => {
+      const container = document.querySelector('.travel-map__svg');
+      if (!container) return;
+
+      container.innerHTML = svgText;
+
+      // Mark visited countries
+      for (const id of Object.keys(visitedCountries)) {
+        const el = container.querySelector(`#${id}`);
+        if (el) el.classList.add('visited');
+      }
+
+      // Tooltip
+      const tooltip = document.querySelector('.travel-map__tooltip') as HTMLElement;
+      if (!tooltip) return;
+
+      const mapContainer = document.querySelector('.travel-map__container') as HTMLElement;
+
+      container.querySelectorAll('.country-path.visited').forEach(path => {
+        path.addEventListener('mouseenter', (e: Event) => {
+          const target = e.target as SVGElement;
+          const country = visitedCountries[target.id];
+          if (!country) return;
+
+          tooltip.textContent = `${country.flag} ${country.name}`;
+          tooltip.classList.add('visible');
+          positionTooltip(e as MouseEvent);
+        });
+
+        path.addEventListener('mousemove', (e: Event) => {
+          positionTooltip(e as MouseEvent);
+        });
+
+        path.addEventListener('mouseleave', () => {
+          tooltip.classList.remove('visible');
+        });
+      });
+
+      function positionTooltip(e: MouseEvent) {
+        const rect = mapContainer.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        tooltip.style.left = `${x}px`;
+        tooltip.style.top = `${y - 32}px`;
+        tooltip.style.transform = 'translateX(-50%)';
+      }
+    })
+    .catch(() => {});
+</script>
