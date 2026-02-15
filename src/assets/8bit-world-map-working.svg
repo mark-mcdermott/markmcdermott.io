@@ -555,7 +555,7 @@
     <rect id="CF1" data-name="CF" class="st3" x="521.8" y="466.32" width="29.14" height="9.43"/>
     <polygon id="CG1" data-name="CG" class="st3" points="517.67 481.71 517.67 500.12 529.52 500.12 529.52 475.75 521.8 475.75 521.8 481.71 517.67 481.71"/>
     <rect id="SS1" data-name="SS" class="st3" x="550.94" y="466.32" width="30.85" height="9.43"/>
+    <path id="CD1" data-name="CD" class="st3" d="M517.57,504.02h22.81v14.7h20.04v-42.97h-30.9v24.37h-11.89s-.05,3.9-.06,3.9Z"/>
   </g>
   <path class="st3" d="M506.31,500.1"/>
-  <path id="CD1" data-name="CD" class="st3" d="M517.57,504.02h22.81v14.7h20.04v-42.97h-30.9v24.37h-11.89s-.05,3.9-.06,3.9Z"/>
 </svg>
