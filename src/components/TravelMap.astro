@@ -1,7 +1,8 @@
 ---
+import austinShield from '../assets/austin-shield.svg';
 ---
 
-<section class="travel-map">
+<section class="travel-map" data-shield-url={austinShield.src}>
   <div class="travel-map__legend">
     <div class="travel-map__legend-item">
       <span class="travel-map__legend-dot travel-map__legend-dot--visited"></span>
@@ -154,6 +155,11 @@
         line-height: 1;
       }
 
+      :global(.shield) {
+        height: 2.75em;
+        width: auto;
+      }
+
       &.visible {
         opacity: 1;
       }
@@ -287,6 +293,7 @@
         dot.setAttribute('stroke', '#444');
         dot.setAttribute('stroke-width', '1');
         dot.classList.add('home-marker');
+        dot.style.cursor = 'pointer';
         svgEl.appendChild(dot);
       }
 
@@ -545,6 +552,20 @@
           tooltip.classList.remove('visible');
         });
       });
+
+      // Home marker tooltip
+      const homeMarker = svgContainer.querySelector('.home-marker') as SVGGraphicsElement | null;
+      const shieldUrl = document.querySelector('.travel-map')?.getAttribute('data-shield-url') ?? '';
+      if (homeMarker) {
+        homeMarker.addEventListener('mouseenter', () => {
+          tooltip.innerHTML = `<img class="shield" src="${shieldUrl}" alt="" /> Austin, TX`;
+          tooltip.classList.add('visible');
+          positionTooltip(homeMarker);
+        });
+        homeMarker.addEventListener('mouseleave', () => {
+          tooltip.classList.remove('visible');
+        });
+      }
     })
     .catch(() => {});
 </script>
