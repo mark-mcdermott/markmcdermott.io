@@ -22,13 +22,12 @@ function formatDate(dateStr: string) {
 }
 ---
 
-<DefaultLayout>
+<DefaultLayout pageTitle={post.data.title} headerClass="page-header--meta">
+  <Fragment slot="header-meta">
+    {post.data.subtitle && <p class="subtitle">{post.data.subtitle}</p>}
+    <time datetime={post.data.date}>{formatDate(post.data.date)}</time>
+  </Fragment>
   <article>
-    <header>
-      <h1>{post.data.title}</h1>
-      {post.data.subtitle && <p class="subtitle">{post.data.subtitle}</p>}
-      <time datetime={post.data.date}>{formatDate(post.data.date)}</time>
-    </header>
     <Content />
   </article>
 </DefaultLayout>
@@ -36,28 +35,25 @@ function formatDate(dateStr: string) {
 <style lang="scss">
   @use '../../styles/abstracts' as *;
 
+  .subtitle,
+  time {
+    @include terminal-output;
+    font-size: $font-size-xs;
+    line-height: 1.2;
+    margin: 0;
+  }
+
+  .subtitle {
+    margin-top: $spacing-unit * 0.5;
+  }
+
+  time {
+    display: block;
+    margin-top: 2px;
+  }
+
   article {
-    margin-top: $spacing-unit * 4;
     padding-bottom: $spacing-unit * 4;
-
-    header {
-      padding-bottom: $spacing-unit * 2.75;
-      margin-bottom: $spacing-unit * 3;
-      @include terminal-output;
-      @include hyphen-border(bottom);
-
-      h1 {
-        font-size: $font-size-lg;
-        margin: 0 0 ($spacing-unit * 0.25);
-        letter-spacing: 0.01em;
-        word-spacing: 0.1em;
-        line-height: $line-height-base * 0.95;
-      }
-
-      .subtitle {
-        margin: 0 0 ($spacing-unit * 0.5);
-      }
-    }
 
     :global(p) {
       line-height: $line-height-base;

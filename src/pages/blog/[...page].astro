@@ -21,9 +21,7 @@ function formatDate(dateStr: string) {
 }
 ---
 
-<DefaultLayout>
-  <h1>Blog</h1>
-
+<DefaultLayout pageTitle="Blog" headerClass="page-header--flush">
   <section>
     <ul class="post-list">
       {page.data.map((post) => (
@@ -57,10 +55,9 @@ function formatDate(dateStr: string) {
 <style lang="scss">
   @use '../../styles/abstracts' as *;
 
-  h1 {
-    font-size: $font-size-xl;
-    margin: 0 0 ($spacing-unit * 2);
-    @include page-heading;
+  .post-list li {
+    margin-left: 0;
+    margin-bottom: 0;
   }
 
   .post-list {

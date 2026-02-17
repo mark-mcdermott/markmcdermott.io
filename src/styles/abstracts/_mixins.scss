@@ -16,26 +16,20 @@
 }
 
 @mixin hyphen-border($position: top) {
-  background-image: repeating-linear-gradient(
+  border-#{$position}: 2px solid var(--color-text);
+  border-image: repeating-linear-gradient(
     to right,
-    var(--color-text) 0,
-    var(--color-text) 10px,
-    transparent 10px,
-    transparent 12px
-  );
-  background-size: 100% 2.3px;
-  background-repeat: no-repeat;
-  background-position: #{$position};
+    var(--color-text) 0 10px,
+    transparent 10px 12px
+  ) 2 0;
 }
 
 @mixin hyphen-border-hover {
-  background-image: repeating-linear-gradient(
+  border-image: repeating-linear-gradient(
     to right,
-    var(--color-link) 0,
-    var(--color-link) 10px,
-    transparent 10px,
-    transparent 12px
-  );
+    var(--color-link) 0 10px,
+    transparent 10px 12px
+  ) 2 0;
 }
 
 @mixin scanline {

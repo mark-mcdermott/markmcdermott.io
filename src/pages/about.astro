@@ -3,40 +3,24 @@ import DefaultLayout from '../layouts/DefaultLayout.astro';
 import TravelMap from '../components/TravelMap.astro';
 ---
 
-<DefaultLayout>
+<DefaultLayout pageTitle="About">
   <article>
-    <header>
-      <h1>About</h1>
-    </header>
-    
+
     <h2>Work</h2>
     <p>I'm a Senior QA Engineer with aspirations to transition into full-stack development. Based in Austin, TX, I bring over 20 years of experience in quality assurance and software testing, with a growing passion for building web applications.</p>
     <p>I hold a Master's degree in Software Engineering and have spent my career ensuring software quality across various platforms and technologies. My experience spans from manual testing to automated test frameworks, and I'm now channeling that expertise into development.</p>
+    
+    <h2>Travel</h2>
+    <p>I've been lucky to have travelled a lot. I once travelled all the way around the world <a href="https://www.semesteratsea.org">on a ship</a> and I once lived in a <a href="https://www.shakespeareandcompany.com/">bookstore in Paris</a> for a couple months. Here are all places I've visited over the years.</p>
+    <TravelMap />
   </article>
-
-  <h2>Travel</h2>
-  <p>I've been lucky to have travelled a lot. I once travelled all the way around the world <a href="https://www.semesteratsea.org">on a ship</a> and I once lived in a <a href="https://www.shakespeareandcompany.com/">bookstore in Paris</a> for a couple months. Here are all places I've visited over the years.</p>
-  <TravelMap />
 </DefaultLayout>
 
 <style lang="scss">
   @use '../styles/abstracts' as *;
 
   article {
-    margin-top: $spacing-unit * 6;
     padding-bottom: $spacing-unit * 5;
-
-    header {
-      padding-bottom: $spacing-unit * 6;
-      margin-bottom: $spacing-unit * 7;
-      @include hyphen-border(bottom);
-
-      h1 {
-        font-size: $font-size-lg;
-        margin: 0 0 ($spacing-unit * 2);
-        @include page-heading;
-      }
-    }
 
     p {
       font-size: $font-size-md;
