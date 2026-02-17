@@ -3,6 +3,16 @@
 
 <section class="travel-map">
   <p>I've been lucky to have travelled a lot. Here are places I've visited.</p>
+  <div class="travel-map__legend">
+    <div class="travel-map__legend-item">
+      <span class="travel-map__legend-dot travel-map__legend-dot--visited"></span>
+      <span>Visited</span>
+    </div>
+    <div class="travel-map__legend-item">
+      <span class="travel-map__legend-dot travel-map__legend-dot--home"></span>
+      <span>Home</span>
+    </div>
+  </div>
   <div class="travel-map__container">
     <div class="travel-map__svg"></div>
     <div class="travel-map__tooltip" aria-hidden="true"></div>
@@ -24,6 +34,39 @@
       line-height: $line-height-base;
       letter-spacing: $letter-spacing-body;
       margin-bottom: $spacing-unit * 3;
+    }
+
+    &__legend {
+      display: flex;
+      gap: $spacing-unit * 2;
+      justify-content: flex-end;
+      margin-bottom: $spacing-unit * 2;
+    }
+
+    &__legend-item {
+      display: flex;
+      align-items: center;
+      gap: $spacing-unit;
+      padding: $spacing-unit $spacing-unit * 2;
+      border: 2px solid #ccc;
+      font-family: 'Sixtyfour', monospace;
+      font-size: 0.55em;
+      letter-spacing: -0.1em;
+    }
+
+    &__legend-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+
+      &--visited {
+        background: #888;
+      }
+
+      &--home {
+        background: var(--color-link);
+      }
     }
 
     &__container {
@@ -77,6 +120,10 @@
         fill: var(--color-link);
         fill-opacity: 0.35;
       }
+
+      :global(.home-marker) {
+        fill: var(--color-link);
+      }
     }
 
     &__tooltip {
@@ -86,7 +133,7 @@
       background: var(--color-text);
       font-family: 'Sixtyfour', monospace;
       font-size: 0.7em;
-      letter-spacing: 0.03em;
+      letter-spacing: -0.1em;
       word-spacing: -0.3em;
       line-height: 1.4;
       white-space: nowrap;
@@ -225,6 +272,17 @@
         const enclave = svgContainer.querySelector(`#${enclaveId}`);
         const encloser = svgContainer.querySelector(`#${encloserId}`);
         if (enclave && encloser) encloser.after(enclave);
+      }
+
+      // Home marker (Austin, TX)
+      const svgEl = svgContainer.querySelector('svg');
+      if (svgEl) {
+        const dot = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+        dot.setAttribute('cx', '204');
+        dot.setAttribute('cy', '400');
+        dot.setAttribute('r', '4');
+        dot.classList.add('home-marker');
+        svgEl.appendChild(dot);
       }
 
       // Expand hit area for tiny countries with an invisible rect over them
