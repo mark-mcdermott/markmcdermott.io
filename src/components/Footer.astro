@@ -2,7 +2,14 @@
 ---
 <footer>
   <p class="copyright">&copy; {new Date().getFullYear()} Mark McDermott</p>
-  <p class="ready">Ready.</p>
+  <div class="footer__right">
+    <div class="footer__social">
+      <a href="https://github.com/mark-mcdermott/markmcdermott.io" target="_blank" rel="noopener noreferrer" title="github">[gh]</a>
+      <a href="https://bsky.app/profile/mark-mcdermott.bsky.social" target="_blank" rel="noopener noreferrer" title="bluesky">[bs]</a>
+      <a href="https://www.linkedin.com/in/mark-mcdermott-6a174916" target="_blank" rel="noopener noreferrer" title="linkedin">[in]</a>
+    </div>
+    <p class="ready">Ready.</p>
+  </div>
 </footer>
 
 
@@ -21,6 +28,31 @@
       letter-spacing: -0.04em;
       word-spacing: -0.6em;
       text-transform: none;
+    }
+
+    .footer__right {
+      display: flex;
+      align-items: center;
+      gap: $spacing-unit * 3;
+    }
+
+    .footer__social {
+      display: flex;
+      gap: $spacing-unit * 2;
+
+      a {
+        @include c64-type;
+        font-size: $font-size-sm;
+        text-decoration: none;
+        text-transform: lowercase;
+        letter-spacing: -0.15em;
+        color: inherit;
+        font-weight: normal;
+
+        &:hover {
+          color: var(--color-link);
+        }
+      }
     }
 
     .ready {
