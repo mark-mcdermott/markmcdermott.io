@@ -12,62 +12,66 @@ import TravelMap from '../components/TravelMap.astro';
     <p>I hold a Master's degree in Software Engineering and have spent my career ensuring software quality across various platforms and technologies. My experience spans from manual testing to automated test frameworks, and I'm now channeling that expertise into development.</p>
 
     <h2>Experience</h2>
-    <ol class="timeline">
-      <li class="timeline__item">
-        <img src="/images/logos/doximity.png" alt="Doximity" class="timeline__logo" />
-        <span class="timeline__date">2020 — Current</span>
-        <span class="timeline__role">Doximity</span>
-        <span class="timeline__company">Senior QA Engineer</span>
-      </li>
-      <li class="timeline__item">
-        <img src="/images/logos/axzon.png" alt="Axzon" class="timeline__logo" />
-        <span class="timeline__date">2019</span>
-        <span class="timeline__role">Axzon</span>
-        <span class="timeline__company">Automation Engineer</span>
-      </li>
-      <li class="timeline__item">
-        <img src="/images/logos/kasasa.png" alt="Kasasa" class="timeline__logo" />
-        <span class="timeline__date">2019</span>
-        <span class="timeline__role">Kasasa</span>
-        <span class="timeline__company">Front-end Programmer</span>
-      </li>
-      <li class="timeline__item">
-        <img src="/images/logos/schwab.jpg" alt="Charles Schwab" class="timeline__logo" />
-        <span class="timeline__date">2017 — 2019</span>
-        <span class="timeline__role">Charles Schwab</span>
-        <span class="timeline__company">Midlevel Developer</span>
-      </li>
-      <li class="timeline__item">
-        <img src="/images/logos/freelance.svg" alt="Freelance" class="timeline__logo" />
-        <span class="timeline__date">2016</span>
-        <span class="timeline__role">Freelance</span>
-        <span class="timeline__company">Front-end Developer</span>
-      </li>
-      <li class="timeline__item">
-        <img src="/images/logos/kasasa.png" alt="Kasasa" class="timeline__logo" />
-        <span class="timeline__date">2011 — 2015</span>
-        <span class="timeline__role">Kasasa</span>
-        <span class="timeline__company">Front-end Programmer</span>
-      </li>
-      <li class="timeline__item">
-        <img src="/images/logos/uship.png" alt="uShip" class="timeline__logo" />
-        <span class="timeline__date">2011</span>
-        <span class="timeline__role">uShip</span>
-        <span class="timeline__company">Front-end Web Developer</span>
-      </li>
-      <li class="timeline__item">
-        <img src="/images/logos/s-collective.png" alt="S Collective" class="timeline__logo" />
-        <span class="timeline__date">2009 — 2011</span>
-        <span class="timeline__role">S Collective</span>
-        <span class="timeline__company">Front-end Web Developer</span>
-      </li>
-      <li class="timeline__item">
-        <img src="/images/logos/freelance.svg" alt="Freelance" class="timeline__logo" />
-        <span class="timeline__date">2006 — 2008</span>
-        <span class="timeline__role">Freelance</span>
-        <span class="timeline__company">Front-end Developer</span>
-      </li>
-    </ol>
+    <div class="timeline-grid">
+      <ol class="timeline timeline--left">
+        <li class="timeline__item">
+          <img src="/images/logos/freelance.svg" alt="Freelance" class="timeline__logo" />
+          <span class="timeline__date">2016</span>
+          <a href="https://markmcdermott.io" class="timeline__role" target="_blank" rel="noopener noreferrer">Freelance</a>
+          <span class="timeline__company">Front-end Developer</span>
+        </li>
+        <li class="timeline__item">
+          <img src="/images/logos/kasasa.png" alt="Kasasa" class="timeline__logo" />
+          <span class="timeline__date">2011 — 2015</span>
+          <a href="https://www.kasasa.com/" class="timeline__role" target="_blank" rel="noopener noreferrer">Kasasa</a>
+          <span class="timeline__company">Front-end Programmer</span>
+        </li>
+        <!-- <li class="timeline__item">
+          <img src="/images/logos/uship.png" alt="uShip" class="timeline__logo" />
+          <span class="timeline__date">2011</span>
+          <span class="timeline__role">uShip</span>
+          <span class="timeline__company">Front-end Web Developer</span>
+        </li> -->
+        <li class="timeline__item">
+          <img src="/images/logos/s-collective.png" alt="S Collective" class="timeline__logo" />
+          <span class="timeline__date">2009 — 2011</span>
+          <span class="timeline__role">S Collective</span>
+          <span class="timeline__company timeline__company--defunct">Front-end Web Developer</span>
+        </li>
+        <li class="timeline__item">
+          <img src="/images/logos/freelance.svg" alt="Freelance" class="timeline__logo" />
+          <span class="timeline__date">2006 — 2008</span>
+          <a href="https://markmcdermott.io" class="timeline__role" target="_blank" rel="noopener noreferrer">Freelance</a>
+          <span class="timeline__company">Front-end Developer</span>
+        </li>
+      </ol>
+      <ol class="timeline timeline--right">
+        <li class="timeline__item">
+          <img src="/images/logos/doximity.png" alt="Doximity" class="timeline__logo" />
+          <span class="timeline__date">2020 — Current</span>
+          <a href="https://www.doximity.com/" class="timeline__role" target="_blank" rel="noopener noreferrer">Doximity</a>
+          <span class="timeline__company">Senior QA Engineer</span>
+        </li>
+        <li class="timeline__item">
+          <img src="/images/logos/axzon.png" alt="Axzon" class="timeline__logo" />
+          <span class="timeline__date">2019</span>
+          <a href="https://www.axzon.com/" class="timeline__role" target="_blank" rel="noopener noreferrer">Axzon</a>
+          <span class="timeline__company">Automation Engineer</span>
+        </li>
+        <li class="timeline__item">
+          <img src="/images/logos/kasasa.png" alt="Kasasa" class="timeline__logo" />
+          <span class="timeline__date">2019</span>
+          <a href="https://www.kasasa.com/" class="timeline__role" target="_blank" rel="noopener noreferrer">Kasasa</a>
+          <span class="timeline__company">Front-end Programmer</span>
+        </li>
+        <li class="timeline__item">
+          <img src="/images/logos/schwab.jpg" alt="Charles Schwab" class="timeline__logo" />
+          <span class="timeline__date">2017 — 2019</span>
+          <a href="https://www.schwab.com/" class="timeline__role" target="_blank" rel="noopener noreferrer">Charles Schwab</a>
+          <span class="timeline__company">Midlevel Developer</span>
+        </li>
+      </ol>
+    </div>
 
     <h2>Travel</h2>
     <p>I've been lucky to have travelled a lot. I once travelled all the way around the world <a href="https://www.semesteratsea.org">on a ship</a> and I once lived in a <a href="https://www.shakespeareandcompany.com/">bookstore in Paris</a> for a couple months. Here are all places I've visited over the years.</p>
@@ -90,26 +94,139 @@ import TravelMap from '../components/TravelMap.astro';
   }
 
   $logo-size: 36px;
+  $timeline-gap: $spacing-unit * 6;
+  $line-left: $logo-size * 0.5 - 1px;
+
+  .timeline-grid {
+    display: grid;
+    grid-template-columns: 285px 1fr;
+    gap: 0 $timeline-gap;
+    position: relative;
+    margin-top: 26px;
+    margin-bottom: $spacing-unit * 4;
+
+    // vertical connector line in center gap
+    &::before {
+      content: '';
+      position: absolute;
+      left: 245px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--color-text);
+    }
+
+    @include mobile {
+      grid-template-columns: 1fr;
+      gap: 0;
+
+      &::before {
+        display: none;
+      }
+    }
+  }
 
   .timeline {
     list-style: none;
     padding: 0;
-    margin: 0 0 ($spacing-unit * 4);
-    margin-top: 26px;
+    margin: 0;
     position: relative;
     padding-left: $logo-size + $spacing-unit * 2;
+
+    @include mobile {
+      width: fit-content;
+      margin: 0 auto;
+    }
+  }
+
+  // Left column (older jobs) — line extends above first circle to top
+  .timeline--left {
+    grid-column: 1;
+    grid-row: 1;
+    align-self: stretch;
+    padding-top: $spacing-unit * 2;
+    padding-bottom: $spacing-unit * 2;
 
     // vertical line
     &::before {
       content: '';
       position: absolute;
-      left: $logo-size * 0.5 - 1px;
+      left: $line-left;
+      top: 0;
+      bottom: $logo-size * 0.5;
+      width: 2px;
+      background: var(--color-text);
+    }
+
+    // horizontal bridge at top → center
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: $line-left;
+      right: 40px;
+      height: 2px;
+      background: var(--color-text);
+    }
+
+    @include mobile {
+      grid-column: 1;
+      grid-row: 2;
+      padding-top: 0;
+
+      &::before {
+        top: 0;
+      }
+
+      &::after {
+        display: none;
+      }
+    }
+  }
+
+  // Right column (recent jobs) — line extends below last circle to bottom
+  .timeline--right {
+    grid-column: 2;
+    grid-row: 1;
+    align-self: stretch;
+    padding-top: $spacing-unit * 2;
+    padding-bottom: $spacing-unit * 2;
+
+    // vertical line
+    &::before {
+      content: '';
+      position: absolute;
+      left: $line-left;
       top: $logo-size * 0.5;
       bottom: 0;
       width: 2px;
       background: var(--color-text);
     }
 
+    // horizontal bridge at bottom ← center
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: -($timeline-gap + 40px);
+      width: $timeline-gap + 40px + $line-left + 1px;
+      height: 2px;
+      background: var(--color-text);
+    }
+
+    @include mobile {
+      grid-column: 1;
+      grid-row: 1;
+      padding-bottom: $spacing-unit * 3;
+
+      &::before {
+        bottom: 0;
+      }
+
+      &::after {
+        display: none;
+      }
+    }
   }
 
   .timeline__item {
@@ -118,19 +235,19 @@ import TravelMap from '../components/TravelMap.astro';
 
     &:last-child {
       padding-bottom: 0;
-
-      // cover the line below the last circle
-      &::after {
-        content: '';
-        position: absolute;
-        left: -($logo-size + $spacing-unit * 2);
-        top: $logo-size * 0.5;
-        bottom: 0;
-        width: $logo-size;
-        background: var(--color-bg);
-        z-index: 0;
-      }
     }
+  }
+
+  // mask line below last circle on left column
+  .timeline--left .timeline__item:last-child::after {
+    content: '';
+    position: absolute;
+    left: -($logo-size + $spacing-unit * 2);
+    top: $logo-size * 0.5;
+    bottom: 0;
+    width: $logo-size;
+    background: var(--color-bg);
+    z-index: 0;
   }
 
   .timeline__logo {
@@ -160,6 +277,59 @@ import TravelMap from '../components/TravelMap.astro';
     font-weight: bold;
     display: block;
     letter-spacing: $letter-spacing-body;
+    color: var(--color-text);
+    text-decoration: none;
+  }
+
+  a.timeline__role::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -($logo-size + $spacing-unit * 2);
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+  }
+
+  .timeline__item:has(a.timeline__role) {
+    cursor: pointer;
+
+    &:hover .timeline__role {
+      color: var(--color-link);
+    }
+
+    &:hover .timeline__logo {
+      filter: none;
+      border-color: var(--color-link);
+    }
+  }
+
+  // Freelance logo: white circle backup behind the img for hover colorizing
+  .timeline__item:has(img[src*="freelance"]) {
+    &::before {
+      content: '';
+      position: absolute;
+      left: -($logo-size + $spacing-unit * 2);
+      top: 0;
+      width: $logo-size;
+      height: $logo-size;
+      border-radius: 50%;
+      border: 2px solid transparent;
+      background: var(--color-bg);
+      padding: 5px;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    &:hover::before {
+      border-color: var(--color-link);
+    }
+
+    &:hover .timeline__logo {
+      background: transparent;
+      border-color: transparent;
+      filter: brightness(0) saturate(100%) invert(52%) sepia(79%) saturate(2476%) hue-rotate(176deg) brightness(93%) contrast(87%);
+    }
   }
 
   .timeline__company {
@@ -168,5 +338,20 @@ import TravelMap from '../components/TravelMap.astro';
     color: var(--color-text);
     opacity: 0.7;
     letter-spacing: $letter-spacing-body;
+  }
+
+  .timeline__company--defunct {
+    font-size: 0;
+
+    &::after {
+      content: 'Front-end Web Developer';
+      font-size: $font-size-sm;
+    }
+  }
+
+  .timeline__item:hover .timeline__company--defunct {
+    &::after {
+      content: '(Defunct)';
+    }
   }
 </style>
