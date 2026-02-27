@@ -1,0 +1,38 @@
+---
+interface Props {
+  repo: string;
+}
+
+const { repo } = Astro.props;
+---
+
+<span class="star-count" data-repo={repo} style="display:none">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" width="14" height="14"><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.75.75 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25z"/></svg>
+  <span class="star-count__number"></span>
+</span>
+
+<style lang="scss">
+  .star-count {
+    display: flex;
+    align-items: center;
+    gap: 0.3em;
+  }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLElement>('.star-count[data-repo]').forEach(el => {
+    const repo = el.dataset.repo;
+    if (!repo) return;
+    fetch(`https://api.github.com/repos/${repo}`)
+      .then(res => res.json())
+      .then(data => {
+        const stars = data.stargazers_count;
+        if (stars > 0) {
+          const num = el.querySelector('.star-count__number');
+          if (num) num.textContent = String(stars);
+          el.style.display = 'flex';
+        }
+      })
+      .catch(() => {});
+  });
+</script>
