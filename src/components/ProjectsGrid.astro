@@ -112,8 +112,13 @@ const isOdd = projects.length % 2 !== 0;
     }
 
     @include mobile {
+      flex-direction: column;
+      transform: none !important;
+
       .project-card {
-        flex: 0 0 100%;
+        flex: none;
+        padding-left: $spacing-unit * 2;
+        padding-right: $spacing-unit * 2;
       }
     }
   }
@@ -127,6 +132,10 @@ const isOdd = projects.length % 2 !== 0;
     right: 0;
     transform: translateY(-50%);
     pointer-events: none;
+
+    @include mobile {
+      display: none;
+    }
   }
 
   .projects__arrow {
