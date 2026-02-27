@@ -15,25 +15,50 @@ interface Props {
 }
 
 const { projects } = Astro.props;
+const isOdd = projects.length % 2 !== 0;
 ---
 
 <section class="projects">
   <h2>Projects</h2>
-  <div class="projects__grid">
-    {projects.map((project) => (
-      <a href={project.url} target="_blank" rel="noopener" class="project-card">
-        <h3>{project.name}</h3>
-        <p class="project-card__desc">{project.description}</p>
-        <div class="project-card__meta">
-          <span class="project-card__lang">
-            <span class="project-card__dot" style={`background: ${project.langColor}`}></span>
-            <span class="project-card__lang-name">{project.language}</span>
-          </span>
-          <StarCount repo={project.repo} />
-        </div>
-      </a>
-    ))}
-  </div>
+  {isOdd ? (
+    <div class="projects__slider" data-slider>
+      <div class="projects__track" data-track>
+        {projects.map((project) => (
+          <a href={project.url} target="_blank" rel="noopener" class="project-card">
+            <h3>{project.name}</h3>
+            <p class="project-card__desc">{project.description}</p>
+            <div class="project-card__meta">
+              <span class="project-card__lang">
+                <span class="project-card__dot" style={`background: ${project.langColor}`}></span>
+                <span class="project-card__lang-name">{project.language}</span>
+              </span>
+              <StarCount repo={project.repo} />
+            </div>
+          </a>
+        ))}
+      </div>
+      <div class="projects__nav">
+        <button class="projects__arrow projects__arrow--prev" data-prev aria-label="Previous projects"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 113 155" width="16" height="22" fill="var(--color-link)" style="transform:scaleX(-1)"><polygon points="43 0 43.02 13.97 56.97 14.03 57.03 27.97 70.97 28.03 71.03 41.97 84.97 42.03 85.03 55.97 98.97 56.03 99.03 69.98 113 70 113 85 99.03 85.02 98.97 98.97 85.03 99.03 84.97 112.97 71.03 113.03 70.97 126.97 57.03 127.03 56.97 140.97 43.02 141.03 43 155 0 155 0 126 13.97 125.98 14.03 112.03 27.97 111.97 28.03 98.03 41.97 97.97 42.03 84.03 55.97 83.97 55.97 71.03 42.03 70.97 41.97 57.03 28.03 56.97 27.97 43.03 14.03 42.97 13.97 29.02 0 29 0 0 43 0"/></svg></button>
+        <button class="projects__arrow projects__arrow--next" data-next aria-label="Next projects"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 113 155" width="16" height="22" fill="var(--color-link)"><polygon points="43 0 43.02 13.97 56.97 14.03 57.03 27.97 70.97 28.03 71.03 41.97 84.97 42.03 85.03 55.97 98.97 56.03 99.03 69.98 113 70 113 85 99.03 85.02 98.97 98.97 85.03 99.03 84.97 112.97 71.03 113.03 70.97 126.97 57.03 127.03 56.97 140.97 43.02 141.03 43 155 0 155 0 126 13.97 125.98 14.03 112.03 27.97 111.97 28.03 98.03 41.97 97.97 42.03 84.03 55.97 83.97 55.97 71.03 42.03 70.97 41.97 57.03 28.03 56.97 27.97 43.03 14.03 42.97 13.97 29.02 0 29 0 0 43 0"/></svg></button>
+      </div>
+    </div>
+  ) : (
+    <div class="projects__grid">
+      {projects.map((project) => (
+        <a href={project.url} target="_blank" rel="noopener" class="project-card">
+          <h3>{project.name}</h3>
+          <p class="project-card__desc">{project.description}</p>
+          <div class="project-card__meta">
+            <span class="project-card__lang">
+              <span class="project-card__dot" style={`background: ${project.langColor}`}></span>
+              <span class="project-card__lang-name">{project.language}</span>
+            </span>
+            <StarCount repo={project.repo} />
+          </div>
+        </a>
+      ))}
+    </div>
+  )}
 </section>
 
 <style lang="scss">
@@ -56,6 +81,7 @@ const { projects } = Astro.props;
     }
   }
 
+  // --- Even layout: grid ---
   .projects__grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -66,6 +92,65 @@ const { projects } = Astro.props;
     }
   }
 
+  // --- Odd layout: slider ---
+  .projects__slider {
+    overflow: hidden;
+    padding: 6px;
+    margin: -6px;
+    position: relative;
+  }
+
+  .projects__track {
+    display: flex;
+    gap: $spacing-unit * 2;
+    transition: transform 0.3s ease;
+
+    .project-card {
+      flex: 0 0 calc(50% - #{$spacing-unit});
+      padding-left: $spacing-unit * 5;
+      padding-right: $spacing-unit * 5;
+    }
+
+    @include mobile {
+      .project-card {
+        flex: 0 0 100%;
+      }
+    }
+  }
+
+  .projects__nav {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
+
+  .projects__arrow {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 16px;
+    color: var(--color-link);
+    pointer-events: auto;
+
+    &--prev {
+      margin-left: 6px;
+    }
+
+    &--next {
+      margin-right: 6px;
+    }
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+
+  // --- Shared card styles ---
   .project-card {
     display: flex;
     flex-direction: column;
@@ -119,3 +204,54 @@ const { projects } = Astro.props;
     }
   }
 </style>
+
+<script>
+  const slider = document.querySelector<HTMLElement>('[data-slider]');
+  if (slider) {
+    const track = slider.querySelector<HTMLElement>('[data-track]');
+    const prevBtn = slider.querySelector<HTMLElement>('[data-prev]');
+    const nextBtn = slider.querySelector<HTMLElement>('[data-next]');
+    if (!track || !prevBtn || !nextBtn) throw new Error('Slider elements missing');
+
+    let sliding = false;
+
+    function getCardWidth() {
+      const card = track.children[0] as HTMLElement;
+      const gap = parseFloat(getComputedStyle(track).columnGap) || 0;
+      return card.offsetWidth + gap;
+    }
+
+    nextBtn.addEventListener('click', () => {
+      if (sliding) return;
+      sliding = true;
+      const cardWidth = getCardWidth();
+      track.style.transition = 'transform 0.3s ease';
+      track.style.transform = `translateX(-${cardWidth}px)`;
+      track.addEventListener('transitionend', () => {
+        track.style.transition = 'none';
+        track.style.transform = 'translateX(0)';
+        track.appendChild(track.children[0]);
+        sliding = false;
+      }, { once: true });
+    });
+
+    prevBtn.addEventListener('click', () => {
+      if (sliding) return;
+      sliding = true;
+      const cardWidth = getCardWidth();
+      const last = track.children[track.children.length - 1];
+      track.style.transition = 'none';
+      track.insertBefore(last, track.children[0]);
+      track.style.transform = `translateX(-${cardWidth}px)`;
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          track.style.transition = 'transform 0.3s ease';
+          track.style.transform = 'translateX(0)';
+          track.addEventListener('transitionend', () => {
+            sliding = false;
+          }, { once: true });
+        });
+      });
+    });
+  }
+</script>
