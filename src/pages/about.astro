@@ -91,6 +91,10 @@ import TravelMap from '../components/TravelMap.astro';
       letter-spacing: $letter-spacing-body;
       margin-bottom: $spacing-unit * 2.5;
     }
+
+    h2:not(:first-child) {
+      margin-top: 32px;
+    }
   }
 
   $logo-size: 36px;
@@ -103,7 +107,7 @@ import TravelMap from '../components/TravelMap.astro';
     gap: 0 $timeline-gap;
     position: relative;
     margin-top: 26px;
-    margin-bottom: $spacing-unit * 4;
+    margin-bottom: 20px;
 
     // vertical connector line in center gap
     &::before {
@@ -298,9 +302,48 @@ import TravelMap from '../components/TravelMap.astro';
       color: var(--color-link);
     }
 
+    &:hover .timeline__date {
+      color: hsla(0, 0%, 0%, 1);
+    }
+
+    &:hover .timeline__company {
+      font-weight: bold;
+      color: var(--color-text);
+      opacity: 1;
+    }
+
     &:hover .timeline__logo {
       filter: none;
       border-color: var(--color-link);
+    }
+  }
+
+  // S Collective (defunct — no link)
+  .timeline__item:not(:has(a.timeline__role)) {
+    cursor: not-allowed;
+
+    // Overlay to capture hover across the full item (matching the stretched link on linked items)
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -($logo-size + $spacing-unit * 2);
+      right: 0;
+      bottom: 0;
+      z-index: 2;
+    }
+
+    &:hover .timeline__logo {
+      filter: grayscale(100%) brightness(1.6) contrast(0.5);
+      border-color: hsla(0, 0%, 19%, 0.3);
+      background: var(--color-bg);
+      z-index: 2;
+    }
+
+    &:hover .timeline__date,
+    &:hover .timeline__role,
+    &:hover .timeline__company:not(.timeline__company--defunct) {
+      opacity: 0.4;
     }
   }
 
@@ -350,8 +393,12 @@ import TravelMap from '../components/TravelMap.astro';
   }
 
   .timeline__item:hover .timeline__company--defunct {
+    opacity: 1;
+
     &::after {
-      content: '(Defunct)';
+      content: '(Now Defunct)';
+      color: var(--color-text);
+      font-weight: bold;
     }
   }
 </style>
