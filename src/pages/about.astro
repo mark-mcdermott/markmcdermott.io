@@ -1,15 +1,74 @@
 ---
 import DefaultLayout from '../layouts/DefaultLayout.astro';
 import TravelMap from '../components/TravelMap.astro';
+
 ---
 
 <DefaultLayout pageTitle="About">
   <article>
 
     <h2>Work</h2>
-    <p>I'm a Senior QA Engineer with aspirations to transition into full-stack development. Based in Austin, TX, I bring over 20 years of experience in quality assurance and software testing, with a growing passion for building web applications.</p>
+    <p>I'm a Senior QA Engineer with aspirations to transition into full-stack development. Based in Austin, TX, I bring 20 years of experience in quality assurance and software testing, with a growing passion for building web applications.</p>
     <p>I hold a Master's degree in Software Engineering and have spent my career ensuring software quality across various platforms and technologies. My experience spans from manual testing to automated test frameworks, and I'm now channeling that expertise into development.</p>
-    
+
+    <h2>Experience</h2>
+    <ol class="timeline">
+      <li class="timeline__item">
+        <img src="/images/logos/doximity.png" alt="Doximity" class="timeline__logo" />
+        <span class="timeline__date">2020 — Current</span>
+        <span class="timeline__role">Doximity</span>
+        <span class="timeline__company">Senior QA Engineer</span>
+      </li>
+      <li class="timeline__item">
+        <img src="/images/logos/axzon.png" alt="Axzon" class="timeline__logo" />
+        <span class="timeline__date">2019</span>
+        <span class="timeline__role">Axzon</span>
+        <span class="timeline__company">Automation Engineer</span>
+      </li>
+      <li class="timeline__item">
+        <img src="/images/logos/kasasa.png" alt="Kasasa" class="timeline__logo" />
+        <span class="timeline__date">2019</span>
+        <span class="timeline__role">Kasasa</span>
+        <span class="timeline__company">Front-end Programmer</span>
+      </li>
+      <li class="timeline__item">
+        <img src="/images/logos/schwab.jpg" alt="Charles Schwab" class="timeline__logo" />
+        <span class="timeline__date">2017 — 2019</span>
+        <span class="timeline__role">Charles Schwab</span>
+        <span class="timeline__company">Midlevel Developer</span>
+      </li>
+      <li class="timeline__item">
+        <img src="/images/logos/freelance.svg" alt="Freelance" class="timeline__logo" />
+        <span class="timeline__date">2016</span>
+        <span class="timeline__role">Freelance</span>
+        <span class="timeline__company">Front-end Developer</span>
+      </li>
+      <li class="timeline__item">
+        <img src="/images/logos/kasasa.png" alt="Kasasa" class="timeline__logo" />
+        <span class="timeline__date">2011 — 2015</span>
+        <span class="timeline__role">Kasasa</span>
+        <span class="timeline__company">Front-end Programmer</span>
+      </li>
+      <li class="timeline__item">
+        <img src="/images/logos/uship.png" alt="uShip" class="timeline__logo" />
+        <span class="timeline__date">2011</span>
+        <span class="timeline__role">uShip</span>
+        <span class="timeline__company">Front-end Web Developer</span>
+      </li>
+      <li class="timeline__item">
+        <img src="/images/logos/s-collective.png" alt="S Collective" class="timeline__logo" />
+        <span class="timeline__date">2009 — 2011</span>
+        <span class="timeline__role">S Collective</span>
+        <span class="timeline__company">Front-end Web Developer</span>
+      </li>
+      <li class="timeline__item">
+        <img src="/images/logos/freelance.svg" alt="Freelance" class="timeline__logo" />
+        <span class="timeline__date">2006 — 2008</span>
+        <span class="timeline__role">Freelance</span>
+        <span class="timeline__company">Front-end Developer</span>
+      </li>
+    </ol>
+
     <h2>Travel</h2>
     <p>I've been lucky to have travelled a lot. I once travelled all the way around the world <a href="https://www.semesteratsea.org">on a ship</a> and I once lived in a <a href="https://www.shakespeareandcompany.com/">bookstore in Paris</a> for a couple months. Here are all places I've visited over the years.</p>
     <TravelMap />
@@ -29,3 +88,85 @@ import TravelMap from '../components/TravelMap.astro';
       margin-bottom: $spacing-unit * 2.5;
     }
   }
+
+  $logo-size: 36px;
+
+  .timeline {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 ($spacing-unit * 4);
+    margin-top: 26px;
+    position: relative;
+    padding-left: $logo-size + $spacing-unit * 2;
+
+    // vertical line
+    &::before {
+      content: '';
+      position: absolute;
+      left: $logo-size * 0.5 - 1px;
+      top: $logo-size * 0.5;
+      bottom: 0;
+      width: 2px;
+      background: var(--color-text);
+    }
+
+  }
+
+  .timeline__item {
+    position: relative;
+    padding-bottom: $spacing-unit * 3;
+
+    &:last-child {
+      padding-bottom: 0;
+
+      // cover the line below the last circle
+      &::after {
+        content: '';
+        position: absolute;
+        left: -($logo-size + $spacing-unit * 2);
+        top: $logo-size * 0.5;
+        bottom: 0;
+        width: $logo-size;
+        background: var(--color-bg);
+        z-index: 0;
+      }
+    }
+  }
+
+  .timeline__logo {
+    position: absolute;
+    left: -($logo-size + $spacing-unit * 2);
+    top: 0;
+    width: $logo-size;
+    height: $logo-size;
+    object-fit: contain;
+    border-radius: 50%;
+    border: 2px solid var(--color-text);
+    background: var(--color-bg);
+    padding: 5px;
+    filter: grayscale(100%);
+    z-index: 1;
+  }
+
+  .timeline__date {
+    @include c64-type;
+    font-size: $font-size-xs;
+    display: block;
+    margin-bottom: 2px;
+  }
+
+  .timeline__role {
+    font-size: $font-size-md;
+    font-weight: bold;
+    display: block;
+    letter-spacing: $letter-spacing-body;
+  }
+
+  .timeline__company {
+    font-size: $font-size-sm;
+    display: block;
+    color: var(--color-text);
+    opacity: 0.7;
+    letter-spacing: $letter-spacing-body;
+  }
+</style>
