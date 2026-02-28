@@ -38,8 +38,8 @@ const isOdd = projects.length % 2 !== 0;
         ))}
       </div>
       <div class="projects__nav">
-        <button class="projects__arrow projects__arrow--prev" data-prev aria-label="Previous projects"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 113 155" width="16" height="22" fill="var(--color-link)" style="transform:scaleX(-1)"><polygon points="43 0 43.02 13.97 56.97 14.03 57.03 27.97 70.97 28.03 71.03 41.97 84.97 42.03 85.03 55.97 98.97 56.03 99.03 69.98 113 70 113 85 99.03 85.02 98.97 98.97 85.03 99.03 84.97 112.97 71.03 113.03 70.97 126.97 57.03 127.03 56.97 140.97 43.02 141.03 43 155 0 155 0 126 13.97 125.98 14.03 112.03 27.97 111.97 28.03 98.03 41.97 97.97 42.03 84.03 55.97 83.97 55.97 71.03 42.03 70.97 41.97 57.03 28.03 56.97 27.97 43.03 14.03 42.97 13.97 29.02 0 29 0 0 43 0"/></svg></button>
-        <button class="projects__arrow projects__arrow--next" data-next aria-label="Next projects"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 113 155" width="16" height="22" fill="var(--color-link)"><polygon points="43 0 43.02 13.97 56.97 14.03 57.03 27.97 70.97 28.03 71.03 41.97 84.97 42.03 85.03 55.97 98.97 56.03 99.03 69.98 113 70 113 85 99.03 85.02 98.97 98.97 85.03 99.03 84.97 112.97 71.03 113.03 70.97 126.97 57.03 127.03 56.97 140.97 43.02 141.03 43 155 0 155 0 126 13.97 125.98 14.03 112.03 27.97 111.97 28.03 98.03 41.97 97.97 42.03 84.03 55.97 83.97 55.97 71.03 42.03 70.97 41.97 57.03 28.03 56.97 27.97 43.03 14.03 42.97 13.97 29.02 0 29 0 0 43 0"/></svg></button>
+        <button class="projects__arrow projects__arrow--prev" data-prev aria-label="Previous projects"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 113 155" width="16" height="22" fill="var(--color-text)" style="transform:scaleX(-1)"><polygon points="43 0 43.02 13.97 56.97 14.03 57.03 27.97 70.97 28.03 71.03 41.97 84.97 42.03 85.03 55.97 98.97 56.03 99.03 69.98 113 70 113 85 99.03 85.02 98.97 98.97 85.03 99.03 84.97 112.97 71.03 113.03 70.97 126.97 57.03 127.03 56.97 140.97 43.02 141.03 43 155 0 155 0 126 13.97 125.98 14.03 112.03 27.97 111.97 28.03 98.03 41.97 97.97 42.03 84.03 55.97 83.97 55.97 71.03 42.03 70.97 41.97 57.03 28.03 56.97 27.97 43.03 14.03 42.97 13.97 29.02 0 29 0 0 43 0"/></svg></button>
+        <button class="projects__arrow projects__arrow--next" data-next aria-label="Next projects"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 113 155" width="16" height="22" fill="var(--color-text)"><polygon points="43 0 43.02 13.97 56.97 14.03 57.03 27.97 70.97 28.03 71.03 41.97 84.97 42.03 85.03 55.97 98.97 56.03 99.03 69.98 113 70 113 85 99.03 85.02 98.97 98.97 85.03 99.03 84.97 112.97 71.03 113.03 70.97 126.97 57.03 127.03 56.97 140.97 43.02 141.03 43 155 0 155 0 126 13.97 125.98 14.03 112.03 27.97 111.97 28.03 98.03 41.97 97.97 42.03 84.03 55.97 83.97 55.97 71.03 42.03 70.97 41.97 57.03 28.03 56.97 27.97 43.03 14.03 42.97 13.97 29.02 0 29 0 0 43 0"/></svg></button>
       </div>
     </div>
   ) : (
@@ -109,6 +109,7 @@ const isOdd = projects.length % 2 !== 0;
       flex: 0 0 calc(50% - #{$spacing-unit});
       padding-left: $spacing-unit * 5;
       padding-right: $spacing-unit * 5;
+      margin-bottom: 0;
     }
 
     @include mobile {
@@ -143,7 +144,8 @@ const isOdd = projects.length % 2 !== 0;
     border: none;
     cursor: pointer;
     padding: 16px;
-    color: var(--color-link);
+    color: var(--color-text);
+    opacity: 0.7;
     pointer-events: auto;
 
     &--prev {
@@ -155,7 +157,11 @@ const isOdd = projects.length % 2 !== 0;
     }
 
     &:hover {
-      opacity: 0.7;
+      opacity: 1;
+
+      svg {
+        fill: var(--color-link);
+      }
     }
   }
 
