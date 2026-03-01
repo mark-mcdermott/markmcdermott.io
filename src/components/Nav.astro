@@ -133,13 +133,14 @@
   .nav__links {
     display: flex;
     align-items: center;
-    gap: $spacing-unit * 4;
+    gap: 10px;
 
-    a {
+    > a {
       font-size: $font-size-base;
       text-decoration: none;
       text-transform: uppercase;
       vertical-align: middle;
+      letter-spacing: -0.05em;
 
       &:hover {
         color: var(--color-link);
@@ -153,13 +154,14 @@
     .nav__social {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 5px;
 
       a {
         font-size: 0.9rem;
         text-transform: none;
         letter-spacing: -0.15em;
         color: var(--color-text);
+        opacity: 0.7;
         font-weight: normal;
 
         &:hover {
@@ -175,6 +177,7 @@
         border: none;
         padding: 0;
         color: var(--color-text);
+        opacity: 0.7;
         position: relative;
         top: -1px;
 

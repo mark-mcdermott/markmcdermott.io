@@ -2,35 +2,39 @@
 import DefaultLayout from '../layouts/DefaultLayout.astro';
 
 const photos = [
-  { src: '/images/photos/puppies.jpeg', alt: 'Shih-tzu puppies' },
-  { src: '/images/photos/mission-control.jpeg', alt: 'NASA Mission Control' },
-  { src: '/images/photos/beach-bar.jpeg', alt: 'Beach bar view' },
-  { src: '/images/photos/pterodactyl.png', alt: 'Riding a pterodactyl' },
-  { src: '/images/photos/color-shadows.jpeg', alt: 'Color shadow exhibit' },
-  { src: '/images/photos/sunset.jpeg', alt: 'Lake sunset' },
-  { src: '/images/photos/sorcerers-wrapped.jpg', alt: 'Spotify Wrapped - The Sorcerers' },
-  { src: '/images/photos/ball-pit.jpeg', alt: 'Ball pit' },
-  { src: '/images/photos/beach-resort.jpeg', alt: 'Beach resort' },
-  { src: '/images/photos/streetlight.jpeg', alt: 'Streetlight and moon' },
-  { src: '/images/photos/silhouettes.jpeg', alt: 'Neon silhouettes' },
-  { src: '/images/photos/mini-cow.jpeg', alt: 'Mini cow' },
-  { src: '/images/photos/fly-me-to-the-moon.jpg', alt: 'Fly Me to the Moon sheet music' },
-  { src: '/images/photos/jeep-ducks.jpeg', alt: 'Jeep with ducks' },
-  { src: '/images/photos/rainbow-flags.jpeg', alt: 'Rainbow and flags' },
-  { src: '/images/photos/palm-shadow.jpeg', alt: 'Palm tree shadow on beach' },
-  { src: '/images/photos/sorcerers-wrapped-2.png', alt: 'Spotify Wrapped - The Sorcerers 2' },
-  { src: '/images/photos/antigua-statue.jpeg', alt: 'Antigua statue' },
+  { src: '/images/photos/beach-shadows.jpg', alt: 'Palm tree shadow on beach' },
+  { src: '/images/photos/antigua-bay.jpg', alt: 'Antigua bay aerial view' },
+  { src: '/images/photos/keyboard.jpg', alt: 'Work Louder keyboard setup' },
+  { src: '/images/photos/lego-surfer.jpg', alt: 'Blue lego surfer sculpture' },
+  { src: '/images/photos/ball-pit.jpg', alt: 'Ball pit' },
+  { src: '/images/photos/beach-bar.jpg', alt: 'Beach bar view' },
+  { src: '/images/photos/streetlight.jpg', alt: 'Streetlight and moon' },
+  { src: '/images/photos/silhouettes.jpg', alt: 'Neon silhouettes' },
+  { src: '/images/photos/purple-house.jpg', alt: 'Purple and pink Caribbean house' },
+  { src: '/images/photos/palm-shadow.jpg', alt: 'Palm tree shadow on beach' },
+  { src: '/images/photos/alcatraz-water-tower.jpg', alt: 'Alcatraz water tower' },
+  { src: '/images/photos/pinecone.jpg', alt: 'Pinecone on mulch' },
+  { src: '/images/photos/tree-roots.jpg', alt: 'Black and white tree roots' },
+  { src: '/images/photos/hotel-atrium.jpg', alt: 'Hotel atrium with red sculpture' },
 ];
+const columnCount = 3;
+const perColumn = Math.ceil(photos.length / columnCount);
+const columns = Array.from({ length: columnCount }, (_, i) =>
+  photos.slice(i * perColumn, (i + 1) * perColumn)
+);
 ---
 
 <DefaultLayout pageTitle="Photos">
   <article>
 
-    <h2>Photos</h2>
     <div class="masonry">
-      {photos.map((photo) => (
-        <div class="masonry__item">
-          <img src={photo.src} alt={photo.alt} loading="lazy" />
+      {columns.map((col) => (
+        <div class="masonry__column">
+          {col.map((photo, i) => (
+            <div class:list={['masonry__item', { 'masonry__item--last': i === col.length - 1 }]}>
+              <img src={photo.src} alt={photo.alt} loading="lazy" />
+            </div>
+          ))}
         </div>
       ))}
     </div>
@@ -42,25 +46,39 @@ const photos = [
   @use '../styles/abstracts' as *;
 
   .masonry {
-    columns: 3;
-    column-gap: $spacing-unit * 2;
+    display: flex;
+    gap: $spacing-unit * 2;
 
     @include mobile {
-      columns: 2;
+      flex-wrap: wrap;
+    }
+  }
+
+  .masonry__column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-unit * 2;
+
+    @include mobile {
+      flex: 0 0 calc(50% - $spacing-unit);
     }
   }
 
   .masonry__item {
-    break-inside: avoid;
-    margin-bottom: $spacing-unit * 2;
-
     img {
       display: block;
       width: 100%;
       height: auto;
-      border: 2px dashed var(--color-text);
-      outline: 2px solid var(--color-text);
-      outline-offset: 3px;
+    }
+
+    &--last {
+      flex: 1;
+
+      img {
+        height: 100%;
+        object-fit: cover;
+      }
     }
   }
 </style>
