@@ -61,6 +61,21 @@
       @include c64-type;
       font-size: $font-size-sm;
     }
+
+    @include mobile {
+      flex-direction: column;
+      align-items: center;
+      gap: $spacing-unit;
+
+      .copyright {
+        display: none;
+      }
+
+      .footer__right {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
   }
 </style>
 
