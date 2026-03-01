@@ -34,12 +34,12 @@
     .footer__right {
       display: flex;
       align-items: center;
-      gap: $spacing-unit * 3;
+      gap: 15px;
     }
 
     .footer__social {
       display: flex;
-      gap: 10px;
+      gap: 5px;
 
       a {
         @include c64-type;
@@ -47,7 +47,8 @@
         text-decoration: none;
         text-transform: lowercase;
         letter-spacing: -0.15em;
-        color: inherit;
+        color: var(--color-text);
+        opacity: 0.7;
         font-weight: normal;
 
         &:hover {
@@ -59,6 +60,21 @@
     .ready {
       @include c64-type;
       font-size: $font-size-sm;
+    }
+
+    @include mobile {
+      flex-direction: column;
+      align-items: center;
+      gap: $spacing-unit;
+
+      .copyright {
+        display: none;
+      }
+
+      .footer__right {
+        flex-direction: column;
+        align-items: center;
+      }
     }
   }
 </style>
