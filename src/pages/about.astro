@@ -95,6 +95,18 @@ import TravelMap from '../components/TravelMap.astro';
       </ol>
     </div>
 
+    <h2>Testimonials</h2>
+    <div class="testimonials">
+      <blockquote class="testimonial">
+        <p>I've worked with Mark McDermott for several years and wanted to write briefly on the huge impact that he has had on several teams that I've worked on. He's a great teammate and an incredible engineer. I've heavily relied on Mark's technical knowledge and drive. Mark has consistently distinguished himself as someone who gets lots of work done often while under challenging circumstances. His technical capacity, thoughtful approach, and incredible attitude have made him a person I look forward to working with. I ask for him by name for our most challenging and demanding projects.</p>
+        <footer><strong>Christopher Sigg</strong> — Senior Software Engineer I, Doximity</footer>
+      </blockquote>
+      <blockquote class="testimonial">
+        <p>I've worked with Mark for a few years, most of that time on a high-pressure, high-stakes client-facing project, and he's been an invaluable, trustworthy contributor to the team. He's reliable under pressure and collaborates well with engineering, even when we've made his job tough with complex requirements! Mark is quick, asks thorough questions that surface edge cases early, and has helped us prevent countless bugs before they became real problems — everything from typos to performance issues to thoughtful UI improvement suggestions, and everything in between. Working with him has made shipping complex features smoother and less stressful, and he's someone I can always trust when quality really matters.</p>
+        <footer><strong>Claire Pengelly</strong> — Senior Software Engineer I, Doximity</footer>
+      </blockquote>
+    </div>
+
     <h2>Travel</h2>
     <p>I've been lucky to have travelled a lot. I once travelled all the way around the world <a href="https://www.semesteratsea.org">on a ship</a> and I once lived in a <a href="https://www.shakespeareandcompany.com/">bookstore in Paris</a> for a couple months. Here are all places I've visited over the years.</p>
     <TravelMap />
@@ -448,6 +460,35 @@ import TravelMap from '../components/TravelMap.astro';
       content: '(Now Defunct)';
       color: var(--color-text);
       font-weight: bold;
+    }
+  }
+
+  // --- Testimonials ---
+  .testimonials {
+    margin-top: 26px;
+    margin-bottom: 20px;
+  }
+
+  .testimonial {
+    border-left: 2px solid var(--color-text);
+    padding-left: $spacing-unit * 3;
+    margin: 0 0 32px 0;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    p {
+      font-size: 1rem;
+      line-height: $line-height-base;
+      letter-spacing: $letter-spacing-body;
+      margin-bottom: $spacing-unit;
+    }
+
+    footer {
+      @include c64-type;
+      font-size: $font-size-xs;
+      opacity: 0.7;
     }
   }
 
