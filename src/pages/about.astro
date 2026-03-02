@@ -408,6 +408,15 @@ import TravelMap from '../components/TravelMap.astro';
     }
   }
 
+  // Freelance logo: match nav logo appearance in dark mode (no invert)
+  .timeline__item:has(img[src*="freelance"]) .timeline__logo {
+    :global([data-theme='dark']) & {
+      filter: grayscale(100%);
+      background: black;
+      border-color: white;
+    }
+  }
+
   // Freelance logo: white circle backup behind the img for hover colorizing
   .timeline__item:has(img[src*="freelance"]) {
     &::before {
@@ -427,12 +436,22 @@ import TravelMap from '../components/TravelMap.astro';
 
     &:hover::before {
       border-color: var(--color-link);
+
+      :global([data-theme='dark']) & {
+        border-color: transparent;
+      }
     }
 
     &:hover .timeline__logo {
       background: transparent;
       border-color: transparent;
       filter: brightness(0) saturate(100%) invert(52%) sepia(79%) saturate(2476%) hue-rotate(176deg) brightness(93%) contrast(87%);
+
+      :global([data-theme='dark']) & {
+        background: white;
+        border-color: var(--color-link);
+        filter: none;
+      }
     }
   }
 
