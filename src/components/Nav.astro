@@ -35,8 +35,8 @@
     </div>
 
     <!-- <a class="nav__toplink" href="/resume">resume</a> -->
-    <a class="nav__toplink" href="mailto:hello@markmcdermott.io">email</a>
-    <a class="nav__toplink" href="https://github.com/mark-mcdermott" target="_blank" rel="noopener noreferrer">github</a>
+    <a class="nav__toplink nav__toplink--email" href="mailto:hello@markmcdermott.io">email</a>
+    <a class="nav__toplink nav__toplink--github" href="https://github.com/mark-mcdermott" target="_blank" rel="noopener noreferrer">github</a>
 
     <button class="theme__toggle" aria-label="Toggle theme">
       <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
@@ -215,7 +215,15 @@
     text-decoration: none;
     text-transform: uppercase;
     letter-spacing: -0.1em;
-    color: #555;
+    color: var(--color-text);
+
+    &--email {
+      letter-spacing: 0;
+    }
+
+    &--github {
+      letter-spacing: -0.13em;
+    }
 
     &:hover {
       color: var(--color-link);
