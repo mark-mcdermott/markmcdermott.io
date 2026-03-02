@@ -1,0 +1,33 @@
+---
+import DefaultLayout from '../layouts/DefaultLayout.astro';
+import ProjectsGrid from '../components/ProjectsGrid.astro';
+
+const projects = [
+  {
+    name: 'xin',
+    description: 'Built a local-first desktop notes app with Playwright E2E tests and Electron auto-updates.',
+    repo: 'mark-mcdermott/xin',
+    url: 'https://github.com/mark-mcdermott/xin',
+    language: 'Typescript \u00B7 Electron \u00B7 Playwright \u00B7 Claude',
+    testsUrl: 'https://github.com/mark-mcdermott/xin/actions/workflows/test.yml',
+  },
+  {
+    name: 'markmcdermott.io',
+    description: 'Built an Astro portfolio with custom C64 UI and automated Playwright smoke tests.',
+    repo: 'mark-mcdermott/markmcdermott.io',
+    url: 'https://github.com/mark-mcdermott/markmcdermott.io',
+    language: 'Typescript \u00B7 Astro \u00B7 Playwright \u00B7 Claude',
+  },
+  {
+    name: 'puravida',
+    description: 'Bash CLI for instant file scaffolding and multi-line insertion. Daily driver for fast note and project setup.',
+    repo: 'mark-mcdermott/puravida',
+    url: 'https://github.com/mark-mcdermott/puravida',
+    language: 'Bash',
+  },
+]
+---
+
+<DefaultLayout pageTitle="Projects">
+  <ProjectsGrid projects={projects} />
+</DefaultLayout>

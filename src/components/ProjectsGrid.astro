@@ -8,6 +8,7 @@ interface Project {
   url: string;
   language: string;
   langColor?: string;
+  testsUrl?: string;
 }
 
 interface Props {
@@ -19,7 +20,10 @@ const isOdd = projects.length % 2 !== 0;
 ---
 
 <section class="projects">
-  <h2>Projects</h2>
+  <div class="projects__header">
+    <h2>Projects</h2>
+    <a href="/projects" class="projects__view-all">View all &rarr;</a>
+  </div>
   {isOdd ? (
     <div class="projects__slider" data-slider>
       <div class="projects__track" data-track>
@@ -28,11 +32,14 @@ const isOdd = projects.length % 2 !== 0;
             <span class="project-card__arrow">&#8599;</span>
             <h3>{project.name}</h3>
             <p class="project-card__desc">{project.description}</p>
-            <div class="project-card__meta">
-              <span class="project-card__lang">
-                <span class="project-card__lang-name">{project.language}</span>
-              </span>
-              <StarCount repo={project.repo} />
+            <div class="project-card__footer">
+              <div class="project-card__meta">
+                <span class="project-card__lang">
+                  <span class="project-card__lang-name">{project.language}</span>
+                </span>
+                <StarCount repo={project.repo} />
+              </div>
+              {project.testsUrl && <p class="project-card__tests"><span class="project-card__tests-link" data-href={project.testsUrl}>view tests &rarr;</span></p>}
             </div>
           </a>
         ))}
@@ -49,12 +56,14 @@ const isOdd = projects.length % 2 !== 0;
           <span class="project-card__arrow">&#8599;</span>
           <h3>{project.name}</h3>
           <p class="project-card__desc">{project.description}</p>
-          <div class="project-card__meta">
-            <span class="project-card__lang">
-              <span class="project-card__dot" style={`background: ${project.langColor}`}></span>
-              <span class="project-card__lang-name">{project.language}</span>
-            </span>
-            <StarCount repo={project.repo} />
+          <div class="project-card__footer">
+            <div class="project-card__meta">
+              <span class="project-card__lang">
+                <span class="project-card__lang-name">{project.language}</span>
+              </span>
+              <StarCount repo={project.repo} />
+            </div>
+            {project.testsUrl && <p class="project-card__tests"><span class="project-card__tests-link" data-href={project.testsUrl}>view tests &rarr;</span></p>}
           </div>
         </a>
       ))}
@@ -69,12 +78,31 @@ const isOdd = projects.length % 2 !== 0;
     padding-top: $spacing-unit * 2;
     padding-bottom: $spacing-unit * 4;
 
+    .projects__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: $spacing-unit * 3;
+    }
+
     h2 {
       font-size: $font-size-md;
-      margin: 0 0 ($spacing-unit * 3);
+      margin: 0;
       letter-spacing: normal;
       word-spacing: normal;
       line-height: $line-height-base * 0.8;
+    }
+
+    .projects__view-all {
+      @include c64-type;
+      font-size: $font-size-xs;
+      color: var(--color-text);
+      text-decoration: none;
+      letter-spacing: 0;
+
+      &:hover {
+        color: var(--color-link);
+      }
     }
 
     h3 {
@@ -118,7 +146,7 @@ const isOdd = projects.length % 2 !== 0;
       flex: 0 0 calc(50% - #{$spacing-unit});
       padding-left: $spacing-unit * 5;
       padding-right: $spacing-unit * 5;
-      padding-top: 9px;
+      padding-top: 13px;
       padding-bottom: 10px;
       margin-bottom: 0;
     }
@@ -215,7 +243,11 @@ const isOdd = projects.length % 2 !== 0;
       font-size: $font-size-sm;
       font-weight: 400;
       line-height: $line-height-base;
-      margin: 0 0 auto;
+      margin: 0;
+    }
+
+    &__footer {
+      margin-top: 5px;
     }
 
     &__meta {
@@ -224,7 +256,6 @@ const isOdd = projects.length % 2 !== 0;
       display: flex;
       align-items: center;
       gap: $spacing-unit * 2;
-      margin-top: $spacing-unit * 1.5;
       font-size: $font-size-xs;
     }
 
@@ -232,6 +263,21 @@ const isOdd = projects.length % 2 !== 0;
       display: flex;
       align-items: center;
       gap: 0.4em;
+    }
+
+    &__tests {
+      text-align: right;
+      margin: $spacing-unit 0 0;
+      font-size: 0.75rem;
+    }
+
+    &__tests-link {
+      color: var(--color-link);
+      cursor: pointer;
+
+      &:hover {
+        text-decoration: underline;
+      }
     }
 
   }
@@ -286,4 +332,13 @@ const isOdd = projects.length % 2 !== 0;
       });
     });
   }
+
+  document.querySelectorAll('.project-card__tests-link').forEach((el) => {
+    el.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const href = (el as HTMLElement).dataset.href;
+      if (href) window.open(href, '_blank');
+    });
+  });
 </script>

@@ -26,6 +26,13 @@ function formatDate(dateStr: string) {
   <Fragment slot="header-meta">
     {post.data.subtitle && <p class="subtitle">{post.data.subtitle}</p>}
     <time datetime={post.data.date}>{formatDate(post.data.date)}</time>
+    {post.data.tags && post.data.tags.length > 0 && (
+      <div class="tags">
+        {post.data.tags.map((tag: string) => (
+          <span class="tag">{tag}</span>
+        ))}
+      </div>
+    )}
   </Fragment>
   <article>
     <Content />
@@ -50,6 +57,21 @@ function formatDate(dateStr: string) {
   time {
     display: block;
     margin-top: 2px;
+  }
+
+  .tags {
+    display: flex;
+    gap: 6px;
+    margin-top: 6px;
+    flex-wrap: wrap;
+  }
+
+  .tag {
+    font-size: 0.7rem;
+    color: var(--color-link);
+    border: 1px solid var(--color-link);
+    padding: 2px 6px;
+    border-radius: 3px;
   }
 
   article {

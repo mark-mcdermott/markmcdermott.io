@@ -19,9 +19,19 @@
     </a>
 
     <div class="nav__links">
-      <a href="/">Home</a>
-      <a href="/about">About</a>
-      <a href="/blog">Blog</a>
+      <div class="nav__links-inner">
+        <div class="nav__links-border">--------------------</div>
+        <div class="nav__links-heading">NAVIGATION</div>
+        <div class="nav__links-border">--------------------</div>
+        <a href="/"><span class="nav__links-num">[01]</span> HOME</a>
+        <a href="/about"><span class="nav__links-num">[02]</span> ABOUT</a>
+        <a href="/blog"><span class="nav__links-num">[03]</span> BLOG</a>
+        <a href="/projects"><span class="nav__links-num">[04]</span> PROJECTS</a>
+        <a href="/photos"><span class="nav__links-num">[05]</span> PHOTOS</a>
+        <div class="nav__links-border">--------------------</div>
+        <div class="nav__links-heading">ESC TO CLOSE</div>
+        <div class="nav__links-border">--------------------</div>
+      </div>
     </div>
 
     <a class="nav__toplink" href="/resume">resume</a>
@@ -153,12 +163,48 @@
       text-decoration: none;
       text-transform: uppercase;
       letter-spacing: -0.05em;
-      margin-bottom: 1em;
+      margin-bottom: 0.5em;
 
       &:hover {
         color: var(--color-link);
       }
     }
+  }
+
+  .nav__links-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav__links-border {
+    @include c64-type;
+    font-size: 1rem;
+    letter-spacing: -0.05em;
+    color: var(--color-text);
+    line-height: 1.4;
+  }
+
+  .nav__links-heading {
+    @include c64-type;
+    font-size: 1rem;
+    letter-spacing: -0.05em;
+    text-transform: uppercase;
+    color: var(--color-text);
+    line-height: 1.4;
+    margin-bottom: 0;
+  }
+
+  .nav__links-border + a {
+    margin-top: 0.5em;
+  }
+
+  a + .nav__links-border {
+    margin-top: 0.5em;
+  }
+
+  .nav__links-num {
+    color: var(--color-link);
   }
 
   .nav__toplink {
@@ -203,6 +249,13 @@
   navToggle?.addEventListener('click', () => {
     const isOpen = links?.toggleAttribute('data-open');
     navToggle.setAttribute('aria-expanded', String(isOpen));
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && links?.hasAttribute('data-open')) {
+      links.removeAttribute('data-open');
+      navToggle?.setAttribute('aria-expanded', 'false');
+    }
   });
 
   const themeToggle = document.querySelector('.theme__toggle');
