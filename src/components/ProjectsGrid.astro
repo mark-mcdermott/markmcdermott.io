@@ -7,7 +7,7 @@ interface Project {
   repo: string;
   url: string;
   language: string;
-  langColor: string;
+  langColor?: string;
 }
 
 interface Props {
@@ -25,11 +25,11 @@ const isOdd = projects.length % 2 !== 0;
       <div class="projects__track" data-track>
         {projects.map((project) => (
           <a href={project.url} target="_blank" rel="noopener" class="project-card">
+            <span class="project-card__arrow">&#8599;</span>
             <h3>{project.name}</h3>
             <p class="project-card__desc">{project.description}</p>
             <div class="project-card__meta">
               <span class="project-card__lang">
-                <span class="project-card__dot" style={`background: ${project.langColor}`}></span>
                 <span class="project-card__lang-name">{project.language}</span>
               </span>
               <StarCount repo={project.repo} />
@@ -46,6 +46,7 @@ const isOdd = projects.length % 2 !== 0;
     <div class="projects__grid">
       {projects.map((project) => (
         <a href={project.url} target="_blank" rel="noopener" class="project-card">
+          <span class="project-card__arrow">&#8599;</span>
           <h3>{project.name}</h3>
           <p class="project-card__desc">{project.description}</p>
           <div class="project-card__meta">
@@ -76,8 +77,16 @@ const isOdd = projects.length % 2 !== 0;
       line-height: $line-height-base * 0.8;
     }
 
-    h3, .project-card__lang-name {
+    h3 {
       letter-spacing: 0.005em;
+    }
+
+    .project-card__lang-name {
+      font-family: 'Rubik', sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: -0.01em;
+      font-weight: 400;
+      word-spacing: 0.1em;
     }
   }
 
@@ -109,6 +118,8 @@ const isOdd = projects.length % 2 !== 0;
       flex: 0 0 calc(50% - #{$spacing-unit});
       padding-left: $spacing-unit * 5;
       padding-right: $spacing-unit * 5;
+      padding-top: 9px;
+      padding-bottom: 10px;
       margin-bottom: 0;
     }
 
@@ -167,6 +178,7 @@ const isOdd = projects.length % 2 !== 0;
 
   // --- Shared card styles ---
   .project-card {
+    position: relative;
     display: flex;
     flex-direction: column;
     text-decoration: none;
@@ -189,8 +201,19 @@ const isOdd = projects.length % 2 !== 0;
       margin: 0 0 $spacing-unit;
     }
 
+    &__arrow {
+      @include c64-type;
+      font-weight: 400;
+      font-size: 1.5em;
+      line-height: 0.3em;
+      position: absolute;
+      top: 8px;
+      right: 8px;
+    }
+
     &__desc {
       font-size: $font-size-sm;
+      font-weight: 400;
       line-height: $line-height-base;
       margin: 0 0 auto;
     }
@@ -211,12 +234,6 @@ const isOdd = projects.length % 2 !== 0;
       gap: 0.4em;
     }
 
-    &__dot {
-      display: inline-block;
-      width: 0.75em;
-      height: 0.75em;
-      border-radius: 50%;
-    }
   }
 </style>
 

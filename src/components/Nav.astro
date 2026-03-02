@@ -24,7 +24,9 @@
       <a href="/blog">Blog</a>
     </div>
 
-    <a class="nav__gh" href="https://github.com/mark-mcdermott" target="_blank" rel="noopener noreferrer" title="github">[gh]</a>
+    <a class="nav__toplink" href="/resume">resume</a>
+    <a class="nav__toplink" href="mailto:hello@markmcdermott.io">email</a>
+    <a class="nav__toplink" href="https://github.com/mark-mcdermott" target="_blank" rel="noopener noreferrer">github</a>
 
     <button class="theme__toggle" aria-label="Toggle theme">
       <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
@@ -62,7 +64,7 @@
     position: relative;
     @include c64-type;
 
-    a:not(.nav__gh) {
+    a:not(.nav__toplink) {
       color: var(--color-text);
     }
   }
@@ -147,7 +149,7 @@
     }
 
     a {
-      font-size: $font-size-lg;
+      font-size: 1rem;
       text-decoration: none;
       text-transform: uppercase;
       letter-spacing: -0.05em;
@@ -159,20 +161,23 @@
     }
   }
 
-  .nav__gh {
+  .nav__toplink {
     @include c64-type;
-    margin-left: auto;
     margin-top: 15px;
     margin-right: 14px;
-    font-size: 1.4rem;
+    font-size: 1rem;
     text-decoration: none;
-    text-transform: lowercase;
-    letter-spacing: -0.15em;
-    color: #757575;
+    text-transform: uppercase;
+    letter-spacing: -0.1em;
+    color: #555;
 
     &:hover {
       color: var(--color-link);
     }
+  }
+
+  .nav__links + .nav__toplink {
+    margin-left: auto;
   }
 
   .theme__toggle {
@@ -183,7 +188,7 @@
     background: none;
     border: none;
     padding: 0;
-    color: #757575;
+    color: var(--color-text);
 
     &:hover {
       color: var(--color-link);
