@@ -18,24 +18,13 @@
       </svg>
     </a>
 
-    <button class="nav__toggle" aria-expanded="false" aria-label="Menu">
-      <span class="nav__toggle-open">&#9776;</span>
-      <span class="nav__toggle-close">&#10005;</span>
-    </button>
-
     <div class="nav__links">
       <a href="/">Home</a>
       <a href="/about">About</a>
       <a href="/blog">Blog</a>
-      <a href="/photos">Photos</a>
-
-      <div class="nav__social">
-        <a href="https://github.com/mark-mcdermott/markmcdermott.io" target="_blank" rel="noopener noreferrer" title="github">[gh]</a>
-        <a href="https://bsky.app/profile/mark-mcdermott.bsky.social" target="_blank" rel="noopener noreferrer" title="bluesky">[bs]</a>
-        <a href="https://www.linkedin.com/in/mark-mcdermott-6a174916" target="_blank" rel="noopener noreferrer" title="linkedin">[in]</a>
-
-      </div>
     </div>
+
+    <a class="nav__gh" href="https://github.com/mark-mcdermott" target="_blank" rel="noopener noreferrer" title="github">[gh]</a>
 
     <button class="theme__toggle" aria-label="Toggle theme">
       <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
@@ -55,6 +44,11 @@
         <polygon points="537 337 537 346 345 346.01 344.99 260 469.88 260 470.05 269 479 269 479 279 489 279 489.01 288 499.01 288.01 498.99 307.98 508 308.01 508 317 518 317 518 327 527 327 527 337 537 337"/>
       </svg>
     </button>
+
+    <button class="nav__toggle" aria-expanded="false" aria-label="Menu">
+      <span class="nav__toggle-open">&#9776;</span>
+      <span class="nav__toggle-close">&#10005;</span>
+    </button>
   </nav>
 </header>
 
@@ -68,7 +62,7 @@
     position: relative;
     @include c64-type;
 
-    a {
+    a:not(.nav__gh) {
       color: var(--color-text);
     }
   }
@@ -113,7 +107,7 @@
   }
 
   .nav__toggle {
-    display: none;
+    display: block;
     background: none;
     border: none;
     color: var(--color-text);
@@ -126,131 +120,76 @@
     }
 
     &[aria-expanded='true'] {
+      position: fixed;
+      top: $spacing-unit * 2;
+      right: $spacing-unit * 2;
+      z-index: 200;
       .nav__toggle-open { display: none; }
       .nav__toggle-close { display: inline; }
     }
   }
 
   .nav__links {
-    display: flex;
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    flex-direction: column;
     align-items: center;
-    gap: 10px;
-    margin-left: auto;
+    justify-content: center;
+    background-color: var(--color-bg);
+    z-index: 100;
 
-    > a {
-      font-size: $font-size-base;
+    &[data-open] {
+      display: flex;
+    }
+
+    a {
+      font-size: $font-size-lg;
       text-decoration: none;
       text-transform: uppercase;
-      vertical-align: middle;
       letter-spacing: -0.05em;
+      margin-bottom: 1em;
 
       &:hover {
         color: var(--color-link);
       }
     }
-
-    > a:first-child {
-      display: none;
-    }
-
-    .nav__social {
-      display: flex;
-      align-items: center;
-      gap: 5px;
-
-      a {
-        font-size: 0.9rem;
-        text-transform: none;
-        letter-spacing: -0.15em;
-        color: var(--color-text);
-        opacity: 0.7;
-        font-weight: normal;
-
-        &:hover {
-          color: var(--color-link);
-        }
-      }
-
-    }
   }
 
-  .theme__toggle {
-    width: 18px;
-    margin-left: 8px;
-    cursor: pointer;
-    background: none;
-    border: none;
-    padding: 0;
-    color: var(--color-text);
-    opacity: 0.7;
-    position: relative;
-    top: -1px;
+  .nav__gh {
+    @include c64-type;
+    margin-left: auto;
+    margin-top: 15px;
+    margin-right: 14px;
+    font-size: 1.4rem;
+    text-decoration: none;
+    text-transform: lowercase;
+    letter-spacing: -0.15em;
+    color: #757575;
 
     &:hover {
       color: var(--color-link);
     }
   }
 
-  @include mobile {
-    .nav__toggle {
-      display: block;
-      z-index: 200;
+  .theme__toggle {
+    width: 34px;
+    margin-top: 11px;
+    margin-right: 10px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    color: #757575;
 
-      &[aria-expanded='true'] {
-        position: fixed;
-        top: $spacing-unit * 2;
-        right: $spacing-unit * 2;
-      }
-    }
-
-    .nav__links {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      margin: ($spacing-unit * 2) 0 0;
-      flex-direction: column;
-      align-items: center;
-      padding: $spacing-unit * 2;
-      background-color: var(--color-bg);
-      z-index: 100;
-      
-      &[data-open] {
-        display: flex;
-      }
-
-      a {
-        font-size: $font-size-lg;
-        margin-bottom: 1em;
-      }
-
-      a:first-child {
-        display: block;
-      }
-
-      .nav__social {
-        flex-direction: column;
-        align-items: center;
-
-        a {
-          font-size: $font-size-lg;
-        }
-      }
-
-    }
-
-    .theme__toggle {
-      margin-left: auto;
-      margin-top: 15px;
-      width: 28px;
-    }
-
-    .nav__logo {
-      display: none;
+    &:hover {
+      color: var(--color-link);
     }
   }
+
 </style>
 
 <script>
