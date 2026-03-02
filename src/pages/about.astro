@@ -320,10 +320,26 @@ import TravelMap from '../components/TravelMap.astro';
     }
 
     :global([data-theme='c64']) & {
-      background: white;
-      border-color: black;
+      background: transparent;
+      border-color: transparent;
       filter: grayscale(100%) invert(1) sepia(1) hue-rotate(175deg) saturate(3);
     }
+  }
+
+  // C64 mode: colored circle behind logos (unaffected by img filter)
+  :global([data-theme='c64']) .timeline__item::before {
+    content: '';
+    position: absolute;
+    left: -($logo-size + $spacing-unit * 2);
+    top: 0;
+    width: $logo-size;
+    height: $logo-size;
+    border-radius: 50%;
+    border: 2px solid black;
+    background: #0d3780;
+    padding: 5px;
+    z-index: 0;
+    pointer-events: none;
   }
 
   .timeline__date {
@@ -432,6 +448,11 @@ import TravelMap from '../components/TravelMap.astro';
       padding: 5px;
       z-index: 1;
       pointer-events: none;
+
+      :global([data-theme='c64']) & {
+        background: #0d3780;
+        border-color: black;
+      }
     }
 
     &:hover::before {
@@ -445,7 +466,7 @@ import TravelMap from '../components/TravelMap.astro';
     &:hover .timeline__logo {
       background: transparent;
       border-color: transparent;
-      filter: brightness(0) saturate(100%) invert(52%) sepia(79%) saturate(2476%) hue-rotate(176deg) brightness(93%) contrast(87%);
+      filter: grayscale(100%);
 
       :global([data-theme='dark']) & {
         background: white;

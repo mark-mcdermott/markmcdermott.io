@@ -118,6 +118,26 @@
     }
   }
 
+  html[data-theme='c64'] .nav__logo {
+    .logo {
+      fill: #052357;
+    }
+
+    .logo-face {
+      fill: var(--color-bg);
+    }
+
+    &:hover {
+      .logo {
+        fill: var(--color-text);
+      }
+
+      .logo-face {
+        fill: var(--color-bg);
+      }
+    }
+  }
+
   .nav__toggle {
     display: block;
     background: none;
