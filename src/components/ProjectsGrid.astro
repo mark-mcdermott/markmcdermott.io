@@ -9,22 +9,27 @@ interface Project {
   language: string;
   langColor?: string;
   testsUrl?: string;
+  longDescription?: string;
+  highlights?: string[];
 }
 
 interface Props {
   projects: Project[];
+  showViewAll?: boolean;
+  variant?: 'compact' | 'detailed';
 }
 
-const { projects } = Astro.props;
+const { projects, showViewAll = true, variant = 'compact' } = Astro.props;
 const isOdd = projects.length % 2 !== 0;
+const useSlider = variant === 'compact' && isOdd;
 ---
 
 <section class="projects">
   <div class="projects__header">
     <h2>Projects</h2>
-    <a href="/projects" class="projects__view-all">View all &rarr;</a>
+    {showViewAll && <a href="/projects" class="projects__view-all">View all &rarr;</a>}
   </div>
-  {isOdd ? (
+  {useSlider ? (
     <div class="projects__slider" data-slider>
       <div class="projects__track" data-track>
         {projects.map((project) => (
@@ -55,7 +60,16 @@ const isOdd = projects.length % 2 !== 0;
         <a href={project.url} target="_blank" rel="noopener" class="project-card">
           <span class="project-card__arrow">&#8599;</span>
           <h3>{project.name}</h3>
-          <p class="project-card__desc">{project.description}</p>
+          {variant === 'detailed' && project.longDescription ? (
+            <p class="project-card__desc">{project.longDescription}</p>
+          ) : (
+            <p class="project-card__desc">{project.description}</p>
+          )}
+          {variant === 'detailed' && project.highlights && (
+            <ul class="project-card__highlights">
+              {project.highlights.map((h) => <li>{h}</li>)}
+            </ul>
+          )}
           <div class="project-card__footer">
             <div class="project-card__meta">
               <span class="project-card__lang">
@@ -246,8 +260,32 @@ const isOdd = projects.length % 2 !== 0;
       margin: 0;
     }
 
+    &__highlights {
+      list-style: none;
+      margin: $spacing-unit 0 0;
+      padding: 0;
+
+      li {
+        font-size: $font-size-sm;
+        font-weight: 400;
+        line-height: $line-height-base;
+        padding-left: 1em;
+        position: relative;
+        margin-bottom: 2px;
+
+        &::before {
+          content: '>';
+          position: absolute;
+          left: 0;
+          @include c64-type;
+          font-size: 0.7rem;
+        }
+      }
+    }
+
     &__footer {
-      margin-top: 5px;
+      margin-top: auto;
+      padding-top: $spacing-unit;
     }
 
     &__meta {
