@@ -76,3 +76,8 @@ article h4 {
 [data-theme='c64'] .astro-code span {
   color: var(--color-text) !important;
 }
+
+// Hide page content and footer when mobile menu is open
+main:has(.nav__links[data-open]) > :not(header) {
+  display: none;
+}
