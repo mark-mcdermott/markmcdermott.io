@@ -19,19 +19,15 @@
     </a>
 
     <div class="nav__links">
-      <div class="nav__links-inner">
-        <div class="nav__links-border">--------------------</div>
-        <div class="nav__links-heading">NAVIGATION</div>
-        <div class="nav__links-border">--------------------</div>
-        <a href="/"><span class="nav__links-num">[01]</span> HOME</a>
-        <a href="/about"><span class="nav__links-num">[02]</span> ABOUT</a>
-        <a href="/blog"><span class="nav__links-num">[03]</span> BLOG</a>
-        <a href="/projects"><span class="nav__links-num">[04]</span> PROJECTS</a>
-        <a href="/photos"><span class="nav__links-num">[05]</span> PHOTOS</a>
-        <div class="nav__links-border">--------------------</div>
-        <div class="nav__links-heading">ESC TO CLOSE</div>
-        <div class="nav__links-border">--------------------</div>
-      </div>
+      <ul class="writings__list">
+        <li class="nav__links-heading-row">NAVIGATION</li>
+        <li><a href="/"><span class="nav__links-num">[01]</span> HOME</a></li>
+        <li><a href="/about"><span class="nav__links-num">[02]</span> ABOUT</a></li>
+        <li><a href="/blog"><span class="nav__links-num">[03]</span> BLOG</a></li>
+        <li><a href="/projects"><span class="nav__links-num">[04]</span> PROJECTS</a></li>
+        <li><a href="/photos"><span class="nav__links-num">[05]</span> PHOTOS</a></li>
+        <li class="nav__links-heading-row">ESC TO CLOSE</li>
+      </ul>
     </div>
 
     <!-- <a class="nav__toplink" href="/resume">resume</a> -->
@@ -76,6 +72,16 @@
 
     a:not(.nav__toplink) {
       color: var(--color-text);
+    }
+  }
+
+  .nav:has(.nav__links[data-open]) {
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    .nav__toplink,
+    .theme__toggle {
+      display: none;
     }
   }
 
@@ -152,30 +158,23 @@
     }
 
     &[aria-expanded='true'] {
-      position: fixed;
-      top: $spacing-unit * 2;
-      right: $spacing-unit * 2;
-      z-index: 200;
       .nav__toggle-open { display: none; }
-      .nav__toggle-close { display: inline; }
+      .nav__toggle-close { display: inline; font-size: 4rem; }
     }
   }
 
   .nav__links {
     display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--color-bg);
-    z-index: 100;
+    align-items: stretch;
+    justify-content: flex-start;
+    padding-top: $spacing-unit * 2;
 
     &[data-open] {
       display: flex;
+      width: 100%;
+      order: 99;
+      margin-top: 12em;
     }
 
     a {
@@ -198,11 +197,8 @@
   }
 
   .nav__links-border {
-    @include c64-type;
-    font-size: 1rem;
-    letter-spacing: -0.05em;
-    color: var(--color-text);
-    line-height: 1.4;
+    width: 100%;
+    border-top: 2px dashed var(--color-text);
   }
 
   .nav__links-heading {
@@ -213,6 +209,14 @@
     color: var(--color-text);
     line-height: 1.4;
     margin-bottom: 0;
+  }
+
+  .nav__links-heading-row {
+    @include c64-type;
+    font-size: 1rem;
+    letter-spacing: -0.05em;
+    padding: 13px 0 11px;
+    line-height: $line-height-base;
   }
 
   .nav__links-border + a {
@@ -247,6 +251,61 @@
 
     &:hover {
       color: var(--color-link);
+    }
+  }
+
+  .writings__list {
+    @include post-list;
+    margin: 0;
+    border-image: none;
+    border-top: none;
+
+    li {
+      border-image: none;
+      border-bottom: none;
+    }
+
+    .nav__links-heading-row {
+      @include hyphen-border(top);
+      @include hyphen-border(bottom);
+      margin: 15px 0;
+      pointer-events: none;
+
+      &:has(+ li:hover) {
+        @include hyphen-border(bottom);
+      }
+    }
+
+    a {
+      display: block;
+      text-align: left;
+      margin-bottom: 0;
+      line-height: $line-height-base;
+      padding: 13px 0 11px;
+    }
+
+    li:not(.nav__links-heading-row) a {
+      padding: 4px 0;
+      padding-left: 20px;
+      position: relative;
+
+      &::before {
+        content: '';
+        position: absolute;
+        left: 3px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 10px;
+        height: 14px;
+        background: var(--color-link);
+        -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 113 155'%3E%3Cpolygon points='43 0 43.02 13.97 56.97 14.03 57.03 27.97 70.97 28.03 71.03 41.97 84.97 42.03 85.03 55.97 98.97 56.03 99.03 69.98 113 70 113 85 99.03 85.02 98.97 98.97 85.03 99.03 84.97 112.97 71.03 113.03 70.97 126.97 57.03 127.03 56.97 140.97 43.02 141.03 43 155 0 155 0 126 13.97 125.98 14.03 112.03 27.97 111.97 28.03 98.03 41.97 97.97 42.03 84.03 55.97 83.97 55.97 71.03 42.03 70.97 41.97 57.03 28.03 56.97 27.97 43.03 14.03 42.97 13.97 29.02 0 29 0 0 43 0'/%3E%3C/svg%3E") no-repeat center / contain;
+        mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 113 155'%3E%3Cpolygon points='43 0 43.02 13.97 56.97 14.03 57.03 27.97 70.97 28.03 71.03 41.97 84.97 42.03 85.03 55.97 98.97 56.03 99.03 69.98 113 70 113 85 99.03 85.02 98.97 98.97 85.03 99.03 84.97 112.97 71.03 113.03 70.97 126.97 57.03 127.03 56.97 140.97 43.02 141.03 43 155 0 155 0 126 13.97 125.98 14.03 112.03 27.97 111.97 28.03 98.03 41.97 97.97 42.03 84.03 55.97 83.97 55.97 71.03 42.03 70.97 41.97 57.03 28.03 56.97 27.97 43.03 14.03 42.97 13.97 29.02 0 29 0 0 43 0'/%3E%3C/svg%3E") no-repeat center / contain;
+        opacity: 0;
+      }
+
+      &:hover::before {
+        opacity: 1;
+      }
     }
   }
 
