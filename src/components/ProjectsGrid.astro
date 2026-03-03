@@ -9,22 +9,29 @@ interface Project {
   language: string;
   langColor?: string;
   testsUrl?: string;
+  longDescription?: string;
+  highlights?: string[];
+  role?: string;
 }
 
 interface Props {
   projects: Project[];
+  showViewAll?: boolean;
+  variant?: 'compact' | 'detailed';
+  heading?: string;
 }
 
-const { projects } = Astro.props;
+const { projects, showViewAll = true, variant = 'compact', heading = 'Projects' } = Astro.props;
 const isOdd = projects.length % 2 !== 0;
+const useSlider = variant === 'compact' && isOdd;
 ---
 
-<section class="projects">
+<section class={`projects ${variant === 'detailed' ? 'projects--detailed' : ''}`}>
   <div class="projects__header">
-    <h2>Projects</h2>
-    <a href="/projects" class="projects__view-all">View all &rarr;</a>
+    <h2>{heading}</h2>
+    {showViewAll && <a href="/projects" class="projects__view-all">View all &rarr;</a>}
   </div>
-  {isOdd ? (
+  {useSlider ? (
     <div class="projects__slider" data-slider>
       <div class="projects__track" data-track>
         {projects.map((project) => (
@@ -51,22 +58,52 @@ const isOdd = projects.length % 2 !== 0;
     </div>
   ) : (
     <div class="projects__grid">
-      {projects.map((project) => (
-        <a href={project.url} target="_blank" rel="noopener" class="project-card">
-          <span class="project-card__arrow">&#8599;</span>
-          <h3>{project.name}</h3>
-          <p class="project-card__desc">{project.description}</p>
-          <div class="project-card__footer">
-            <div class="project-card__meta">
-              <span class="project-card__lang">
-                <span class="project-card__lang-name">{project.language}</span>
-              </span>
-              <StarCount repo={project.repo} />
+      {variant === 'detailed' ? (
+        projects.map((project) => (
+          <div class="project-card" data-project-url={project.url}>
+            <h3><a href={project.url} target="_blank" rel="noopener">{project.name} <span class="project-card__arrow">&#8599;</span></a></h3>
+            {project.longDescription ? (
+              <p class="project-card__desc">{project.longDescription}</p>
+            ) : (
+              <p class="project-card__desc">{project.description}</p>
+            )}
+            {project.highlights && (
+              <ul class="project-card__highlights">
+                {project.highlights.map((h) => <li>{h}</li>)}
+              </ul>
+            )}
+            {project.role && (
+              <p class="project-card__role"><span class="project-card__role-label">Role:</span> {project.role}</p>
+            )}
+            <div class="project-card__footer">
+              <div class="project-card__meta">
+                <span class="project-card__lang">
+                  <span class="project-card__lang-name">{project.language}</span>
+                </span>
+                <StarCount repo={project.repo} />
+              </div>
+              {project.testsUrl && <p class="project-card__tests"><a href={project.testsUrl} target="_blank" rel="noopener" class="project-card__tests-link">view tests &rarr;</a></p>}
             </div>
-            {project.testsUrl && <p class="project-card__tests"><span class="project-card__tests-link" data-href={project.testsUrl}>view tests &rarr;</span></p>}
           </div>
-        </a>
-      ))}
+        ))
+      ) : (
+        projects.map((project) => (
+          <a href={project.url} target="_blank" rel="noopener" class="project-card">
+            <span class="project-card__arrow">&#8599;</span>
+            <h3>{project.name}</h3>
+            <p class="project-card__desc">{project.description}</p>
+            <div class="project-card__footer">
+              <div class="project-card__meta">
+                <span class="project-card__lang">
+                  <span class="project-card__lang-name">{project.language}</span>
+                </span>
+                <StarCount repo={project.repo} />
+              </div>
+              {project.testsUrl && <p class="project-card__tests"><span class="project-card__tests-link" data-href={project.testsUrl}>view tests &rarr;</span></p>}
+            </div>
+          </a>
+        ))
+      )}
     </div>
   )}
 </section>
@@ -204,6 +241,50 @@ const isOdd = projects.length % 2 !== 0;
     }
   }
 
+  // --- Detailed variant overrides ---
+  .projects--detailed {
+    .projects__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .project-card {
+      border: none;
+      outline: none;
+      padding: 0;
+      margin-bottom: $spacing-unit * 2;
+      cursor: pointer;
+
+      h3 a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      &:hover {
+        color: var(--color-text);
+        border-color: transparent;
+        outline-color: transparent;
+
+        h3 a,
+        .project-card__arrow {
+          color: var(--color-link);
+        }
+      }
+    }
+
+    .project-card__arrow {
+      position: static;
+      display: inline;
+    }
+
+    .project-card__role {
+      font-family: inherit;
+      font-kerning: auto;
+      line-height: inherit;
+      letter-spacing: inherit;
+      text-transform: none;
+    }
+  }
+
   // --- Shared card styles ---
   .project-card {
     position: relative;
@@ -246,8 +327,44 @@ const isOdd = projects.length % 2 !== 0;
       margin: 0;
     }
 
+    &__highlights {
+      list-style: none;
+      margin: $spacing-unit 0 0;
+      padding: 0;
+
+      li {
+        font-size: $font-size-sm;
+        font-weight: 400;
+        line-height: $line-height-base;
+        padding-left: 1em;
+        position: relative;
+        margin-bottom: 2px;
+
+        &::before {
+          content: '>';
+          position: absolute;
+          left: 0;
+          top: 5px;
+          @include c64-type;
+          font-size: 0.7rem;
+        }
+      }
+    }
+
+    &__role {
+      @include c64-type;
+      font-size: $font-size-xs;
+      margin: $spacing-unit 0 0;
+      opacity: 0.6;
+    }
+
+    &__role-label {
+      text-transform: uppercase;
+    }
+
     &__footer {
-      margin-top: 5px;
+      margin-top: auto;
+      padding-top: $spacing-unit;
     }
 
     &__meta {
@@ -333,12 +450,22 @@ const isOdd = projects.length % 2 !== 0;
     });
   }
 
-  document.querySelectorAll('.project-card__tests-link').forEach((el) => {
+  // Compact variant: span-based tests links inside <a> cards
+  document.querySelectorAll('.project-card__tests-link[data-href]').forEach((el) => {
     el.addEventListener('click', (e) => {
       e.preventDefault();
       e.stopPropagation();
       const href = (el as HTMLElement).dataset.href;
       if (href) window.open(href, '_blank');
+    });
+  });
+
+  // Detailed variant: div cards with data-project-url
+  document.querySelectorAll<HTMLElement>('.project-card[data-project-url]').forEach((card) => {
+    card.addEventListener('click', (e) => {
+      const target = e.target as HTMLElement;
+      if (target.closest('a')) return;
+      window.open(card.dataset.projectUrl!, '_blank');
     });
   });
 </script>
