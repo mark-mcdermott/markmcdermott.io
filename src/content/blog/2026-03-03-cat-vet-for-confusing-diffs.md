@@ -3,6 +3,7 @@ title: "cat -vet for confusing diffs"
 subtitle: "when a regular vet won't do"
 date: "2026-03-03"
 tags: ["git","bash"]
+slug: "2026-03-03-cat-vet-for-confusing-diffs"
 ---
 Been deep in Claude stuff for a couple months there and didn't get a chance to post anything. But today I had a `git diff` with something these lines:
 ```
@@ -19,7 +20,7 @@ where `$` is end-of-line. So I think I deleted the whitespace and that's why it 
 So the `-vet` flag for `cat` is three flags:
 - `v`: ("visible") Show non-printing characters visibly (except tab and newline).
 - `e`: ("end-of-line") Show end-of-line as `$`.
-- `t`: ("tab") Show tabs as `^I
+- `t`: ("tab") Show tabs as `^I`
 
 Pretty handy! And definitely illuminating, especially after that quite suspect diff. 😒
 
