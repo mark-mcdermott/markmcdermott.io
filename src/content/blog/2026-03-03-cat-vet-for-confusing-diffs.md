@@ -24,4 +24,4 @@ So the `-vet` flag for `cat` is three flags:
 
 Pretty handy! And definitely illuminating, especially after that quite suspect diff. 😒
 
-Aside: This is my first non-test post written in [Xin](https://github.com/mark-mcdermott/xin). It's alive!
+Aside: This is my first non-test post written and published in [Xin](https://github.com/mark-mcdermott/xin). It's alive!
