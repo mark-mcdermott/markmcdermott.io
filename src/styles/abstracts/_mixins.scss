@@ -19,16 +19,16 @@
   border-#{$position}: 2px solid var(--color-text);
   border-image: repeating-linear-gradient(
     to right,
-    var(--color-text) 0 10px,
-    transparent 10px 12px
+    var(--color-text) 0 8px,
+    transparent 8px 12px
   ) 2 0;
 }
 
 @mixin hyphen-border-hover {
   border-image: repeating-linear-gradient(
     to right,
-    var(--color-link) 0 10px,
-    transparent 10px 12px
+    var(--color-link) 0 8px,
+    transparent 8px 12px
   ) 2 0;
 }
 
