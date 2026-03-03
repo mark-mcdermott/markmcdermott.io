@@ -6,13 +6,14 @@ const projects = [
   {
     name: 'xin',
     description: 'Built a local-first desktop notes app with Playwright E2E tests and Electron auto-updates.',
-    longDescription: 'A local-first desktop notes app built with Electron and TypeScript. Notes are stored in a local SQLite database, so everything works offline with zero latency. The app includes a full auto-update system via GitHub Releases and comprehensive E2E test coverage with Playwright.',
+    longDescription: 'A local-first desktop notes app built with Electron and TypeScript. Notes are stored as plain Markdown files on disk, managed through Node.js fs APIs — no database layer, the filesystem is the data store. In-memory state is handled with Zustand on the renderer side. Includes auto-updates via GitHub Releases and comprehensive E2E test coverage.',
     highlights: [
-      'Local-first SQLite storage with zero cloud dependency',
+      'Local-first Markdown files with zero cloud dependency',
       'Playwright E2E test suite with CI integration',
       'Electron auto-updates via GitHub Releases',
-      'Claude-assisted development workflow',
+      'Zustand state management on the renderer side',
     ],
+    role: 'Architect & primary implementer',
     repo: 'mark-mcdermott/xin',
     url: 'https://github.com/mark-mcdermott/xin',
     language: 'Typescript \u00B7 Electron \u00B7 Playwright \u00B7 Claude',
@@ -21,13 +22,14 @@ const projects = [
   {
     name: 'markmcdermott.io',
     description: 'Built an Astro portfolio with custom C64 UI and automated Playwright smoke tests.',
-    longDescription: 'This portfolio site, built with Astro 5 and SCSS. Features a custom Commodore 64-inspired retro aesthetic with three theme modes (light, dark, and C64). Every component is hand-styled with no CSS framework — just SCSS modules, custom properties, and a thorough understanding of the cascade.',
+    longDescription: 'This portfolio site, built with Astro 5 and SCSS. Features a custom Commodore 64-inspired retro aesthetic with three theme modes (light, dark, and C64). Every component is part of a hand-built design system without utility frameworks for a more unique, custom feel.',
     highlights: [
       'Custom C64 retro UI with CRT scanline effects',
       'Three theme modes: light, dark, and C64',
       'Playwright smoke tests for every page',
       'Astro 5 SSG with zero client-side JavaScript by default',
     ],
+    role: 'Designed, implemented, and maintained end-to-end',
     repo: 'mark-mcdermott/markmcdermott.io',
     url: 'https://github.com/mark-mcdermott/markmcdermott.io',
     language: 'Typescript \u00B7 Astro \u00B7 Playwright \u00B7 Claude',
@@ -35,13 +37,14 @@ const projects = [
   {
     name: 'puravida',
     description: 'Bash CLI for instant file scaffolding and multi-line insertion. Daily driver for fast note and project setup.',
-    longDescription: 'A zero-dependency Bash CLI for instant file scaffolding and multi-line text insertion. Designed as a daily driver for quickly setting up project structures, creating templated files, and inserting boilerplate code. Handles edge cases like nested directories and special characters without external tools.',
+    longDescription: 'A zero-dependency Bash CLI used daily to scaffold projects and eliminate repetitive setup work. Handles file creation, directory structures, and multi-line text insertion without external tools. Built to handle edge cases like nested directories and special characters cleanly.',
     highlights: [
       'Instant file and directory scaffolding',
       'Multi-line insertion with heredoc support',
       'Zero external dependencies — pure Bash',
       'Daily driver for note-taking and project setup',
     ],
+    role: 'Sole developer',
     repo: 'mark-mcdermott/puravida',
     url: 'https://github.com/mark-mcdermott/puravida',
     language: 'Bash',
@@ -53,7 +56,7 @@ const projects = [
   <section class="projects-intro">
     <p>I build tools that make development faster and more reliable. Each project emphasizes thorough testing, clean architecture, and practical utility — things I've come to value after years in QA and engineering.</p>
   </section>
-  <ProjectsGrid projects={projects} showViewAll={false} variant="detailed" />
+  <ProjectsGrid projects={projects} showViewAll={false} variant="detailed" heading="Selected Work" />
 </DefaultLayout>
 
 <style lang="scss">

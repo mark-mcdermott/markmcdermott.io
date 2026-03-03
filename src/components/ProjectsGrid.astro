@@ -11,22 +11,24 @@ interface Project {
   testsUrl?: string;
   longDescription?: string;
   highlights?: string[];
+  role?: string;
 }
 
 interface Props {
   projects: Project[];
   showViewAll?: boolean;
   variant?: 'compact' | 'detailed';
+  heading?: string;
 }
 
-const { projects, showViewAll = true, variant = 'compact' } = Astro.props;
+const { projects, showViewAll = true, variant = 'compact', heading = 'Projects' } = Astro.props;
 const isOdd = projects.length % 2 !== 0;
 const useSlider = variant === 'compact' && isOdd;
 ---
 
 <section class="projects">
   <div class="projects__header">
-    <h2>Projects</h2>
+    <h2>{heading}</h2>
     {showViewAll && <a href="/projects" class="projects__view-all">View all &rarr;</a>}
   </div>
   {useSlider ? (
@@ -69,6 +71,9 @@ const useSlider = variant === 'compact' && isOdd;
             <ul class="project-card__highlights">
               {project.highlights.map((h) => <li>{h}</li>)}
             </ul>
+          )}
+          {variant === 'detailed' && project.role && (
+            <p class="project-card__role"><span class="project-card__role-label">Role:</span> {project.role}</p>
           )}
           <div class="project-card__footer">
             <div class="project-card__meta">
@@ -277,10 +282,22 @@ const useSlider = variant === 'compact' && isOdd;
           content: '>';
           position: absolute;
           left: 0;
+          top: 5px;
           @include c64-type;
           font-size: 0.7rem;
         }
       }
+    }
+
+    &__role {
+      @include c64-type;
+      font-size: $font-size-xs;
+      margin: $spacing-unit 0 0;
+      opacity: 0.6;
+    }
+
+    &__role-label {
+      text-transform: uppercase;
     }
 
     &__footer {
