@@ -5,7 +5,7 @@ date: "2026-03-03"
 tags: ["git","bash"]
 slug: "2026-03-03-cat-vet-for-confusing-diffs"
 ---
-Been deep in Claude stuff for a couple months there and didn't get a chance to post anything. But today I had a `git diff` with something these lines:
+Been deep in Claude stuff for a couple months there and didn't get a chance to post anything. But today I had a `git diff` with something like these lines:
 ```
 -        if (!foo || bar) { 
 +        if (!foo || bar) {
