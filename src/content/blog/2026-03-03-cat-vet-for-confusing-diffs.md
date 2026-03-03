@@ -1,6 +1,6 @@
 ---
-title: "cat -vet for confusing diffs"
-subtitle: "when a regular vet won't do"
+title: "cat -vet For Confusing Diffs"
+subtitle: "When a regular vet won't do"
 date: "2026-03-03"
 tags: ["git","bash"]
 slug: "2026-03-03-cat-vet-for-confusing-diffs"
