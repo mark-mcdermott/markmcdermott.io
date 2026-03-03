@@ -40,7 +40,7 @@ article hr {
 }
 
 code, pre {
-  font-family: inherit;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   padding: 0.2em 0.4em;
   border-radius: 4px;
   background-color: var(--color-code-bg) !important;
@@ -52,6 +52,11 @@ article pre {
   padding: $spacing-unit * 1.5 $spacing-unit * 2;
   margin-top: $spacing-unit * 2;
   margin-bottom: $spacing-unit * 2;
+
+  code {
+    padding: 0;
+    display: block;
+  }
 }
 
 article h2,
