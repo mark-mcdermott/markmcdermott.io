@@ -58,34 +58,52 @@ const useSlider = variant === 'compact' && isOdd;
     </div>
   ) : (
     <div class="projects__grid">
-      {projects.map((project) => (
-        <a href={project.url} target="_blank" rel="noopener" class="project-card">
-          {variant !== 'detailed' && <span class="project-card__arrow">&#8599;</span>}
-          <h3>{project.name} {variant === 'detailed' && <span class="project-card__arrow">&#8599;</span>}</h3>
-          {variant === 'detailed' && project.longDescription ? (
-            <p class="project-card__desc">{project.longDescription}</p>
-          ) : (
-            <p class="project-card__desc">{project.description}</p>
-          )}
-          {variant === 'detailed' && project.highlights && (
-            <ul class="project-card__highlights">
-              {project.highlights.map((h) => <li>{h}</li>)}
-            </ul>
-          )}
-          {variant === 'detailed' && project.role && (
-            <p class="project-card__role"><span class="project-card__role-label">Role:</span> {project.role}</p>
-          )}
-          <div class="project-card__footer">
-            <div class="project-card__meta">
-              <span class="project-card__lang">
-                <span class="project-card__lang-name">{project.language}</span>
-              </span>
-              <StarCount repo={project.repo} />
+      {variant === 'detailed' ? (
+        projects.map((project) => (
+          <div class="project-card" data-project-url={project.url}>
+            <h3><a href={project.url} target="_blank" rel="noopener">{project.name} <span class="project-card__arrow">&#8599;</span></a></h3>
+            {project.longDescription ? (
+              <p class="project-card__desc">{project.longDescription}</p>
+            ) : (
+              <p class="project-card__desc">{project.description}</p>
+            )}
+            {project.highlights && (
+              <ul class="project-card__highlights">
+                {project.highlights.map((h) => <li>{h}</li>)}
+              </ul>
+            )}
+            {project.role && (
+              <p class="project-card__role"><span class="project-card__role-label">Role:</span> {project.role}</p>
+            )}
+            <div class="project-card__footer">
+              <div class="project-card__meta">
+                <span class="project-card__lang">
+                  <span class="project-card__lang-name">{project.language}</span>
+                </span>
+                <StarCount repo={project.repo} />
+              </div>
+              {project.testsUrl && <p class="project-card__tests"><a href={project.testsUrl} target="_blank" rel="noopener" class="project-card__tests-link">view tests &rarr;</a></p>}
             </div>
-            {project.testsUrl && <p class="project-card__tests"><span class="project-card__tests-link" data-href={project.testsUrl}>view tests &rarr;</span></p>}
           </div>
-        </a>
-      ))}
+        ))
+      ) : (
+        projects.map((project) => (
+          <a href={project.url} target="_blank" rel="noopener" class="project-card">
+            <span class="project-card__arrow">&#8599;</span>
+            <h3>{project.name}</h3>
+            <p class="project-card__desc">{project.description}</p>
+            <div class="project-card__footer">
+              <div class="project-card__meta">
+                <span class="project-card__lang">
+                  <span class="project-card__lang-name">{project.language}</span>
+                </span>
+                <StarCount repo={project.repo} />
+              </div>
+              {project.testsUrl && <p class="project-card__tests"><span class="project-card__tests-link" data-href={project.testsUrl}>view tests &rarr;</span></p>}
+            </div>
+          </a>
+        ))
+      )}
     </div>
   )}
 </section>
@@ -236,10 +254,13 @@ const useSlider = variant === 'compact' && isOdd;
       margin-bottom: $spacing-unit * 2;
       cursor: pointer;
 
-      &:hover {
-        color: var(--color-text);
+      h3 a {
+        color: inherit;
+        text-decoration: none;
+      }
 
-        h3,
+      &:hover {
+        h3 a,
         .project-card__arrow {
           color: var(--color-link);
         }
@@ -425,12 +446,22 @@ const useSlider = variant === 'compact' && isOdd;
     });
   }
 
-  document.querySelectorAll('.project-card__tests-link').forEach((el) => {
+  // Compact variant: span-based tests links inside <a> cards
+  document.querySelectorAll('.project-card__tests-link[data-href]').forEach((el) => {
     el.addEventListener('click', (e) => {
       e.preventDefault();
       e.stopPropagation();
       const href = (el as HTMLElement).dataset.href;
       if (href) window.open(href, '_blank');
+    });
+  });
+
+  // Detailed variant: div cards with data-project-url
+  document.querySelectorAll<HTMLElement>('.project-card[data-project-url]').forEach((card) => {
+    card.addEventListener('click', (e) => {
+      const target = e.target as HTMLElement;
+      if (target.closest('a')) return;
+      window.open(card.dataset.projectUrl!, '_blank');
     });
   });
 </script>
