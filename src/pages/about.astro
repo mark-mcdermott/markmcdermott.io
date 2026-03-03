@@ -322,7 +322,8 @@ import TravelMap from '../components/TravelMap.astro';
     :global([data-theme='c64']) & {
       background: transparent;
       border-color: transparent;
-      filter: grayscale(100%) invert(1) sepia(1) hue-rotate(175deg) saturate(3);
+      filter: grayscale(100%);
+      mix-blend-mode: multiply;
     }
   }
 
@@ -335,8 +336,8 @@ import TravelMap from '../components/TravelMap.astro';
     width: $logo-size;
     height: $logo-size;
     border-radius: 50%;
-    border: 2px solid black;
-    background: #0d3780;
+    border: 2px solid var(--color-text);
+    background: var(--color-bg);
     padding: 5px;
     z-index: 0;
     pointer-events: none;
@@ -393,6 +394,11 @@ import TravelMap from '../components/TravelMap.astro';
       filter: none;
       border-color: var(--color-link);
     }
+
+    :global([data-theme='c64']) &:hover::before {
+      background: var(--color-text);
+      border-color: white;
+    }
   }
 
   // S Collective (defunct — no link)
@@ -417,6 +423,10 @@ import TravelMap from '../components/TravelMap.astro';
       z-index: 2;
     }
 
+    :global([data-theme='c64']) &:hover::before {
+      border-color: white;
+    }
+
     &:hover .timeline__date,
     &:hover .timeline__role,
     &:hover .timeline__company:not(.timeline__company--defunct) {
@@ -431,6 +441,7 @@ import TravelMap from '../components/TravelMap.astro';
       background: black;
       border-color: white;
     }
+
   }
 
   // Freelance logo: white circle backup behind the img for hover colorizing
@@ -450,8 +461,8 @@ import TravelMap from '../components/TravelMap.astro';
       pointer-events: none;
 
       :global([data-theme='c64']) & {
-        background: #0d3780;
-        border-color: black;
+        background: var(--color-bg);
+        border-color: var(--color-text);
       }
     }
 
@@ -472,6 +483,10 @@ import TravelMap from '../components/TravelMap.astro';
         background: white;
         border-color: var(--color-link);
         filter: none;
+      }
+
+      :global([data-theme='c64']) & {
+        mix-blend-mode: normal;
       }
     }
   }
