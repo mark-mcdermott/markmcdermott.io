@@ -26,9 +26,17 @@ a {
   }
 }
 
-article ul li {
+article ul li,
+article ol li {
   margin-left: $spacing-unit * 2;
-  margin-bottom: $spacing-unit * 6;
+  margin-bottom: $spacing-unit;
+}
+
+article hr {
+  border: none;
+  border-top: 1px solid var(--color-text);
+  opacity: 0.3;
+  margin: ($spacing-unit * 4) 0;
 }
 
 code, pre {
@@ -38,6 +46,18 @@ code, pre {
   background-color: var(--color-code-bg) !important;
   margin-top: $spacing-unit;
   margin-bottom: $spacing-unit;
+}
+
+article pre {
+  padding: $spacing-unit * 1.5 $spacing-unit * 2;
+  margin-top: $spacing-unit * 2;
+  margin-bottom: $spacing-unit * 2;
+}
+
+article h2,
+article h3,
+article h4 {
+  margin-top: $spacing-unit * 3;
 }
 
 :not(pre) > code {
