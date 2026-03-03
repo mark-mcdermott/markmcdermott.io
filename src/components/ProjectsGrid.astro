@@ -26,7 +26,7 @@ const isOdd = projects.length % 2 !== 0;
 const useSlider = variant === 'compact' && isOdd;
 ---
 
-<section class="projects">
+<section class={`projects ${variant === 'detailed' ? 'projects--detailed' : ''}`}>
   <div class="projects__header">
     <h2>{heading}</h2>
     {showViewAll && <a href="/projects" class="projects__view-all">View all &rarr;</a>}
@@ -60,8 +60,8 @@ const useSlider = variant === 'compact' && isOdd;
     <div class="projects__grid">
       {projects.map((project) => (
         <a href={project.url} target="_blank" rel="noopener" class="project-card">
-          <span class="project-card__arrow">&#8599;</span>
-          <h3>{project.name}</h3>
+          {variant !== 'detailed' && <span class="project-card__arrow">&#8599;</span>}
+          <h3>{project.name} {variant === 'detailed' && <span class="project-card__arrow">&#8599;</span>}</h3>
           {variant === 'detailed' && project.longDescription ? (
             <p class="project-card__desc">{project.longDescription}</p>
           ) : (
@@ -220,6 +220,43 @@ const useSlider = variant === 'compact' && isOdd;
       svg {
         fill: var(--color-link);
       }
+    }
+  }
+
+  // --- Detailed variant overrides ---
+  .projects--detailed {
+    .projects__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .project-card {
+      border: none;
+      outline: none;
+      padding: 0;
+      margin-bottom: $spacing-unit * 2;
+      cursor: pointer;
+
+      &:hover {
+        color: var(--color-text);
+
+        h3,
+        .project-card__arrow {
+          color: var(--color-link);
+        }
+      }
+    }
+
+    .project-card__arrow {
+      position: static;
+      display: inline;
+    }
+
+    .project-card__role {
+      font-family: inherit;
+      font-kerning: auto;
+      line-height: inherit;
+      letter-spacing: inherit;
+      text-transform: none;
     }
   }
 
