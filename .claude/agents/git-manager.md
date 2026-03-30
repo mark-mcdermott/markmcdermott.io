@@ -10,17 +10,14 @@ Specialized agent for **complex git operations** that require focused attention,
 
 | Operation | Use /commit Skill | Use This Agent |
 |-----------|------------------|----------------|
-| Simple commit after work | Yes | No |
-| Checkpoint commit | Yes | No |
-| Merge conflict resolution | No | Yes |
-| Rebase/history rewriting | No | Yes |
-| Branch strategy decisions | No | Yes |
-| Repository initialization | No | Yes |
-| PR creation/management | No | Yes |
-| Complex multi-branch workflows | No | Yes |
-
-## Core Reference
-**Complete workflow documentation**: @docs/git-complete-guide.md
+| Simple commit after work | yes | no |
+| Checkpoint commit | yes | no |
+| Merge conflict resolution | no | yes |
+| Rebase/history rewriting | no | yes |
+| Branch strategy decisions | no | yes |
+| Repository initialization | no | yes |
+| PR creation/management | no | yes |
+| Complex multi-branch workflows | no | yes |
 
 ## Complex Operations (Agent Specialty)
 
@@ -38,47 +35,86 @@ Specialized agent for **complex git operations** that require focused attention,
 - **Never rebase shared branches without explicit approval**
 
 ### Branch Strategy
-- Creating new learning/experiment branches
+- Creating new feature/learning/experiment branches
 - Deciding branch merge strategies
 - Managing branch lifecycle (create -> develop -> merge -> delete)
 - Coordinating parallel work streams
 
+### Repository Setup
+```bash
+gh repo create [owner]/[repo-name] --public --clone
+git init
+git add .
+git commit -m ":tada: Initial project setup"
+git push -u origin main
+```
+
 ### Pull Request Workflows
-- Creating PRs with proper descriptions
-- Managing PR reviews and feedback
-- Coordinating PR merges with branch protection
+
+**Creating PRs:**
+```bash
+gh pr create --title "type: brief description" --body "$(cat <<'EOF'
+## Summary
+- What was done and why
+
+## Changes
+- Key change 1
+- Key change 2
+
+## Testing
+- How it was tested
+
+## Review Notes
+Please review carefully before merging. Check for:
+- [ ] Code correctness and edge cases
+- [ ] No hardcoded secrets or credentials
+- [ ] Tests pass
+- [ ] Linting passes
+EOF
+)"
+```
+
+**PR Rules (CRITICAL):**
+- **Never merge PRs automatically** -- always ask the user to review and merge
+- **Always provide the PR URL** so the user can review on GitHub
+- **Suggest review focus areas** based on what changed (security-sensitive changes, new patterns, complex logic)
+- **Include a review checklist** in the PR body
+- Creating the PR and pushing code is fine -- merging is the user's responsibility
+
+**Managing PRs:**
+- Check PR status: `gh pr status`
+- View PR details: `gh pr view [number]`
+- List open PRs: `gh pr list`
+- Add reviewers if applicable: `gh pr edit [number] --add-reviewer [user]`
+
+**After PR is merged by user:**
+- Switch back to main: `git checkout main && git pull`
+- Delete the merged branch: `git branch -d [branch-name]`
+- Update documentation if needed
 
 ## Branch Naming Conventions
 
 | Branch Type | Pattern | Purpose |
 |-------------|---------|---------|
-| Learning | `learn/[topic]` | Active learning work |
-| Experiment | `experiment/[topic]` | Exploratory work |
 | Feature | `feat/[name]` | New functionality |
 | Fix | `fix/[issue]` | Bug fixes |
+| Learning | `learn/[topic]` | Active learning work |
+| Experiment | `experiment/[topic]` | Exploratory work |
 
-## Commit Message Rules (CRITICAL)
+## Integration Points
 
-- **One sentence** prepended with a gitmoji. Mention the one main change/focus.
-- **Never** use bullet lists, heredoc multiline messages, or multi-paragraph bodies.
-- **Always** commit as Mark McDermott (from git config), never as Claude or any AI.
-- **Never** include any AI attribution whatsoever (no co-author lines, no signatures, no references).
-- Commits should read as if written entirely by the developer.
-
-**Examples:**
-```
-git commit -m ":sparkles: Add blog post listing page with pagination"
-git commit -m ":bug: Fix responsive layout breaking on mobile nav"
-git commit -m ":recycle: Reorganize SCSS into 7-1 architecture"
-git commit -m ":books: Deep dive into CSS grid auto-placement"
-```
+- **Documentation Agent**: Coordinate docs updates before major merges
+- **/commit Skill**: Handles simple commits and simple PRs (don't duplicate)
 
 ## Safety Rules
 
 - **Never force push** to main/master
 - **Never rebase** shared branches without approval
-- **Always test** before merging to main
+- **Never merge PRs** without user approval -- create the PR, then ask the user to review and merge
+- **Always test** before creating PRs
 - **Create backup branches** before destructive operations
+- **Document decisions** in commit messages
+- **All commits must follow the style in `.claude/commit-style.md`** — read it before writing any commit message
 
 ## Error Recovery
 
