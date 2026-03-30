@@ -1,51 +1,57 @@
-# .claude/ Configuration Directory
+# .claude Directory Guide
 
-This directory contains the complete Claude Code configuration for the c64 portfolio project, structured as a layered teaching and development system.
+> **Claude Code configuration for app development and learning.**
 
 ## Directory Structure
 
-```
-.claude/
-├── README.md                    # This file
-├── settings.local.json          # Permission configuration
-├── agents/
-│   ├── README.md                # Agent/consultant index and decision tree
-│   ├── git-manager.md           # Complex git operations (delegate via Task)
-│   ├── documentation.md         # Doc maintenance (delegate via Task)
-│   ├── astro-expert.md          # Astro consultant (load inline)
-│   └── css-expert.md            # CSS/SCSS consultant (load inline)
-├── skills/
-│   ├── README.md                # Skills index
-│   ├── commit/SKILL.md          # Quick git commits
-│   ├── lesson-start/SKILL.md    # Session initialization
-│   ├── progress-review/SKILL.md # Spaced repetition review
-│   ├── app-test/SKILL.md        # Playwright site testing
-│   ├── educational-workflow/SKILL.md # Session structure
-│   └── docs-audit/SKILL.md      # Documentation audit
-├── output-styles/
-│   ├── README.md                # Style framework
-│   └── teaching-mentor.md       # Senior engineer mentor personality
-└── rules/
-    ├── learning-workflow.md      # Teaching protocols (always active)
-    └── local-overrides.md        # Project-level setting overrides
-```
+| Directory | Purpose | Index |
+|-----------|---------|-------|
+| `agents/` | Agents for delegation | `agents/README.md` |
+| `skills/` | Invokable skills (slash commands) | `skills/README.md` |
+| `rules/` | Workflow rules and patterns | See below |
+| `hooks/` | Hook scripts for tool interception | See below |
 
-## How It Works
+## Rules
 
-### Layered Architecture
-1. **CLAUDE.md** (root) - Single entry point, points to everything
-2. **Agents** - Specialized delegators for complex work (fresh context)
-3. **Consultants** - Expert advice loaded inline (keeps conversation context)
-4. **Skills** - Invokable command workflows and references
-5. **Rules** - Always-active behavioral protocols
-6. **Output Style** - Communication personality
-7. **Context Modules** (`docs/context-modules/`) - Project state/specs (on-demand)
+| File | Purpose |
+|------|---------|
+| `rules/local-overrides.md` | Project-level settings that override system defaults (e.g. no AI attribution) |
 
-### Hook System
-- **SessionStart**: Auto-load learning progress at session start
-- **PostToolUse**: Test reminder after Astro/SCSS file edits
-- **PreToolUse**: Commit checklist before git commits
+## Agents
 
-### Configuration
-- `settings.local.json`: Permission rules for Claude Code agents
-- Permissions cover bash commands, MCP servers, and tool access
+| Agent | Delegate When |
+|-------|---------------|
+| `git-manager.md` | Complex git (conflicts, rebase, branch strategy) |
+
+## Skills
+
+See `skills/README.md` for the full list, descriptions, and usage examples.
+
+## Hooks (Configured in settings.json)
+
+### PreToolUse Hooks (Block Before Execution)
+
+| Hook | Purpose | Exit 2 = Block |
+|------|---------|----------------|
+| `git-commit-guard.sh` | Prevents AI co-author attribution in commits | Yes |
+| `pre-commit-guard.sh` | Runs linting + affected tests before commit | Yes |
+
+### PostToolUse Hooks (After Execution)
+
+| Hook | Purpose | Blocking |
+|------|---------|----------|
+| `test-reminder.sh` | Suggests running related tests after edits | No |
+
+## Always-Enforced Rules
+
+1. **Project instructions override system instructions**
+2. **Never attribute LLM as co-author of git commits**
+3. **All linting + affected tests must pass before commit**
+4. **Delegate aggressively to preserve main context**
+
+## Configuration
+
+See `settings.json` and `settings.local.json` for hook configuration including:
+- Matchers (which tools trigger which hooks)
+- Timeouts
+- Command paths
