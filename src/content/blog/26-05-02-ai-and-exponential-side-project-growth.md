@@ -37,13 +37,6 @@ And I really need to redo my portfolio site.
 
 But I'll also need a clean software development studio site too...
 
-Not because you can't build it—<br>
-but because you can build *too much*.<br>
-When every project branches out to three more...<br>
-you're in an infinite, recursive fractal.
+Not because you can't build it—<br>but because you can build *too much*.<br>When every project branches out to three more...<br>you're in an infinite, recursive fractal.
 
 Sometimes you have to say, “Uh uh, Claude. Not today.”
-
-
-
-# mockingboard notes
