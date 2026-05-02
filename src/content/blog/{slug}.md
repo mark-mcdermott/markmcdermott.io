@@ -3,7 +3,7 @@ title: "AI & Exponential Side Project Growth"
 subtitle: "Slow Your Roll"
 date: "2026-05-02"
 tags: ["ai", "claude"]
-slug: "ai-and-exponential-side-project-growth"
+slug: "2026-05-02-ai-exponential-side-project-growth"
 ---
 
 Lately I've been running into a problem I didn't anticipate:
@@ -38,15 +38,10 @@ And I really need to redo my portfolio site.
 
 But I'll also need a clean software development studio site too...
 
-When anything is possible, it's more important than ever to stay grounded.
-
-Not because you can't build it—
-but because you can build *too much*.
-
-When every project branches out to three more...
+Not because you can't build it—<br>
+but because you can build *too much*.<br>
+When every project branches out to three more...<br>
 you're in an infinite, recursive fractal.
-
-Sometimes you have to say, "Uh uh, Claude. Not today." 
 
 
 
