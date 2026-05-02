@@ -3,7 +3,6 @@ title: "AI & Exponential Side Project Growth"
 subtitle: "Slow Your Roll"
 date: "2026-05-02"
 tags: ["ai", "claude"]
-slug: "2026-05-02-ai-exponential-side-project-growth"
 ---
 
 Lately I've been running into a problem I didn't anticipate:
@@ -42,6 +41,8 @@ Not because you can't build it—<br>
 but because you can build *too much*.<br>
 When every project branches out to three more...<br>
 you're in an infinite, recursive fractal.
+
+Sometimes you have to say, “Uh uh, Claude. Not today.”
 
 
 
