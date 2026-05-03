@@ -82,10 +82,17 @@ function formatDate(dateStr: string) {
       letter-spacing: $letter-spacing-body;
       margin-bottom: $spacing-unit * 2.5;
     }
-  }
 
-  .clean-indent {
-    margin-left: 1rem;
-    opacity: 0.9;
+    :global(blockquote) {
+      border-left: 2px solid #eee;
+      padding-left: 0.5rem;
+      margin-left: 0.5rem;
+      color: #555;
+    }
+     
+    :global(blockquote p) {
+      line-height: $line-height-base * 0.9;
+      margin-bottom: $spacing-unit * 1.25;
+    }
   }
 </style>
