@@ -39,6 +39,6 @@ Perhaps it's "Claude creep" or maybe just ADHD "shiny thing" syndrome, but I've 
 >
 > But I'll also need a clean studio site...
 
-Not because you can't build it—<br>but because you can build *too much*.<br>When every project branches out to three more...<br>you're in an infinite, recursive fractal.<br>Sometimes you have to say—
+When anything is possible, it's more important than ever to stay grounded.<br>Not because you can't build it—<br>but because you can build *too much*.<br>When every project branches out to three more...<br>you're in an infinite, recursive fractal.<br>Sometimes you have to say—
 
 "Uh uh, Claude. Not today."
