@@ -13,25 +13,26 @@ Is coding without Claude/Codex even useful still? Are we already on the vertical
 
 I typed every single line of Mockingboard and floating.is. In a way, it's regression to pre-AI days where we followed tutorials, except now the tutorial is accurate and it's written by Claude on the fly.
 
-Things I learned while working on Mockingboard and floating.is:
-- React:
+### Things I learned while working on Mockingboard and floating.is:
+
+- **React**:
     - useState pattern `(const [val, setVal] = useState())` for managing component and app UI state
     - lots of js module style imports, both named and default.
     - handling all state logic at the top level (in this case `src/pages/HomePage.tsx`), passing state and handlers down into components and bubbling events back up through callback functions
     - basic React `tsx` structure with imports at the top then `export function HomePage() {}` and inside that towards the bottom, `return ( )` with HTML markup with `{ }` for ts expressions in the markup.
-- TypeScript:
+- **TypeScript**:
     - defining react props with `type` at the top of component files.
     - defining shared app-wide TypeScript types in `src/types.ts`
     - `!` as non-null assertion operator, saying don't warn me about null here
-- Tailwind:
+- **Tailwind**:
     -  `grid` `grid-cols-2` to create a two-column grid layout
     -    `grid grid-cols-[300px_1fr]` for a custom column with second column as remaining fraction
     -    the `px-4 md:px-8` pattern for setting mobile-first styles and then desktop
     -    `hidden md:block` pattern for hiding things at mobile sizes
     -    `mx-auto max-w-2xl` pattern for centered content
     -    `max-w-xl md:max-w-none` to set a mobile max width but none on wider widths
--    git:
-    -    worked on my Conventional Commits commit messages using project scopes and commit messages that don't just say what was done, but also why it was done
+-    **git**:
+      - worked on my Conventional Commits commit messages using project scopes and commit messages that don't just say what was done, but also why it was done
       - worked on my muscle memory for various git syntaxes:
           - `git reset HEAD~1` uncommits and unstages while keeping working tree changes.
           - `git reset --soft HEAD~1` to undo commit but keep staged
