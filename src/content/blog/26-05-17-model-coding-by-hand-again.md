@@ -15,7 +15,7 @@ I typed every single line of Mockingboard and floating.is. In a way, it's regres
 
 Things I learned while working on Mockingboard and floating.is:
 - React:
-    - useState pattern (`const [val, setVal] = useState())` for managing component and app UI state
+    - useState pattern `(const [val, setVal] = useState())` for managing component and app UI state
     - lots of js module style imports, both named and default.
     - handling all state logic at the top level (in this case `src/pages/HomePage.tsx`), passing state and handlers down into components and bubbling events back up through callback functions
     - basic React `tsx` structure with imports at the top then `export function HomePage() {}` and inside that towards the bottom, `return ( )` with HTML markup with `{ }` for ts expressions in the markup.
