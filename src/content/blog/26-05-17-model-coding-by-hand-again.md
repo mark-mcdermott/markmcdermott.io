@@ -9,7 +9,7 @@ Every once in a while, I take a weekend off from childrearing, dog training, and
 
 I spent nearly every day for the past six months vibe coding my heart out. I learned a lot about LLM workflows, but actually wasn't learning how to build the apps I was building. I decided going forward I'd split my time fifty-fifty on frameworks/fundamentals and the new-fangled AI stuff.
 
-Is coding without Claude/Codex even useful still? Are we already on the vertical part of AI acceleration graph? [METR](https://metr.org/)  said a few months ago that AI task capacity is basically [doubling every three months](https://metr.org/blog/2026-1-29-time-horizon-1-1#comparison-of-old-and-new-estimates). That's like Moore's Law on crack.
+Is coding without Claude/Codex even useful still? Are we already on the vertical part of the AI acceleration graph? [METR](https://metr.org/)  said a few months ago that AI task capacity is basically [doubling every three months](https://metr.org/blog/2026-1-29-time-horizon-1-1#comparison-of-old-and-new-estimates). That's like Moore's Law on crack.
 
 I typed every single line of Mockingboard and floating.is. In a way, it's regression to pre-AI days where we followed tutorials, except now the tutorial is accurate and it's written by Claude on the fly.
 
