@@ -2,6 +2,7 @@
 title: "Slow Code"
 subtitle: "Life Moves Pretty Fast"
 date: "2026-05-26"
+tags: ["ai", "claude"]
 ---
 
 This week in my personal work, I've been writing a lot of "slow code."
