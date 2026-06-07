@@ -1,64 +1,38 @@
 ---
-import '../styles/globals.css'
+import Layout from '@layouts/Layout.astro'
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body class="bg-background">
-    <div class="rainbow-wrapper pl-[4vw]">
-      <header class="pt-8 absolute right-0 w-[30vw]">
-        <nav aria-label="Primary">
-          <ul class="flex gap-4">
-            <li><a class="text-[0.7rem]" href="#">Writing</a></li>
-            <li><a class="text-[0.7rem]" href="#">About</a></li>
-          </ul>
-        </nav>
-        <p class="mt-2 max-w-40 text-[0.65rem] text-gray-800">Thoughts on software, AI, attention and neurodiversity</p>
-      </header>
-      <main>
-        <section class="hero pb-3 flex flex-col justify-end min-h-dvh">
-          <h1 class="
-            ml-[-0.035em]
-            text-[clamp(4rem,18vw,45rem)]
-            leading-[0.8]
-            tracking-tight
-            font-haas
-            font-black
-            ">Mark McDermott
-          </h1>
-          <p>
-            Programmer.<br />
-            Writer.<br />
-            Austin, Texas.<br />
-          </p>
-        </section>
-        <article class="article-preview min-h-dvh grid grid-cols-2">
-          <h2 class="
-            article-title
-            mt-6
-            ml-[-0.035em]
-            leading-[0.92]
-            tracking-tight
-            text-[clamp(4rem,12vw,45rem)]
-            font-haas
-            font-black
-          ">Reflections on Software Engineering in the</h2>
-          <div class="article-meta pb-24 justify-self-end self-end">
-            <p class="mt-2 w-[30vw] text-[0.9rem]">Progression through unlearning.</p>
-            <time datetime="2026-03" class="text-[0.7rem] w-[30vw] text-gray-800">03.2026</time>
-          </div>
-        </article>
-      </main>
-      <!-- <footer class="p-6">
-        <p class="text-right">Mark McDermott &copy; { new Date().getFullYear() }</p>
-      </footer> -->
-    </div> <!-- .rainbow-wrapper -->
-	</body>
-</html>
+<Layout>
+  <section class="hero pb-3 flex flex-col justify-end min-h-dvh">
+    <h1 class="
+      ml-[-0.035em]
+      text-[clamp(4rem,18vw,45rem)]
+      leading-[0.8]
+      tracking-tight
+      font-haas
+      font-black
+      ">Mark McDermott
+    </h1>
+    <p>
+      Programmer.<br />
+      Writer.<br />
+      Austin, Texas.<br />
+    </p>
+  </section>
+  <article class="article-preview min-h-dvh grid grid-cols-2">
+    <h2 class="
+      article-title
+      mt-6
+      ml-[-0.035em]
+      leading-[0.92]
+      tracking-tight
+      text-[clamp(4rem,12vw,45rem)]
+      font-haas
+      font-black
+    ">Reflections on Software Engineering in the</h2>
+    <div class="article-meta pb-24 justify-self-end self-end">
+      <p class="mt-2 w-[30vw] text-[0.9rem]">Progression through unlearning.</p>
+      <time datetime="2026-03" class="text-[0.7rem] w-[30vw] text-gray-800">03.2026</time>
+    </div>
+  </article>
+</Layout>

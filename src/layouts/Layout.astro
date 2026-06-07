@@ -1,0 +1,30 @@
+---
+import '../styles/globals.css'
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Astro</title>
+	</head>
+	<body class="bg-background">
+    <div class="rainbow-wrapper pl-[4vw]">
+      <header class="pt-8 absolute right-0 w-[30vw]">
+        <nav aria-label="Primary">
+          <ul class="flex gap-4">
+            <li><a class="text-[0.7rem]" href="#">Writing</a></li>
+            <li><a class="text-[0.7rem]" href="#">About</a></li>
+          </ul>
+        </nav>
+        <p class="mt-2 max-w-40 text-[0.65rem] text-gray-800">Thoughts on software, AI, attention and neurodiversity</p>
+      </header>
+      <main>
+        <slot />
+      </main>
+    </div>
+	</body>
+</html>
