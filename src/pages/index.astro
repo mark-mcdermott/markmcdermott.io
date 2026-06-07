@@ -13,7 +13,7 @@ import '../styles/globals.css'
 	</head>
 	<body class="bg-background">
     <div class="rainbow-wrapper pl-[4vw]">
-      <header class="pt-8 absolute w-[30vw] justify-self-end">
+      <header class="pt-8 absolute right-0 w-[30vw]">
         <nav aria-label="Primary">
           <ul class="flex gap-4">
             <li><a class="text-[0.7rem]" href="#">Writing</a></li>
@@ -39,21 +39,22 @@ import '../styles/globals.css'
             Austin, Texas.<br />
           </p>
         </section>
-        <section class="latest-post-preview min-h-dvh max-w-6xl grid grid-cols-2">
+        <article class="article-preview min-h-dvh grid grid-cols-2">
           <h2 class="
+            article-title
             mt-6
             ml-[-0.035em]
             leading-[0.92]
             tracking-tight
-            text-[clamp(7rem,16vw,16rem)]
+            text-[clamp(4rem,12vw,45rem)]
             font-haas
             font-black
-          ">/model Coding By Hand Again</h2>
-          <div class="pb-24 w-[30vw] justify-self-end self-end">
-            <p class="mt-2 text-[0.9rem]">Progression through unlearning.</p>
-            <p class="text-[0.7rem]">March 2026</p>
+          ">Reflections on Software Engineering in the</h2>
+          <div class="article-meta pb-24 justify-self-end self-end">
+            <p class="mt-2 w-[30vw] text-[0.9rem]">Progression through unlearning.</p>
+            <time datetime="2026-03" class="text-[0.7rem] w-[30vw] text-gray-800">03.2026</time>
           </div>
-        </section>
+        </article>
       </main>
       <!-- <footer class="p-6">
         <p class="text-right">Mark McDermott &copy; { new Date().getFullYear() }</p>
