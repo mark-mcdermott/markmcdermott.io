@@ -1,0 +1,11 @@
+---
+const path = Astro.url.pathname
+---
+
+<nav aria-label="Primary">
+  <ul class="flex gap-4">
+    { path !=='/' && <li><a class="text-[0.7rem]" href="/">Home</a></li> }
+    { path !=='/writings' && <li><a class="text-[0.7rem]" href="/writing">Writing</a></li> }
+    { path !=='/about' && <li><a class="text-[0.7rem]" href="/about">About</a></li> }
+  </ul>
+</nav>
