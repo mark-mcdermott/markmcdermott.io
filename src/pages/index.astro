@@ -11,9 +11,51 @@ import '../styles/globals.css'
 		<meta name="generator" content={Astro.generator} />
 		<title>Astro</title>
 	</head>
-	<body>
-    <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-      <h1>Astro</h1>
+	<body class="bg-background">
+    <div class="rainbow pl-[4vw]">
+      <header class="pt-8 pr-[4vw]">
+        <nav aria-label="Primary">
+          <ul class="flex gap-4 justify-end">
+            <li><a class="text-[0.7rem]" href="#">Writing</a></li>
+            <li><a class="text-[0.7rem]" href="#">About</a></li>
+          </ul>
+        </nav>
+      </header>
+      <section class="hero min-h-screen">
+        <h1 class="
+          pt-[59vh]
+          ml-[-0.035em]
+          text-[clamp(9rem,18vw,18rem)]
+          leading-[0.8]
+          tracking-tight
+          font-haas
+          font-black
+          ">Mark McDermott
+        </h1>
+        <p>
+          Programmer.<br />
+          Writer.<br />
+          Austin, Texas.<br />          
+        </p>
+      </section>
+      <section class="latest-post min-h-screen max-w-6xl grid grid-cols-2">
+        <h2 class="
+          mt-6
+          ml-[-0.035em]
+          leading-[0.92]
+          tracking-tight
+          text-[clamp(7rem,16vw,16rem)]
+          font-haas
+          font-black
+        ">/model Coding By Hand Again</h2>
+        <div class="pb-24 pl-55 self-end">
+          <p class="mt-2 text-[0.9rem]">Progression through unlearning.</p>
+          <p class="text-[0.7rem]">March 2026</p>
+        </div>
+      </section>
+      <!-- <footer class="p-6">
+        <p class="text-right">Mark McDermott &copy; { new Date().getFullYear() }</p>
+      </footer> -->
     </div>
 	</body>
 </html>
