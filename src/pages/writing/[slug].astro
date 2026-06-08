@@ -1,0 +1,30 @@
+---
+import { getCollection, render } from 'astro:content'
+import Layout from '@layouts/Layout.astro'
+
+export async function getStaticPaths() {
+  const posts = await getCollection('writing')
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }))
+}
+
+const { post } = Astro.props
+const { Content } = await render(post)
+---
+
+<Layout pageTitle={post.data.title}>
+  <article class="pt-40 max-w-[70vw] min-h-dvh">
+    <h1 class="text-5xl font-haas font-black tracking-tight">
+      {post.data.title}
+    </h1>
+    {post.data.subtitle && <p class="mt-2 text-xl text-gray-600">{post.data.subtitle}</p>}
+    <time datetime={post.data.date} class="mt-4 block text-sm text-gray-500">
+      {post.data.date}
+    </time>
+    <div class="prose mt-10">
+      <Content />
+    </div>
+  </article>
+</Layout>

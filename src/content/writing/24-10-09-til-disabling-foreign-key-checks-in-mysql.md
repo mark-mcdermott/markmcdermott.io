@@ -1,0 +1,9 @@
+---
+title: "TIL - Disabling Foreign Key Checks in MySQL"
+subtitle: "Disabling foreign key checks in MySQL"
+date: "2024-10-09"
+tags: ["TIL", "MySQL", "Database"]
+---
+This is probably a terrible idea, but I discovered today that in MySQL `SET FOREIGN_KEY_CHECKS = 0;` will let you add/remove data that would normally fail if there was a foreign key constraint that failed. Obviously you could quickly see lots of 500 errors if you're not careful, but in a bind this actually is quite helpful. So use it with caution — if you dare.
+
+And then to reenable foreign key checks, you can just run `SET FOREIGN_KEY_CHECKS = 1;`

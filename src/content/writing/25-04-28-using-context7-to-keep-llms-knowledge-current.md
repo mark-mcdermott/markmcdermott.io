@@ -1,0 +1,14 @@
+---
+title: "Context7 Keeps LLMs Current"
+subtitle: "Copy/Paste Entire Docs"
+date: "2025-04-28"
+tags: ["AI", "Tools"]
+---
+
+I've been playing catch up on AI stuff because I was busy in school when it came out. One of the biggest problems I've had with ChatGPT is that it's not up to date on current technologies. It will recommend a terminal line or a UI click and it says “syntax error” or the the UI element isn’t there to click. A dev I know mentioned https://context7.com:
+- go to https://context7.com
+- on the initial screen you can search/click whatever it is you're working on, say React
+- on the React screen, then click Copy 
+- and then just paste the result into ChatGPT--it will be the entire current documentation for TailwindCSS and ChatGPT will then use that for future responses. :think_about_it:
+
+This works for any LLM, not just ChatGPT

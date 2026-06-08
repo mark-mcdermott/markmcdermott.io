@@ -1,0 +1,41 @@
+---
+import { getCollection } from 'astro:content'
+import Layout from '@layouts/Layout.astro'
+
+const posts = (await getCollection('writing')).sort((a,b) =>
+  b.data.date.localeCompare(a.data.date))
+
+const formatDate = (iso: string) => {
+  const [year, month] = iso.split('-')
+  return `${month}.${year}`
+}
+---
+
+<Layout pageTitle="Writing">
+  <section class="blog-index py-40 max-w-[70vw] min-h-dvh flex flex-col">
+    <h1 class="
+      ml-[-0.dont 35em]
+      text-[clamp(4rem,18vw,45rem)]
+      leading-[0.8]
+      tracking-tight
+      font-haas
+      font-black
+      ">Writing
+    </h1>
+    <ul class="mt-12 flex flex-col gap-8">
+      {posts.map((post) => (
+        <li>
+          <a href={`/writing/${post.id}`} class="group inline-block leading-4">
+            <h2 class="text-2xl font-semibold tracking-tight group-hover:underline">
+              {post.data.title}
+            </h2>
+              {post.data.subtitle && (
+                <p class="w-[30vw] text-[0.9rem] text-gray-600">{post.data.subtitle}</p>
+            )}
+            <time datetime={post.data.date} class="text-[0.7rem] w-[30vw] text-gray-400">{formatDate(post.data.date)}</time>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
+</Layout>

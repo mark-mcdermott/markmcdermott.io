@@ -1,0 +1,49 @@
+---
+title: "Astro Learnings"
+subtitle: "Various Astro how-tos"
+date: "2025-03-16"
+tags: ["Astro", "Tutorial"]
+---
+
+# Honing basic Astro areas
+
+Astro's pretty easy to use, but I've been a little rusty and wanted to get some of the common stuff into muscle memory. Here are my notes.
+
+## Things I want to cover
+- Astro create CLI
+- Sass
+- Tailwind
+- markdown
+
+## Starter templates
+
+The Astro [create CLI](https://docs.astro.build/en/install-and-setup/) is pretty straightforward. `yarn create astro <name>` will create the folder and an Astro project in it. It will ask you if you want to use a template and if create a git repo or not.
+
+For templates, Astro has about four options you can pick in the CLI. They have many more official templates you can use, some free some not. Even some of the free ones look amazing and the paid ones look really solid. And you can use any Astro git repo as a template, it doesn't have to be an official one.
+
+You can also specify any integrations you want here, too. Examples are Tailwind, Vue, astro-font, analytics, lucide fonts, auth, etc.
+
+The `--install`/`--no-install` flag will install/not install the dependencies for you.
+
+`yarn create astro <name>`
+`yarn create astro .`
+`yarn create astro --template <name>`
+`yarn create astro --git / --no-git`
+`yarn create astro --install / --no-install`
+`yarn create astro --add mdx`
+`yarn create astro <name> --install --git --add tailwind --template minimal`
+
+## Tailwind & Sass
+- Surprisingly, trying to get both Tailwind and Sass to work together can go South fast. But it works if you just do this:
+- `yarn astro add tailwind`
+- `yarn add -D sass`
+- create a `src/styles/custom.scss`
+- in your main layout file (e.g. `src/layouts/BaseLayout.astro`), add this to the top:
+```astro
+import "./styles/global.css";
+import "./styles/custom.scss";
+```
+
+## Markdown
+- astro will process `.md` files in /src/content as proper Astro pages as long as you specify the layout in the frontmatter
+- so `/src/pages/about.md` will be a page at `/about`
