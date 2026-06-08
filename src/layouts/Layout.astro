@@ -1,6 +1,23 @@
 ---
 import '../styles/globals.css'
 import Nav from '../components/Nav.astro'
+
+interface Props {
+  pageTitle?: string;
+}
+
+const { pageTitle } = Astro.props;
+
+function getTitleTag(): string {
+  const defaultTitle = "Mark McDermott — Software, AI, Attention & Neurodiversity"
+  const downstreamPostfix = " — Mark McDermott"
+  if (!pageTitle) {
+    return defaultTitle
+  } else {
+    return `${pageTitle}${downstreamPostfix}`
+  }
+}
+
 ---
 
 <html lang="en">
@@ -10,13 +27,13 @@ import Nav from '../components/Nav.astro'
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<title>{ getTitleTag() }</title>
 	</head>
 	<body class="bg-background">
-    <div class="rainbow pl-[4vw]">
+    <div class="rainbow pl-[25px] sm:pl-[4vw]">
       <header class="pt-8 absolute right-0 w-[30vw]">
         <Nav />
-        <p class="mt-2 max-w-40 text-[0.65rem] text-gray-800">Thoughts on software, AI, attention and neurodiversity</p>
+        { Astro.url.pathname ==='/' && <p class="mt-2 max-w-27 sm:max-w-55 text-[0.65rem] text-gray-800">Software, AI, attention and neurodiversity.</p> }
       </header>
       <main>
         <slot />
