@@ -26,7 +26,7 @@ const formatDate = (iso: string) => {
       {posts.map((post) => (
         <li>
           <a href={`/writing/${post.id}`} class="group inline-block leading-4">
-            <h2 class="text-2xl font-semibold tracking-tight group-hover:underline">
+            <h2 class="text-lg sm:text-2xl font-semibold tracking-tight group-hover:underline">
               {post.data.title}
             </h2>
               {post.data.subtitle && (
