@@ -3,7 +3,7 @@
 
 @theme {
   --color-background: #faf7f0;
-  --font-haas: "Neue Haas Grotesk Display Pro";
+  --font-haas: "neue-haas-grotesk-display", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 @utility rainbow {
