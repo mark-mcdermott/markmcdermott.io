@@ -7,15 +7,12 @@
 }
 
 @utility rainbow {
-  --width: clamp(16px, 2vw, 24px);
-  background: linear-gradient(
-    to right,
-    #064cc1  0%   20%,
-    #1976d2  20%  40%,
-    #ffd100  40%  60%,
-    #ff6a00  60%  80%,
-    #e53935  80%  100%
-  ) 0 0 / var(--width) 100% no-repeat
+  background:
+    linear-gradient(to right,
+      #064cc1 0% 20%, #1976d2 20% 40%, #ffd100 40% 60%,
+      #ff6a00 60% 80%, #e53935 80% 100%
+    ) 0 0 / clamp(16px, 2vw, 24px) 100% no-repeat,
+    var(--color-background);   /* fills the rest, incl. overscroll */
 }
 
 .prose :not(pre) > code::before,
