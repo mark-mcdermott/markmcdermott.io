@@ -38,7 +38,7 @@ const [year, month] = latest.data.date.split('-')
     "><a href={`/writing/${latest.id}`} class="hover:underline">{latest.data.title}</a></h2>
     <div class="article-meta pb-24 mr-10 sm:mr-0 justify-self-end self-end">
       <p class="mt-2 w-[30vw] text-[0.9rem]">{latest.data.subtitle}</p>
-      <time datetime="2026-03" class="text-[0.7rem] w-[30vw] text-gray-800">03.2026</time>
+      <time datetime="2026-03" class="text-[0.7rem] w-[30vw] text-gray-800">{`${month}.${year}`}</time>
     </div>
   </article>
 </Layout>
