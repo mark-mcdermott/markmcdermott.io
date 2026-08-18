@@ -2,16 +2,14 @@
   role="img" aria-label="Mark McDermott">
     <defs>
       <linearGradient id="rainbow" x1="0" y1="0" x2="1" y2="0">
-        <stop offset="0%"   stop-color="#064cc1"/>
-        <stop offset="20%"  stop-color="#064cc1"/>
-        <stop offset="20%"  stop-color="#1976d2"/>
-        <stop offset="40%"  stop-color="#1976d2"/>
-        <stop offset="40%"  stop-color="#ffd100"/>
-        <stop offset="60%"  stop-color="#ffd100"/>
-        <stop offset="60%"  stop-color="#ff6a00"/>
-        <stop offset="80%"  stop-color="#ff6a00"/>
-        <stop offset="80%"  stop-color="#e53935"/>
-        <stop offset="100%" stop-color="#e53935"/>
+        <stop offset="0%"   stop-color="#065450"/>
+        <stop offset="25%"  stop-color="#065450"/>
+        <stop offset="25%"  stop-color="#d8391a"/>
+        <stop offset="50%"  stop-color="#d8391a"/>
+        <stop offset="50%"  stop-color="#f07f36"/>
+        <stop offset="75%"  stop-color="#f07f36"/>
+        <stop offset="75%"  stop-color="#f2b024"/>
+        <stop offset="100%" stop-color="#f2b024"/>
       </linearGradient>
     </defs>
     <rect width="32" height="32" fill="#faf7f0"/>

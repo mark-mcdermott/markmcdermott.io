@@ -13,8 +13,8 @@
     inset: 0 auto 0 0;            /* top:0; bottom:0; left:0 */
     width: clamp(16px, 2vw, 24px);
     background: linear-gradient(to right,
-      #064cc1 0% 20%, #1976d2 20% 40%, #ffd100 40% 60%,
-      #ff6a00 60% 80%, #e53935 80% 100%);
+      #065450 0% 25%, #d8391a 25% 50%,
+      #f07f36 50% 75%, #f2b024 75% 100%);
     z-index: 0;  
   }
 }
