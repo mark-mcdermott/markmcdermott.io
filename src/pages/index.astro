@@ -37,11 +37,11 @@ const latestHref = `/writing/${latest.id}`
       font-haas
       font-black
     "><a href={latestHref} class="hover:underline">{latest.data.title}</a></h2>
-    <div class="article-meta pb-24 mr-10 sm:mr-0 justify-self-end self-end">
+    <div class="article-meta pb-24 mr-10 sm:mr-5 justify-self-end self-end">
       {latest.data.subtitle && (
         <p class="mt-2 w-[30vw] text-[0.9rem]"><a href={latestHref}>{latest.data.subtitle}</a></p>
       )}
-      <time datetime="2026-03" class="text-[0.7rem] w-[30vw] text-gray-800">{`${month}.${year}`}</time>
+      <time datetime={latest.data.date} class="text-[0.7rem] w-[30vw] text-gray-800">{`${month}.${year}`}</time>
     </div>
   </article>
 </Layout>
