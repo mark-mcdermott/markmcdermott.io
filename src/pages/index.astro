@@ -1,12 +1,13 @@
 ---
 import Layout from '@layouts/Layout.astro'
 import { getCollection } from 'astro:content'
+import { postHref } from '@lib/posts'
 
 const [latest] = (await getCollection('writing'))
   .sort((a,b) => b.data.date.localeCompare(a.data.date))
 
 const [year, month] = latest.data.date.split('-')
-const latestHref = `/writing/${latest.id}`
+const latestHref = postHref(latest)
 ---
 
 <Layout>
