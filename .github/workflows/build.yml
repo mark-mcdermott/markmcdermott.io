@@ -1,0 +1,18 @@
+name: build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  schedule:
+    - cron: "41 6 * * *"
+
+jobs:
+  # Astro site with no suite - the build is the gate. The workflow is named
+  # "build" so the badge claims what it actually checks.
+  verify:
+    uses: mark-mcdermott/mm-claude-starter/.github/workflows/node-verify.yml@main
+    with:
+      node-version: "22"
+      typecheck-script: ""
+      test-script: ""
