@@ -1,5 +1,7 @@
 # Astro Starter Kit: Minimal
 
+[![build](https://github.com/mark-mcdermott/markmcdermott.io/actions/workflows/build.yml/badge.svg)](https://github.com/mark-mcdermott/markmcdermott.io/actions/workflows/build.yml)
+
 ```sh
 pnpm create astro@latest -- --template minimal
 ```
