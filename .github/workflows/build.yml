@@ -11,8 +11,27 @@ jobs:
   # Astro site with no suite - the build is the gate. The workflow is named
   # "build" so the badge claims what it actually checks.
   verify:
-    uses: mark-mcdermott/mm-claude-starter/.github/workflows/node-verify.yml@main
-    with:
-      node-version: "22"
-      typecheck-script: ""
-      test-script: ""
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v7
+
+      # Must precede setup-node, which needs pnpm on PATH to resolve its cache.
+      # The version comes from packageManager in package.json, so it lives in
+      # one place.
+      - uses: pnpm/action-setup@v6
+        with:
+          package_json_file: package.json
+
+      # Node major is pinned - an unpinned toolchain rots CI with no commit to
+      # blame.
+      - uses: actions/setup-node@v7
+        with:
+          node-version: "22"
+          cache: pnpm
+
+      - name: Install
+        run: pnpm install --frozen-lockfile
+
+      - name: Build
+        run: pnpm run build
